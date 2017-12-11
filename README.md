@@ -65,7 +65,7 @@ if case .body(let body) = mime.content {
 
 Decoded mime's content is simply to retrieve:
 
-```
+```swift
 let content = try mime.decodedContentData()
 // "Test"
 ```
