@@ -1,9 +1,4 @@
-//
-//  Package.swift
-//  MimeParser
-//
-//  Created by miximka on 08.12.17.
-//  Copyright © 2017 miximka. All rights reserved.
+// swift-tools-version:4.0
 //
 
 import PackageDescription
