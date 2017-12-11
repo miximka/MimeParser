@@ -6,7 +6,7 @@
 //  Copyright © 2017 miximka. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Foundation;
 
 //! Project version number for MimeParser.
 FOUNDATION_EXPORT double MimeParserVersionNumber;
