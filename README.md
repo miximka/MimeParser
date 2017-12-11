@@ -35,12 +35,37 @@ You are ready to parse the mime:
 let mime = try parser.parse(str)
 ```
 
-Returned `mime` object is a root of the mime tree and provides access to its `header` fields and `content` data:
+Returned `mime` object is a root of the mime tree and provides access to its `header` fields and `content`:
 
 ```swift
-let contentTypeString = mime.header.contentType?.raw
-// "text/plain"
+public enum MimeContent {
+    case body(MimeBody)
+    case mixed([Mime])
+    case alternative([Mime])
+}
 
+public struct MimeHeader {
+    public let contentTransferEncoding: ContentTransferEncoding?
+    public let contentType: ContentType?
+    public let contentDisposition: ContentDisposition?
+    public let other: [RFC822HeaderField]
+}
+
+if let contentTypeString = mime.header.contentType?.raw {
+	print("\(contentTypeString)")
+	// "text/plain"
+}
+
+if case .body(let body) = mime.content {
+	print("\(body.raw)")
+	// "Test"
+}
+
+```
+
+Decoded mime's content is simply to retrieve:
+
+```
 let content = try mime.decodedContentData()
 // "Test"
 ```

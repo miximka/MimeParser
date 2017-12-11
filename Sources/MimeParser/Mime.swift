@@ -144,11 +144,14 @@ public struct ContentDisposition : Equatable {
     }
 }
 
-public struct MimeHeader :Equatable {
+public struct MimeHeader {
     public let contentTransferEncoding: ContentTransferEncoding?
     public let contentType: ContentType?
     public let contentDisposition: ContentDisposition?
     public let other: [RFC822HeaderField]
+}
+
+extension MimeHeader : Equatable {
 
     public static func ==(lhs: MimeHeader, rhs: MimeHeader) -> Bool {
         return lhs.contentTransferEncoding == rhs.contentTransferEncoding &&
@@ -196,11 +199,13 @@ public struct MimeBody : Equatable {
     }
 }
 
-public enum MimeContent : Equatable {
+public enum MimeContent {
     case body(MimeBody)
     case mixed([Mime])
     case alternative([Mime])
-    
+}
+
+extension MimeContent : Equatable {
     public static func ==(lhs: MimeContent, rhs: MimeContent) -> Bool {
         switch (lhs, rhs) {
         case (.body(let _lhsBody), .body(let _rhsBody)): return _lhsBody == _rhsBody
