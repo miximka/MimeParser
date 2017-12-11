@@ -151,16 +151,16 @@
 				81E3FC821FDF1D4000C00F25 /* MimeParser */,
 				81E3FC9B1FDF1D8200C00F25 /* Supporting Files */,
 			);
-			path = Sources;
+			name = Sources;
 			sourceTree = "<group>";
 		};
 		816F21971FD733EA00D67378 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				81E3FCAB1FDF1E9900C00F25 /* Supporting Files */,
 				81E3FC9D1FDF1E2000C00F25 /* MimeParser */,
+				81E3FCAB1FDF1E9900C00F25 /* Supporting Files */,
 			);
-			path = Tests;
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		81E3FC821FDF1D4000C00F25 /* MimeParser */ = {
@@ -175,7 +175,8 @@
 				81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */,
 				81E3FC841FDF1D5C00C00F25 /* Utilities.swift */,
 			);
-			path = MimeParser;
+			name = MimeParser;
+			path = Sources/MimeParser;
 			sourceTree = "<group>";
 		};
 		81E3FC9B1FDF1D8200C00F25 /* Supporting Files */ = {
@@ -183,7 +184,8 @@
 			children = (
 				81E3FC9C1FDF1DA400C00F25 /* Info.plist */,
 			);
-			path = "Supporting Files";
+			name = "Supporting Files";
+			path = "Sources/Supporting Files";
 			sourceTree = "<group>";
 		};
 		81E3FC9D1FDF1E2000C00F25 /* MimeParser */ = {
@@ -194,7 +196,8 @@
 				81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */,
 				81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */,
 			);
-			path = MimeParser;
+			name = MimeParser;
+			path = Tests/MimeParser;
 			sourceTree = "<group>";
 		};
 		81E3FCAB1FDF1E9900C00F25 /* Supporting Files */ = {
@@ -208,7 +211,8 @@
 				81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */,
 				81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */,
 			);
-			path = "Supporting Files";
+			name = "Supporting Files";
+			path = "Tests/Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
