@@ -1,0 +1,58 @@
+Received: from test.loc ([192.168.1.1])
+          by bla.test.com (Test Server)
+          with ESMTP id 28576339957-129076 ;
+          Thu, 10 Dec 2017 22:34:26 +0100
+From: Test <fnord@fnord.com>
+Subject: Test
+Message-Id: <44D3325-20F-41D2-B8E7-F7D37E7F98D3@fnord.com>
+Date: Mon, 10 Dec 2017 11:54:15 +0100
+To: Fnord <fnord@fnord.com>
+Content-Type: multipart/mixed;
+	boundary="Apple-Mail=_6F3B662B-1EAE-4721-9CCB-9F5775341C70"
+Mime-Version: 1.0 (Mac OS X Mail 11.2 \(3445.5.20\))
+X-Mailer: Apple Mail (2.3445.5.20)
+X-MIMETrack: Itemize by SMTP Server on fnord(August  17, 2016) at
+ 12/11/2017 11:54:04 AM
+
+
+--Apple-Mail=_6F3B662B-1EAE-4721-9CCB-9F5775341C70
+Content-Transfer-Encoding: 7bit
+Content-Type: application/json;
+	x-unix-mode=0644;
+	name="TestAttachment.json"
+Content-Disposition: attachment;
+	filename=TestAttachment.json
+
+{
+  "fnord1":"test2",
+  "fnord1":"test2" 
+}
+
+--Apple-Mail=_6F3B662B-1EAE-4721-9CCB-9F5775341C70
+Content-Transfer-Encoding: 7bit
+Content-Type: message/rfc822;
+	x-unix-mode=0644;
+	name="SimpleMessage.eml"
+Content-Disposition: attachment;
+	filename=SimpleMessage.eml
+
+Content-Transfer-Encoding: 7bit
+Received: from test.loc ([192.168.1.1])
+          by bla.test.com (Test Server)
+          with ESMTP id 28576339957-129076 ;
+          Thu, 10 Dec 2017 22:34:26 +0100
+From: Fnord <fnord@fnord.com>
+Subject: Simple Message
+Message-Id: <44D3325-20F-41D2-B8E7-F7D37E7F98D3@fnord.com>
+Date: Thu, 10 Dec 2017 22:34:26 +0100
+To: Fnord 2 <fnord2@fnord.com>
+Mime-Version: 1.0 (Mac OS X Mail 11.1 \(3445.4.7\))
+X-Mailer: Apple Mail (2.3445.4.7)
+X-MIMETrack: Itemize by SMTP Server on fnord/FNORD(Fnord) at
+ 12/07/2017 22:34:26 AM
+Content-Type: text/plain;
+	charset=us-ascii
+
+Test
+
+--Apple-Mail=_6F3B662B-1EAE-4721-9CCB-9F5775341C70--

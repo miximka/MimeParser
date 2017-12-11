@@ -1,0 +1,22 @@
+Return-Path: <fnord@fnord.com>
+Received: from ?IPv6:2003:f0:be1:1500:e4b0:618c:6ff7:cf77? (p200300F00BE11500E4B0618C6FF7CF77.dip0.t-ipconnect.de. [2003:f0:be1:1500:e4b0:618c:6ff7:cf77])
+        by smtp.gmail.com with ESMTPSA id c54sm15803973wra.84.2017.12.10.07.28.58
+        for <fnord@fnord.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 10 Dec 2017 07:28:59 -0800 (PST)
+From: Fnord <fnord@fnord.com>
+Content-Type: text/plain;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0 (Mac OS X Mail 11.1 \(3445.4.7\))
+Subject: Quoted-Printable Example
+Message-Id: <1ABAADEA-D4F4-4985-BD4C-CC68F8417DB0@fnord.com>
+Date: Sun, 10 Dec 2017 16:28:58 +0100
+To: Fnord <fnord@fnord.com>
+X-Mailer: Apple Mail (2.3445.4.7)
+
+Test1
+Test=C3=A4
+Test=3D
+Test
+Test=
