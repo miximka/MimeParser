@@ -3,7 +3,31 @@
 
 ## Installation
 
-tbd
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate **MimeParser** into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+project '<Your Project Name>.xcodeproj'
+platform :osx, '10.12'
+
+target 'Test' do
+  use_frameworks!
+  pod 'MimeParser', '~> 0.1'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
 
 ## Usage
 
