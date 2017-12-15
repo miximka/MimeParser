@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/miximka/MimeParser.svg?branch=master)](https://travis-ci.org/miximka/MimeParser)
-
 ## About
 **MimeParser** is a simple MIME (Multipurpose Internet Mail Extensions) parsing library written in Swift (to learn more about mimes refer to [RFC 822](https://tools.ietf.org/html/rfc822), [RFC 2045](https://tools.ietf.org/html/rfc2045), [RFC 2046](https://tools.ietf.org/html/rfc2046))
 
