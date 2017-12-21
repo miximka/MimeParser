@@ -176,6 +176,12 @@ struct HeaderFieldParametersParser {
     
     enum Error : Swift.Error {
         case invalidParameterValue
+        case trailingSemicolon
+    }
+    
+    private struct Parameter {
+        let name: String
+        let value: String
     }
     
     private static func parseParameterName(with processor: HeaderFieldTokenProcessor) throws -> String {
@@ -194,19 +200,30 @@ struct HeaderFieldParametersParser {
         throw Error.invalidParameterValue
     }
     
-    private static func parseParameter(with processor: HeaderFieldTokenProcessor) throws -> (String, String) {
+    private static func parseParameter(with processor: HeaderFieldTokenProcessor) throws -> Parameter {
         try processor.expectSpecial(.semicolon)
+        
+        if processor.isAtEnd {
+            throw Error.trailingSemicolon
+        }
+        
         let name = try parseParameterName(with: processor)
         try processor.expectSpecial(.equalitySign)
         let value = try parseParameterValue(with: processor)
-        return (name, value)
+        return Parameter(name: name, value: value)
     }
     
     static func parse(with processor: HeaderFieldTokenProcessor) throws -> [String : String] {
         var params: [String : String] = [:]
         while !processor.isAtEnd {
-            let (name, value) = try parseParameter(with: processor)
-            params[name] = value
+            do {
+                let param = try parseParameter(with: processor)
+                params[param.name] = param.value
+            } catch let err as Error {
+                if err != .trailingSemicolon {
+                    throw err
+                }
+            }
         }
         return params
     }

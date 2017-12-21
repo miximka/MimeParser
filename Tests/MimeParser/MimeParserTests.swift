@@ -32,6 +32,23 @@ class ParsingMimeTests: XCTestCase {
         XCTAssertEqual(mime.content, .body(MimeBody("Test")))
     }
 
+    func testCanParseParameterWithTrailingSemicolon() throws {
+        // Given
+        let parser = MimeParser()
+        let message = """
+            Content-Type: text/plain;
+            
+            Test
+            """
+        
+        // When
+        let mime = try parser.parse(message)
+        
+        // Then
+        XCTAssertEqual(mime.header.contentType?.raw, "text/plain")
+        XCTAssertEqual(mime.content, .body(MimeBody("Test")))
+    }
+    
     func testCanParseSimpleMessage() throws {
         let parser = MimeParser()
         let message = TestAdditions.testResourceString(withName: "SimpleMessage", extension: "txt")
