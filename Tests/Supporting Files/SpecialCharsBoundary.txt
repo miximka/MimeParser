@@ -1,0 +1,36 @@
+Received: from test.loc ([192.168.1.1])
+by bla.test.com (Test Server)
+with ESMTP id 28576339957-129076 ;
+Thu, 10 Dec 2017 22:34:26 +0100
+From: Fnord <fnord@fnord.com>
+Subject: Simple Message
+Message-Id: <44D3325-20F-41D2-B8E7-F7D37E7F98D3@fnord.com>
+Date: Thu, 10 Dec 2017 22:34:26 +0100
+To: Fnord 2 <fnord2@fnord.com>
+Content-Type: multipart/mixed;
+	boundary="----sinikael-?=_1-15217146106530.0021966528779551187"
+Mime-Version: 1.0 (Mac OS X Mail 11.1 \(3445.4.7\))
+X-Mailer: Apple Mail (2.3445.4.7)
+X-MIMETrack: Itemize by SMTP Server on fnord/FNORD(Fnord) at
+12/07/2017 22:34:26 AM
+
+
+------sinikael-?=_1-15217146106530.0021966528779551187
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	charset=us-ascii
+
+Fnord
+
+
+------sinikael-?=_1-15217146106530.0021966528779551187
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+	x-unix-mode=0644;
+	name="MyAttachment.txt"
+Content-Disposition: attachment;
+	filename=MyAttachment.txt
+
+fnord
+
+------sinikael-?=_1-15217146106530.0021966528779551187--

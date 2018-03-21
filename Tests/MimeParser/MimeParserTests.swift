@@ -243,4 +243,27 @@ class ParsingMimeTests: XCTestCase {
         let decodedJson = try json?.decodedContentString()
         XCTAssertEqual(decodedJson?.count, 44)
     }
+    
+    func testCanParseBoundaryHavingSpecialCharacters() throws {
+        let parser = MimeParser()
+        let message = TestAdditions.testResourceString(withName: "SpecialCharsBoundary", extension: "txt")
+        
+        // When
+        let mime = try parser.parse(message)
+        
+        // Then
+        XCTAssertEqual(mime.header.contentType?.type, "multipart")
+        XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
+        XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
+        XCTAssertEqual(mime.header.contentType?.mimeType, .multipart(subtype: .mixed, boundary: "----sinikael-?=_1-15217146106530.0021966528779551187"))
+        XCTAssertEqual(mime.header.other.count, 11)
+        XCTAssertNil(mime.header.contentTransferEncoding)
+        
+        if case .mixed(let mimes) = mime.content {
+            XCTAssertEqual(mimes.count, 2)
+        } else {
+            XCTFail("Unexpected mime content")
+        }
+    }
+
 }

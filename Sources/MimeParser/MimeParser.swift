@@ -51,7 +51,8 @@ public struct MimeParser {
     }
     
     private func parseCompositeContent(in string: String, range: Range<String.Index>, boundary: String) throws -> [Mime] {
-        let regex = try! NSRegularExpression(pattern: "\r?\n--\(boundary)-?-?\r?\n", options: [])
+        let escapedBoundary = boundary.replacingOccurrences(of: "?", with: "\\?")
+        let regex = try! NSRegularExpression(pattern: "\r?\n--\(escapedBoundary)-?-?\r?\n", options: [])
         let matchResults = regex.matches(in: string, options: [], range: string.nsRange)
         
         var mimes = [Mime]()

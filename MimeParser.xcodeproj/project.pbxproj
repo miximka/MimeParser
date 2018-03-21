@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		088827DD1FDEBE6E00FEE3BA /* MimeParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 088827BE1FDEB12500FEE3BA /* MimeParser.framework */; };
+		08ABE7762063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */; };
+		08ABE7772063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */; };
 		816F21941FD733EA00D67378 /* MimeParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816F218A1FD733EA00D67378 /* MimeParser.framework */; };
 		81E3FC8B1FDF1D5D00C00F25 /* RFC822ParsingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */; };
 		81E3FC8C1FDF1D5D00C00F25 /* RFC822ParsingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */; };
@@ -67,6 +69,7 @@
 /* Begin PBXFileReference section */
 		088827BE1FDEB12500FEE3BA /* MimeParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MimeParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		088827D81FDEBE6E00FEE3BA /* MimeParserTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpecialCharsBoundary.txt; sourceTree = "<group>"; };
 		816F218A1FD733EA00D67378 /* MimeParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MimeParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		816F21931FD733EA00D67378 /* MimeParserTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC822ParsingUtilities.swift; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				81E3FCB01FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachment.txt */,
 				81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */,
 				81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */,
+				08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */,
 			);
 			name = "Supporting Files";
 			path = "Tests/Supporting Files";
@@ -373,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08ABE7772063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */,
 				81E3FCBC1FDF1EBC00C00F25 /* SimpleMessageWithBinaryAttachment.txt in Resources */,
 				81E3FCBA1FDF1EBC00C00F25 /* QuotedPrintableMessage.txt in Resources */,
 				81E3FCBD1FDF1EBC00C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt in Resources */,
@@ -393,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08ABE7762063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */,
 				81E3FCB61FDF1EBB00C00F25 /* SimpleMessageWithBinaryAttachment.txt in Resources */,
 				81E3FCB41FDF1EBB00C00F25 /* QuotedPrintableMessage.txt in Resources */,
 				81E3FCB71FDF1EBB00C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt in Resources */,
