@@ -11,8 +11,8 @@ import Foundation
 class TestAdditions {
 
     static func testResourceURL(withName name: String, extension ext: String) -> URL {
-        let bundle = Bundle(for: TestAdditions.self)
-        return bundle.url(forResource: name, withExtension: ext)!
+	    let file = Resource(name: name, type: ext)
+	    return URL(fileURLWithPath: file.path)
     }
 
     static func testResourceData(withName name: String, extension ext: String) -> Data {
@@ -25,4 +25,24 @@ class TestAdditions {
         return String(data: data, encoding: .utf8)!
     }
 
+}
+
+class Resource {
+    static var resourcePath = "./Tests/Supporting Files"
+
+    let name: String
+    let type: String
+
+    init(name: String, type: String) {
+        self.name = name
+        self.type = type
+    }
+
+    var path: String {
+        guard let path: String = Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type) else {
+            let filename: String = type.isEmpty ? name : "\(name).\(type)"
+            return "\(Resource.resourcePath)/\(filename)"
+        }
+        return path
+    }
 }
