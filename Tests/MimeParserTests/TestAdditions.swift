@@ -39,10 +39,11 @@ class Resource {
     }
 
     var path: String {
-        guard let path: String = Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type) else {
-            let filename: String = type.isEmpty ? name : "\(name).\(type)"
-            return "\(Resource.resourcePath)/\(filename)"
-        }
-        return path
+	#if os(macOS) || os(iOS) || os(tvOS)
+	return Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type)
+	#else
+	let filename: String = type.isEmpty ? name : "\(name).\(type)"
+	return "\(Resource.resourcePath)/\(filename)"
+	#endif
     }
 }

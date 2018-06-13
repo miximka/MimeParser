@@ -1,6 +1,7 @@
 import XCTest
-@testable import MimeParser 
+@testable import MimeParserTests 
 
 XCTMain([
-    testCase(ParsingMimeTests.allTests)
+	//testCase(MimeParsingTests.allTests),
+	testCase(EmailParsingTests.allTests)
 ])
