@@ -182,14 +182,34 @@ public struct MimeBody : Equatable {
         return try MimeContentDecoder.decode(raw, encoding: encoding)
     }
 
+    #if os(macOS) || os(iOS) || os(tvOS)
+    #else
+    private let ianaTable: [String.Encoding: String] = [.ascii: "us-ascii", .nextstep: "x-nextstep",
+                                                        .japaneseEUC: "euc-jp", .utf8: "utf-8", .isoLatin1: "iso-8859-1",
+                                                        .symbol: "x-mac-symbol", .shiftJIS: "cp932", .isoLatin2: "iso-8859-2",
+                                                        .windowsCP1251: "windows-1251", .windowsCP1252: "windows-1252",
+                                                        .windowsCP1253: "windows-1253", .windowsCP1254: "windows-1254",
+                                                        .windowsCP1250: "windows-1250", .iso2022JP: "iso-2022-jp", .macOSRoman: "macintosh",
+                                                        .utf16: "utf-16", .utf16BigEndian: "utf-16be", .utf16LittleEndian: "utf-16le",
+                                                        .utf32: "utf-32", .utf32BigEndian: "utf-32be", .utf32LittleEndian: "utf-32le"]
+    #endif
+    
     public func decodedContentString(withIANACharsetName charset: String?) throws -> String {
         let data = try decodedContentData()
         
-        let stringEncoding: String.Encoding? = charset.flatMap { charset in
-            let cfEncoding = CFStringConvertIANACharSetNameToEncoding(charset as CFString)
-            let nsEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding)
-            return String.Encoding(rawValue: nsEncoding)
-        }
+        #if os(macOS) || os(iOS) || os(tvOS)
+            let stringEncoding: String.Encoding? = charset.flatMap { charset in
+                let cfEncoding = CFStringConvertIANACharSetNameToEncoding(charset as CFString)
+                let nsEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding)
+                return String.Encoding(rawValue: nsEncoding)
+            }
+       #else
+            // this as workaround for CFStringConvertIANACharSetNameToEncoding
+            // since it is not exposed in SwiftFoundation until it got fixed
+            let stringEncoding: String.Encoding? = charset.lowercased().flatMap { charset in
+                return ianaTable.filter({ return $0.value == charset }).first?.key ?? .utf8
+            }
+        #endif
         
         guard let decoded = String(data: data, encoding: stringEncoding ?? .utf8) else {
             throw Error.invalidCharset
@@ -197,6 +217,7 @@ public struct MimeBody : Equatable {
         
         return decoded
     }
+    
 }
 
 public enum MimeContent {
