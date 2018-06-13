@@ -12,6 +12,8 @@
 		08ABE7772063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */; };
 		4472876B20CF23A500CD7412 /* EmailWithApplicationAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */; };
 		4472876C20CF23A500CD7412 /* EmailWithApplicationAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */; };
+		813C0B4920D18A11007CF9B5 /* EmailParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C0B4820D18A11007CF9B5 /* EmailParsingTests.swift */; };
+		813C0B4A20D18A11007CF9B5 /* EmailParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C0B4820D18A11007CF9B5 /* EmailParsingTests.swift */; };
 		8145B1C720D187440019E405 /* MimeParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145B1C620D187440019E405 /* MimeParsingTests.swift */; };
 		8145B1C820D187440019E405 /* MimeParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145B1C620D187440019E405 /* MimeParsingTests.swift */; };
 		816F21941FD733EA00D67378 /* MimeParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816F218A1FD733EA00D67378 /* MimeParser.framework */; };
@@ -73,6 +75,7 @@
 		088827D81FDEBE6E00FEE3BA /* MimeParserTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpecialCharsBoundary.txt; sourceTree = "<group>"; };
 		4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EmailWithApplicationAttachment.txt; sourceTree = "<group>"; };
+		813C0B4820D18A11007CF9B5 /* EmailParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailParsingTests.swift; sourceTree = "<group>"; };
 		8145B1C620D187440019E405 /* MimeParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeParsingTests.swift; sourceTree = "<group>"; };
 		816F218A1FD733EA00D67378 /* MimeParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MimeParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		816F21931FD733EA00D67378 /* MimeParserTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				81E3FCA11FDF1E4E00C00F25 /* TestAdditions.swift */,
+				813C0B4820D18A11007CF9B5 /* EmailParsingTests.swift */,
 				8145B1C620D187440019E405 /* MimeParsingTests.swift */,
 				81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */,
 				81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */,
@@ -437,6 +441,7 @@
 			files = (
 				8145B1C820D187440019E405 /* MimeParsingTests.swift in Sources */,
 				81E3FCA51FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */,
+				813C0B4A20D18A11007CF9B5 /* EmailParsingTests.swift in Sources */,
 				81E3FCA91FDF1E4E00C00F25 /* TestAdditions.swift in Sources */,
 				81E3FCA31FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift in Sources */,
 			);
@@ -462,6 +467,7 @@
 			files = (
 				8145B1C720D187440019E405 /* MimeParsingTests.swift in Sources */,
 				81E3FCA41FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */,
+				813C0B4920D18A11007CF9B5 /* EmailParsingTests.swift in Sources */,
 				81E3FCA81FDF1E4E00C00F25 /* TestAdditions.swift in Sources */,
 				81E3FCA21FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift in Sources */,
 			);
