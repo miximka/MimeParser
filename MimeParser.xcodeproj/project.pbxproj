@@ -12,6 +12,8 @@
 		08ABE7772063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */; };
 		4472876B20CF23A500CD7412 /* EmailWithApplicationAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */; };
 		4472876C20CF23A500CD7412 /* EmailWithApplicationAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */; };
+		8145B1C720D187440019E405 /* MimeParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145B1C620D187440019E405 /* MimeParsingTests.swift */; };
+		8145B1C820D187440019E405 /* MimeParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145B1C620D187440019E405 /* MimeParsingTests.swift */; };
 		816F21941FD733EA00D67378 /* MimeParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 816F218A1FD733EA00D67378 /* MimeParser.framework */; };
 		81E3FC8B1FDF1D5D00C00F25 /* RFC822ParsingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */; };
 		81E3FC8C1FDF1D5D00C00F25 /* RFC822ParsingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */; };
@@ -33,8 +35,6 @@
 		81E3FCA31FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */; };
 		81E3FCA41FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */; };
 		81E3FCA51FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */; };
-		81E3FCA61FDF1E4E00C00F25 /* MimeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FCA01FDF1E4E00C00F25 /* MimeParserTests.swift */; };
-		81E3FCA71FDF1E4E00C00F25 /* MimeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FCA01FDF1E4E00C00F25 /* MimeParserTests.swift */; };
 		81E3FCA81FDF1E4E00C00F25 /* TestAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FCA11FDF1E4E00C00F25 /* TestAdditions.swift */; };
 		81E3FCA91FDF1E4E00C00F25 /* TestAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E3FCA11FDF1E4E00C00F25 /* TestAdditions.swift */; };
 		81E3FCB31FDF1EBB00C00F25 /* MessageWithEnclosedMessageAsAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81E3FCB21FDF1EB600C00F25 /* MessageWithEnclosedMessageAsAttachment.txt */; };
@@ -73,6 +73,7 @@
 		088827D81FDEBE6E00FEE3BA /* MimeParserTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpecialCharsBoundary.txt; sourceTree = "<group>"; };
 		4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EmailWithApplicationAttachment.txt; sourceTree = "<group>"; };
+		8145B1C620D187440019E405 /* MimeParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeParsingTests.swift; sourceTree = "<group>"; };
 		816F218A1FD733EA00D67378 /* MimeParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MimeParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		816F21931FD733EA00D67378 /* MimeParserTests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MimeParserTests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E3FC831FDF1D5C00C00F25 /* RFC822ParsingUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC822ParsingUtilities.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		81E3FC9C1FDF1DA400C00F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC822ParsingUtilitiesTests.swift; sourceTree = "<group>"; };
 		81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
-		81E3FCA01FDF1E4E00C00F25 /* MimeParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeParserTests.swift; sourceTree = "<group>"; };
 		81E3FCA11FDF1E4E00C00F25 /* TestAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAdditions.swift; sourceTree = "<group>"; };
 		81E3FCAC1FDF1EB600C00F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E3FCAD1FDF1EB600C00F25 /* SimpleMessage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleMessage.txt; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				81E3FCA11FDF1E4E00C00F25 /* TestAdditions.swift */,
-				81E3FCA01FDF1E4E00C00F25 /* MimeParserTests.swift */,
+				8145B1C620D187440019E405 /* MimeParsingTests.swift */,
 				81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */,
 				81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */,
 			);
@@ -435,10 +435,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8145B1C820D187440019E405 /* MimeParsingTests.swift in Sources */,
 				81E3FCA51FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */,
 				81E3FCA91FDF1E4E00C00F25 /* TestAdditions.swift in Sources */,
 				81E3FCA31FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift in Sources */,
-				81E3FCA71FDF1E4E00C00F25 /* MimeParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,10 +460,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8145B1C720D187440019E405 /* MimeParsingTests.swift in Sources */,
 				81E3FCA41FDF1E4E00C00F25 /* UtilitiesTests.swift in Sources */,
 				81E3FCA81FDF1E4E00C00F25 /* TestAdditions.swift in Sources */,
 				81E3FCA21FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift in Sources */,
-				81E3FCA61FDF1E4E00C00F25 /* MimeParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,10 +40,10 @@ class Resource {
 
     var path: String {
 	#if os(macOS) || os(iOS) || os(tvOS)
-	return Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type)
+        return Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type)!
 	#else
-	let filename: String = type.isEmpty ? name : "\(name).\(type)"
-	return "\(Resource.resourcePath)/\(filename)"
+        let filename: String = type.isEmpty ? name : "\(name).\(type)"
+        return "\(Resource.resourcePath)/\(filename)"
 	#endif
     }
 }
