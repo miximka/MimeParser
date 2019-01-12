@@ -28,7 +28,7 @@ Content-Transfer-Encoding: 7bit
 Content-Type: text/plain;
 	x-unix-mode=0644;
 	name="MyAttachment.txt"
-Content-Disposition: attachment;
+content-disposition: attachment;
 	filename=MyAttachment.txt
 
 fnord
