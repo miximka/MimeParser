@@ -28,7 +28,7 @@ Content-Disposition: attachment;
 Content-Type: application/octet-stream;
 	x-unix-mode=0644;
 	name="binary.data"
-Content-Transfer-Encoding: base64
+Content-transfer-encoding: base64
 
 //////////8=
 --Apple-Mail=_B06AEA86-0328-4832-8B68-6E5C64B48A84--

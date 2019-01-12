@@ -116,4 +116,20 @@ class UtilitiesTests: XCTestCase {
             XCTFail("Invalid range")
         }
     }
+
+    func testCaseInsensitiveDictionary() {
+        var dictionary: [String: Int] = ["One":1, "Two":2, "Three":3]
+
+        XCTAssertEqual(1, dictionary[caseInsensitive: "ONE"])
+        XCTAssertEqual(2, dictionary[caseInsensitive: "Two"])
+        XCTAssertEqual(3, dictionary[caseInsensitive: "three"])
+
+        dictionary[caseInsensitive: "one"] = 11
+        dictionary[caseInsensitive: "TWO"] = 22
+        dictionary[caseInsensitive: "ThReE"] = 33
+
+        XCTAssertEqual(11, dictionary["One"])
+        XCTAssertEqual(22, dictionary["Two"])
+        XCTAssertEqual(33, dictionary["Three"])
+    }
 }
