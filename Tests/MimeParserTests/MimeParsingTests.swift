@@ -279,4 +279,36 @@ class MimeParsingTests: XCTestCase {
 		}
 	}
 
+    func testCanParsePartWithZeroLengthBody() throws {
+        let parser = MimeParser()
+        let message = TestAdditions.testResourceString(withName: "MeetingRequestWithZeroLengthPart", extension: "txt")
+
+        // When
+        let mime = try parser.parse(message)
+
+        // Then
+        XCTAssertEqual(mime.header.contentType?.type, "multipart")
+        XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
+        XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
+        XCTAssertEqual(mime.header.other.count, 12)
+
+        if case .mixed(let mimes) = mime.content,
+            let alternative = mimes.first {
+            XCTAssertEqual(mimes.count, 1)
+
+            if case .mixed(let mimes) = alternative.content {
+                let first = mimes.first
+                XCTAssertEqual(first?.header.contentType?.type, "text")
+                XCTAssertEqual(first?.header.contentType?.subtype, "plain")
+                XCTAssertEqual(first?.header.contentType?.raw, "text/plain")
+                XCTAssertEqual(first?.header.contentType?.mimeType, .text)
+                XCTAssertEqual(first?.header.other.count, 0)
+                XCTAssertEqual(first?.content, .body(MimeBody("")))
+            } else {
+                XCTFail("Unexpected mime content")
+            }
+        } else {
+            XCTFail("Unexpected mime content")
+        }
+    }
 }
