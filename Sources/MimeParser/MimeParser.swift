@@ -24,7 +24,7 @@ struct MimePartsSplitter {
                 break
             }
             
-            if searchRange.lowerBound == nextEmptyLineRange.lowerBound {
+            if searchRange.lowerBound == nextEmptyLineRange.lowerBound || nextEmptyLineRange.upperBound == string.endIndex {
                 emptyLineRange = nextEmptyLineRange
             } else {
                 searchRange = Range<String.Index>(uncheckedBounds: (nextEmptyLineRange.upperBound, string.endIndex))

@@ -1,0 +1,30 @@
+From: John Doe <jdoe@fnord.com>
+To: F Nnord <fnord@fnord.com>
+Received: from MWHPR16MB1535.namprd16.prod.outlook.com
+ (2603:10b6:301:75::36) by BYAPR16MB2439.namprd16.prod.outlook.com with
+ HTTPS via MWHPR0201CA0095.NAMPRD02.PROD.OUTLOOK.COM; Tue, 18 Sep 2018
+ 18:07:03 +0000
+Content-Transfer-Encoding: binary
+Subject: Meeting request
+Thread-Topic: Meeting request
+Thread-Index: AdRPemY2vb6lpePsIk+sXErWYWzZnw==
+Date: Tue, 18 Sep 2018 18:07:02 +0000
+Message-Id:
+ <MWHPR16MB150401D305C7FEBD3C5400B8BF1D0@MWHPR16MB1504.namprd16.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+MIME-Version: 1.0
+Return-Path: jdoe@fnord.com
+Content-Type: multipart/mixed;
+ boundary="----sinikael-?=_1-15475657792290.9819128808191682"
+
+------sinikael-?=_1-15475657792290.9819128808191682
+Content-Type: multipart/related;
+ boundary="----sinikael-?=_2-15475657792290.9819128808191682"
+
+------sinikael-?=_2-15475657792290.9819128808191682
+Content-Type: text/plain
+
+------sinikael-?=_2-15475657792290.9819128808191682--
+
+------sinikael-?=_1-15475657792290.9819128808191682--
