@@ -154,7 +154,7 @@ class MimeParsingTests: XCTestCase {
 
 			if let content = last?.content, case .body(let body) = content {
 				let decoded = try body.decodedContentData()
-				XCTAssertEqual(decoded, Data(bytes: [255, 255, 255, 255, 255, 255, 255, 255]))
+				XCTAssertEqual(decoded, Data([255, 255, 255, 255, 255, 255, 255, 255]))
 			} else {
 				XCTFail("Invalid attachment content")
 			}
@@ -194,7 +194,7 @@ class MimeParsingTests: XCTestCase {
 
 			if let content = last?.content, case .body(let body) = content {
 				let decoded = try body.decodedContentData()
-				XCTAssertEqual(decoded, Data(bytes: [255, 255, 255, 255, 255, 255, 255, 255]))
+				XCTAssertEqual(decoded, Data([255, 255, 255, 255, 255, 255, 255, 255]))
 			} else {
 				XCTFail("Invalid attachment content")
 			}
