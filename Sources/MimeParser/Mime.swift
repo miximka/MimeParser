@@ -17,7 +17,7 @@ public enum ContentTransferEncoding : Equatable {
     case other(String)
     
     init(_ string: String) {
-        switch string {
+        switch string.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-6.1
         case "7bit": self = .sevenBit
         case "8bit": self = .eightBit
         case "binary": self = .binary
@@ -46,7 +46,7 @@ public enum MultipartSubtype : Equatable {
     case other(String)
     
     init(_ string: String) {
-        switch string {
+        switch string.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-5.1
         case "mixed": self = .mixed
         case "alternative": self = .alternative
         default: self = .other(string)
@@ -112,7 +112,7 @@ public struct ContentType : Equatable {
 
 extension ContentType {
     public var mimeType: MimeType {
-        switch type {
+        switch type.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-5.1
         case "text": return .text
         case "image": return .image
         case "audio": return .audio
