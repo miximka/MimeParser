@@ -12,6 +12,7 @@ class EmailParsingTests: XCTestCase {
         
         XCTAssertEqual(mime.header.contentType?.type, "multipart")
         XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
+        XCTAssertEqual(mime.header.contentType?.parameters["boundary"], "000000000000cb0125056e6493f7")
         
         guard case .mixed(let mimes) = mime.content else {
             XCTAssert(false)
