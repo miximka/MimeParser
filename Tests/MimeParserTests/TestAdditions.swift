@@ -8,11 +8,18 @@
 
 import Foundation
 
+#if XCODE_PROJECT
+extension Bundle {
+    static var module: Bundle {
+        return Bundle(for: TestAdditions.self)
+    }
+}
+#endif
+
 class TestAdditions {
 
     static func testResourceURL(withName name: String, extension ext: String) -> URL {
-	    let file = Resource(name: name, type: ext)
-	    return URL(fileURLWithPath: file.path)
+        return Bundle.module.url(forResource: name, withExtension: ext)!
     }
 
     static func testResourceData(withName name: String, extension ext: String) -> Data {
@@ -25,25 +32,4 @@ class TestAdditions {
         return String(data: data, encoding: .utf8)!
     }
 
-}
-
-class Resource {
-    static var resourcePath = "./Tests/Supporting Files"
-
-    let name: String
-    let type: String
-
-    init(name: String, type: String) {
-        self.name = name
-        self.type = type
-    }
-
-    var path: String {
-	#if os(macOS) || os(iOS) || os(tvOS)
-        return Bundle(for: Swift.type(of: self)).path(forResource: name, ofType: type)!
-	#else
-        let filename: String = type.isEmpty ? name : "\(name).\(type)"
-        return "\(Resource.resourcePath)/\(filename)"
-	#endif
-    }
 }

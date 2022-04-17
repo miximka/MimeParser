@@ -175,6 +175,22 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		81958F7C280C207B00EC3D3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */,
+				0C9F211F21EE61D6009DCA21 /* MeetingRequestWithZeroLengthPart.txt */,
+				81E3FCB21FDF1EB600C00F25 /* MessageWithEnclosedMessageAsAttachment.txt */,
+				81E3FCB11FDF1EB600C00F25 /* QuotedPrintableMessage.txt */,
+				81E3FCAD1FDF1EB600C00F25 /* SimpleMessage.txt */,
+				81E3FCB01FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachment.txt */,
+				81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */,
+				81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */,
+				08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		81E3FC821FDF1D4000C00F25 /* MimeParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +224,7 @@
 				8145B1C620D187440019E405 /* MimeParsingTests.swift */,
 				81E3FC9E1FDF1E4E00C00F25 /* RFC822ParsingUtilitiesTests.swift */,
 				81E3FC9F1FDF1E4E00C00F25 /* UtilitiesTests.swift */,
+				81958F7C280C207B00EC3D3D /* Resources */,
 			);
 			name = MimeParserTests;
 			path = Tests/MimeParserTests;
@@ -216,16 +233,7 @@
 		81E3FCAB1FDF1E9900C00F25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4472876A20CF23A500CD7412 /* EmailWithApplicationAttachment.txt */,
 				81E3FCAC1FDF1EB600C00F25 /* Info.plist */,
-				0C9F211F21EE61D6009DCA21 /* MeetingRequestWithZeroLengthPart.txt */,
-				81E3FCB21FDF1EB600C00F25 /* MessageWithEnclosedMessageAsAttachment.txt */,
-				81E3FCB11FDF1EB600C00F25 /* QuotedPrintableMessage.txt */,
-				81E3FCAD1FDF1EB600C00F25 /* SimpleMessage.txt */,
-				81E3FCB01FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachment.txt */,
-				81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */,
-				81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */,
-				08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */,
 			);
 			name = "Supporting Files";
 			path = "Tests/Supporting Files";
@@ -636,7 +644,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG XCODE_PROJECT";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -692,6 +700,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = XCODE_PROJECT;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
