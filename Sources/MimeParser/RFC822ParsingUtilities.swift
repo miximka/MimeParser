@@ -37,7 +37,7 @@ struct RFC822HeaderFieldsPartitioner {
     }
     
     func fields(in string: String) throws -> [RFC822HeaderField] {
-        let regex = try! NSRegularExpression(pattern: "(.+?):\\s*(.+)", options: [])
+        let regex = try! NSRegularExpression(pattern: "(.+?): (.+)", options: [])
         let results = regex.matches(in: string, options: [], range: string.nsRange)
         
         return try results.map { result in
