@@ -76,7 +76,9 @@ class RFC822ParsingUtilitiesTests: XCTestCase {
         let fields = try partitioner.fields(in: str)
         
         // Then
-        let expected = [RFC822HeaderField(name: "a", body: "b"), RFC822HeaderField(name: "c", body: "d"), RFC822HeaderField(name: "e", body: "f:g:h")]
+        let expected = [RFC822HeaderField(name: "a", body: "b"),
+                        RFC822HeaderField(name: "c", body: " d"),
+                        RFC822HeaderField(name: "e", body: "f:g:h")]
         XCTAssertEqual(fields, expected)
     }
     

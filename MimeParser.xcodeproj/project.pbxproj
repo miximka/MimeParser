@@ -53,6 +53,8 @@
 		81E3FCBC1FDF1EBC00C00F25 /* SimpleMessageWithBinaryAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81E3FCB01FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachment.txt */; };
 		81E3FCBD1FDF1EBC00C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */; };
 		81E3FCBE1FDF1EBC00C00F25 /* SimpleMessageWithTextAttachment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */; };
+		81F56D1C28354F7D00B5E18C /* EmptyCc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81F56D1B28354F7D00B5E18C /* EmptyCc.txt */; };
+		81F56D1D28354F7D00B5E18C /* EmptyCc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81F56D1B28354F7D00B5E18C /* EmptyCc.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,7 @@
 		81E3FCB01FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachment.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleMessageWithBinaryAttachment.txt; sourceTree = "<group>"; };
 		81E3FCB11FDF1EB600C00F25 /* QuotedPrintableMessage.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = QuotedPrintableMessage.txt; sourceTree = "<group>"; };
 		81E3FCB21FDF1EB600C00F25 /* MessageWithEnclosedMessageAsAttachment.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = MessageWithEnclosedMessageAsAttachment.txt; sourceTree = "<group>"; };
+		81F56D1B28354F7D00B5E18C /* EmptyCc.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EmptyCc.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,7 @@
 				81E3FCAF1FDF1EB600C00F25 /* SimpleMessageWithBinaryAttachmentCRLN.txt */,
 				81E3FCAE1FDF1EB600C00F25 /* SimpleMessageWithTextAttachment.txt */,
 				08ABE7752063D04A00F945CF /* SpecialCharsBoundary.txt */,
+				81F56D1B28354F7D00B5E18C /* EmptyCc.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -398,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F56D1D28354F7D00B5E18C /* EmptyCc.txt in Resources */,
 				08ABE7772063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */,
 				0C9F212221EE6395009DCA21 /* MeetingRequestWithZeroLengthPart.txt in Resources */,
 				81E3FCBC1FDF1EBC00C00F25 /* SimpleMessageWithBinaryAttachment.txt in Resources */,
@@ -421,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F56D1C28354F7D00B5E18C /* EmptyCc.txt in Resources */,
 				08ABE7762063D04A00F945CF /* SpecialCharsBoundary.txt in Resources */,
 				0C9F212121EE6394009DCA21 /* MeetingRequestWithZeroLengthPart.txt in Resources */,
 				81E3FCB61FDF1EBB00C00F25 /* SimpleMessageWithBinaryAttachment.txt in Resources */,
