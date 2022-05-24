@@ -33,3 +33,19 @@ public extension MimeHeader {
         self.other = other
     }
 }
+
+public extension Mime {
+    
+    init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
+        self.header = header
+        self.content = content
+    }
+}
+
+public extension RFC822HeaderField {
+    
+    init(key: String, value: String) {
+        self.name = key
+        self.body = value
+    }
+}
