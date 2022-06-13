@@ -1,0 +1,3145 @@
+Path: eternal-september.org!reader02.eternal-september.org!weretis.net!feeder8.news.weretis.net!border2.nntp.dca1.giganews.com!nntp.giganews.com!buffer2.nntp.dca1.giganews.com!nntp.iphouse.net!news.iphouse.net.POSTED!not-for-mail
+NNTP-Posting-Date: Tue, 12 Apr 2022 14:56:08 -0500
+From: Craig A Finseth <news@finseth.com>
+Newsgroups: comp.editors,comp.emacs,alt.religion.emacs,alt.answers,comp.answers,news.answers
+Cc: 
+Subject: Emacs implementations, list of, regular post [long, FAQ]
+Expires: 
+References: <391ee09e-8445-441a-8167-f82699c64cedn@googlegroups.com>
+Summary: 
+Sender: 
+Followup-To: comp.editors,comp.emacs,alt.religion.emacs
+Keywords: 
+Supersedes: <yfkee47o73m.fsf_-_@howler.ipshell.com>
+Approved: news-answers-request@MIT.Edu
+Date: Tue, 12 Apr 2022 14:56:07 -0500
+Message-ID: <yfkbkx6jctk.fsf_-_@howler.ipshell.com>
+Organization: ipHouse - Welcome Home!
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/23.4 (gnu/linux)
+Cancel-Key: sha1:cABYx7gkwERF0iShpThmQHKwpok=
+Cancel-Lock: sha1:QYIdOLfG0XvMPCmxDUR/6ARvv2Q=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Lines: 3112
+X-Usenet-Provider: http://www.giganews.com
+NNTP-Posting-Host: 216.250.188.150
+X-Trace: sv3-HCngmdpjORqbYRXJ1MtVXT2MueskLPAR5hxcYS4RCfVaIVUn9oMjOdPLXBWjrFnikXl/u6u1rNawlZQ!ZKpp4B47ePd+E3kFlLOHPf1R/9d8qb2fM9akIi/grGnsdbK5MEMR11O7h0mRKKnDSRR5q3X8luUd!Zi4sZQ==
+X-Abuse-and-DMCA-Info: Please be sure to forward a copy of ALL headers
+X-Abuse-and-DMCA-Info: Otherwise we will be unable to process your complaint properly
+X-Postfilter: 1.3.40
+X-Original-Bytes: 123901
+Xref: reader02.eternal-september.org comp.editors:3584 comp.emacs:5710 alt.religion.emacs:541 alt.answers:1843 comp.answers:2004 news.answers:22308
+
+Last-Modified: 2022-04-12
+Posting-Frequency: bi-monthly
+URL: http://www.finseth.com/emacs.html
+Copyright: 1990-9, 2000-22 by Craig A. Finseth
+Archive-name: emacs-implementations
+Disclaimer: Approval for *.answers is based on form, not content.
+
+Emacs Implementations
+
+    Document id
+
+        Emacs Implementations and Literature
+        ftp://ftp.finseth.com/users/emacs
+        http://www.finseth.com/emacs.html
+
+        Last posted 2022-04-12
+        reposted about every 2 months
+
+    Contact:
+
+        Craig A. Finseth <craigfinseth@gmail.com> <craigafinseth@alum.mit.edu>
+        http://www.finseth.com.  Please send updates directly to the
+    author via email.
+
+        Note the information regarding "The Craft of Text Editing"!
+
+        People interested in this FAQ might also be interested in:
+
+            http://www.jwz.org/doc/emacs-timeline.html 
+
+        and:
+
+            http://www.emacswiki.org
+
+    Copyright
+
+        This FAQ document is Copyright 1990-9,2000-21 by Craig A. Finseth.
+
+        It may be reproduced and archived as part of normal network
+        distribution.  Such distribution is assumed to include CD/ROM or other
+        bulk, unedited distribution.
+
+        It may be reproduced for individual or non-commerical use provided
+        that it is reproduced intact.
+
+        It may be reproduced for commercial use provided:
+
+        o   it is reproduced essentially intact including all copyright
+            notices and acknowledgements,
+
+        o   the publisher obtains the latest version directly from the
+            FAQ maintainer (using the above FTP/WWW site is acceptable),
+
+        o   the publisher provides the FAQ maintainer with information
+            on what collection the copy of the FAQ is in, and how that
+            collection may be obtained,
+
+        o   all material modifications (other than formatting) are
+            clearly marked.
+
+    Posted to comp.editors, comp.emacs, alt.religion.emacs, alt.answers,
+        comp.answers, news.answers
+
+    Description
+
+        This document provides a partial -- and not comprehensive -- list
+        of implementations of Emacs-type editors and literature about such
+        editors. You can help make it more comprehensive by sending me
+        additional information and/or updates.
+
+        This document is also gradually acquiring the role of a repository
+        of (at least) Emacs-related history. While that subject requires a
+        book to itself, this document will probably serve until someone
+        (_not_ me!) writes one.
+
+        This document is available via anonymous FTP and WWW. See above
+        URLs.
+
+        To be included in this list:
+
+        o   A piece of literature should be a book, manual, article, paper,
+            or something that covers (or mentions) Emacs in particular or
+            text editing techniques in general. Specifically excluded are
+            items that are only of interest to non-Emacs users (a book on
+            "how to use vi") or vendor manuals for Emacs implementations
+            (as those are implicitly included in the implementations).
+            Non-vendor (i.e., third party) manuals are included.
+
+        o   An implementation must either (1) be "advertised" as being an
+            Emacs-type editor or (2) be extensible and come with an Emacs
+            command set "mode" already written. Editors that are extensible
+            but do not come with such a mode (i.e., you have to write it
+            yourself) are not listed.
+
+       The following information is included for each implementation:
+
+        The *NAME* line contains the name of the implementation.
+        Implementations are listed alphabetically by name. Acronym
+        expansions are listed in ()s. Other acronyms:
+
+            TECO    TAPE Editor and COrrector
+                    (later: Text Editor and COrrector)
+            EMACS   Editor MACroS
+
+        The *LAST* *CHANGED/VERIFIED* line contains the date that the entry was
+        last changed or an explict "looks ok to me" was received. This
+        field was added 1994-12-20, so all entries were initialized to that
+        value.
+
+        The *ORIGINAL* *DISTRIBUTION* is the date (or partial date) of the
+        first release. It is in YYYY-MM-DD format.
+
+        The *VERSION* is the latest known version. It is probably out of
+        date.
+
+        The *BASE* *LANGUAGE* is the language that you need a compiler or
+        interpreter for in order to use the editor. If the software is
+        distributed as a pre-compiled binary, this should be the language
+        that the program was written in.
+
+        The *IMPLEMENTATION* *LANGUAGE* is the language that the bulk of the
+        implementation is written in.
+
+        The *EXTENSION* *LANGUAGE* is the (often custom or modified) language
+        that the is used when altering or writing extensions to the
+        implementation. It is "none" if there is no extension language.
+
+        The *SCOPE* is either "command set" or "extensible." In the first
+        case, the implementation offers a basic Emacs command set; however
+        the user cannot readily change what the commands do. In the second
+        case, the user can fully control what all of the commands do.
+
+        The *REQUIREMENTS* is a brief characterization of what hardware or
+        software is required. The purpose of this item is to offer a broad
+        selection key; not be a comprehensive list. You should consult the
+        implementation (for free software) or the vendor to find out
+        whether a specific implementation works in your environment. For
+        example:
+
+        o   "UNIX" refers to any version of UNIX(tm) from any vendor.
+        o   "IBM PC" is used to cover MS/DOS, OS/2, and Windows
+            implementations.
+
+        (Starting Dec 1994 the list will support an additional level of
+        detail for IBM PCs.)
+
+        o   "DOS" refers to MS/DOS support. May also run under Windows or
+            OS/2 in some mode. - "Windows" refers to Microsoft Windows support.
+        o   "OS/2" refers to to OS/2 support. - "Windows NT" refers to
+            Microsoft Windows NT support.
+
+        The *ORGANIZATION* is the name of and contact information for the
+        implementor OR >CURRENT MAINTAINER<.
+
+        The *STATUS* is one of
+
+        o   no longer available: Self-explanatory.
+        o   free: The implementation is available to most people at no
+            charge. Even such "free" implementations may have restrictions:
+            consult information about the particular implementation. Where
+            available, information on how to obtain a copy is also listed.
+        o   not free: The implementation is for sale. Contact the vendor
+            for specifics.
+
+        Many of the names of the implementations in this list are
+        trademarked. Specific trademarks are not called out.
+
+        Full source code is available for all of the free implementations.
+        Source availability varies among the not free implementations:
+        check with the vendor before you buy.
+
+Table of Contents
+
+Literature
+
+    GNU Emacs and XEmacs: A Better Way to Learn Emacs and Lisp
+
+            Title:          GNU Emacs and XEmacs: A Better Way to Learn Emacs and Lisp
+            Author(s):      Larry Ayers
+            Publisher:      Prima Publishing
+            Size:           544pp
+            ISBN:           0-7615-2446-0
+            Price:          $49.99
+
+        _Notes:_ 2001, with CD containing source and images of XEmacs
+        21.1.14 and 21.4.3,  GNU Emacs 20.7 and 21.0, and many add-on 
+        packages. Good coverage of customization and add-on packages.
+
+    Learning Gnu Emacs, 3rd Edition
+
+            Title:          Learning Gnu Emacs, 3rd Edition
+            Author(s):      Debra Cameron, james Elliott, Marc Loy, Eric Raymond, & Bill Rosenblatt
+            Publisher:      O'Reilly and Associates, Inc.
+            Size:           534pp
+            ISBN:           0-596-00648-9
+            Price:          $39.95
+
+        _Notes:_ Emacs 21.30 and above
+
+    The Craft of Text Editing: Emacs for the Modern World
+
+            Title:          The Craft of Text Editing: Emacs for the Modern World
+            Author(s):      Craig A. Finseth
+            Publisher:      Springer-Verlag
+            Size:           220pp, 10 chapters, 5 appendices
+            ISBN:           0-387-97616-7, 3-540-97616-7
+            Price:          $39.95
+            Japanese language edition: 4-938704-26-9 Y3600 paper
+
+        _Notes:_ 1991-10, first edition not version specific.  The
+        Springer-Verlag edition is out of print.  The book is available
+    via the web at:
+
+            http://www.finseth.com/craft
+
+        and is also available in print form from the author.  It has ISBN
+        978-1-4116-8297-9 (10-digit: 1-4116-8297-1). It is available
+        from Lulu and from Amazon.com:
+
+            http://people.lulu.com/users/index.php?fHomepage=370764
+            http://www.amazon.com/gp/product/1411682971
+
+    GNU Emacs Reference
+
+            Title:          GNU Emacs Reference
+            Author(s):      Dennis Gentry
+            Publisher:      Specialized Systems Consultants, Inc.
+                            P.O. Box 55549
+                            Seattle WA 98155
+                            USA
+                            +1 206 782 7733
+                            +1 206 782 7191 fax
+                            sales@ssc.com
+            Size:           18pp, 8 1/2" x 3 1/2"
+            ISBN:           0-916151-83-2
+            Price:          $4.50
+            Notes:          1995, updated
+
+    The GNU Emacs Lisp Reference Manual, GNU Emacs Version
+
+            Title:          The GNU Emacs Lisp Reference Manual, GNU Emacs Version
+                            19 for Unix Users, Edition 2.01, June 1993
+            Author(s):      Bil Lewis, Dan LaLiberte, Richard Stallman and the GNU
+                            Manual Group
+            Pubisher:       Free Software Foundation
+            Size:           748pp + 18pp index
+            ISBN:           1-882114-20-5
+            Price:          free (see GNU Emacs sites) or for fee from FSF
+            Notes:          -
+
+    Unix Desktop Guide to Emacs
+
+            Title:          Unix Desktop Guide to Emacs
+            Author(s):      Ralph Roberts and Mark Boyd
+            Consultants:    Stephen G. Kochan and Patrick H. Wood
+            Publisher:      Hayden Books (SAMS)
+            Size:           xxiv + 504 pages, including index
+            ISBN:           0-672-30171-7
+            Price:          $27.95 US, $34.95 CAN
+
+        _Notes:_ Copr. 1992, first printing 1992 Library of Congress
+        Catalog Card No. 91-62815
+
+    GNU Emacs:  UNIX Text Editing and Processing
+
+            Title:          GNU Emacs:  UNIX Text Editing and Processing
+            Author(s):      Michael A. Schoonover, John S. Bowie, and William R. Arnold
+            Publisher:      Addison-Wesley / HP Press
+            Size:           640pp, 14 chapters, 4 appendices
+            ISBN:           0-201-56345-2
+            Price:          $26.95
+
+        _Notes:_ 1991-11, first printing Emacs 18
+
+    GNU Emacs Manual, Twelfth Edition, Version 19.33
+
+            Title:          GNU Emacs Manual, Twelfth Edition, Version 19.33
+            Author(s):      Richard Stallman
+            Publisher:      Free Software Foundation
+            Size:           506pp
+            ISBN:           1-882114-52-3 (may have changed)
+            Price:          free (see GNU Emacs sites) or for fee from FSF
+
+    Sams Teach Yourself Emacs in 24 Hours, 
+
+            Title:          Sams Teach Yourself Emacs in 24 Hours
+            Author(s):      Jesper Pedersen, with contributions from
+                            Jari Aalto, Charles Curley, Eric Ludlam,
+                            and Larry Ayers
+            Publisher:      Sams Publishing
+            Size:           approx. 445pp including index, CD included
+            ISBN:           0-672-31594-7
+            Price:          $24.99 (to be released Apr/May 1999)
+
+    Writing GNU Emacs Extensions
+
+            Title:          Writing GNU Emacs Extensions
+            Author(s):      Bob Glickstein
+            Publisher:      O'Reilly and Associates, Inc.
+            Size:           215pp
+            ISBN:           1-56592-261-1
+            Price:          $29.95
+
+        _Notes:_ April 1997, First Edition. "[E]xamples ... all developed
+        and tested in GNU Emacs version 19.34 under various flavors of
+        UNIX.... [P]resumes familiar[ity] with programming and with Emacs."
+        Lisp fundamentals are presented, with "Lisp Quick Reference."
+
+GNU-Emacs binaries
+
+    GNU-Emacs
+
+            name: GNU-Emacs
+            last changed/verified: 2007-08-23
+            original distribution: ?
+            version: 22.1
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements:
+
+                too many to list
+
+        Organization:
+
+            Free Software Foundation
+            59 Temple Place, Suite 330
+            Boston MA 02111-1307
+            USA
+            +1 617 542 5942
+            +1 617 542 2652 fax
+            gnu@prep.ai.mit.edu
+
+        Free, anonymous FTP from:
+
+            ftp://ftp.gnu.org/gnu/emacs/
+
+        Manual
+
+            https://www.gnu.org/software/emacs/manual/html_mono/calc.html
+
+        OS/2 (proabably obsolete data):
+
+            http://hobbes.nmsu.edu/cgi-bin/h-browse?sh=1&dir=/pub/os2/apps/editors/emacs
+
+        Windows Supplement (confirmed 2007-06-22):
+
+            EmacsW32
+            http://ourcomments.org/Emacs/EmacsW32.html
+
+        Macintosh ports (proabably obsolete data):
+
+            FSF's Emacs 20.6 port by Andrew Choi
+            http://www.csis.hku.hk/~choi/emacs/index.html
+
+            XEmacs 19.14 port to MacOS 8 and XEmacs 21.5.9 port
+            to Mac OS X by Pitts Jarvis
+            http://my.ispchannel.com/~pjarvis/xemacs.html
+
+            Version 1.17 is available from:
+            ftp://ftp.cs.cornell.edu/pub/parmet/
+            parmet@cs.cornell.edu
+
+            http://download.vector.co.jp/pack/mac/writing/edit/nit591.sea.bin
+            This is a bare-bones Japanese version of EMACS.  It's missing all
+            the cool GNU-stuff (including help),  but it does do split-
+            screening and all of the cursor/text editing commands that I
+            tried.  It's a 86.7K (yes, that's kilobytes!) download.  A very
+            sweet blend of EMACS and Macintosh technology.
+            (Edward <edodge@teleport.com>)
+
+            http://www.csis.hku.hk/~choi/emacs/
+            Version 20.6.  This is by far the most comprehensive and
+            fastest version of EMACS for the Mac.  It is also the most
+            actively developed version I know of.  Even mail can be
+            implemented by remapping mail calls to Eudora-Lite Applescripts.
+            The only bummer is that there is no GNUS and no printing!
+            (Edward <edodge@teleport.com>)
+
+            http://packages.opendarwin.org/dmgs
+            Scott J. Kramer
+            x-unix@sjk.us
+
+        WinCE (proabably obsolete data):
+
+            http://www.rainer-keuchel.de/emacs/emacs-wince.html
+
+        Binaries only (proabably obsolete data):
+
+        o   for win95: ftp://ftp.cs.washington.edu/pub/ntemacs/latest/i386/
+            ftp://ftp.demon.co.uk/pub/ibmpc/dos/apps/editors/emacs19.24
+            ftp.imada.ou.dk:pub/mirrors/msdos/emacs-19.24
+            Randy Zack <randy@acucobol.com>, MS-DOS,
+        o   Linux   sunsite.unc.edu:/pub/Linux/docs/HOWTO/Distribution-HOWTO
+        o   ftp://ftp.vms.stacken.kth.se/GNU-VMS/Beta/ EMACS-19_22-**.TAR-GZ.
+            info at: http://www.e.kth.se/elev/levitte/gnu/emacs.html
+            on the SPAN network, contact rdss::corbet
+
+        On UUCP, contact one of (proabably obsolete data (:-)):
+
+            hao!scicom!qetzal!upba!ugn!nepa!denny
+            hqda-ai!merlin
+            uunet!hutch!barber
+            sun!nosun!illian!darylm
+            oli-stl!root
+            postmaster@uunet.uu.net
+            uucp@cis.ohio-state.edu (or osu-cis!uucp)
+
+    Ohio State also posts their UUCP instructions regularly to
+    the news group comp.sources.d
+
+    _Note:_ You can also obtain tapes and CD-ROM distributions from the FSF.
+
+Implementations Available For No Charge
+
+    AMIS
+
+            name: AMIS
+            last changed/verified: 2002-07-22
+            original distribution: ?
+            version:
+            base language: Pascal
+            implementation language: Pascal
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: VMS, Norsk Data, Tops10, RSTS
+            organization/author:
+
+                    Stacken Computer Club
+                    c/o NADA
+                    S-100 44 Stockholm
+                    Sweden
+                    stacken@stacken.kth.se
+
+        _Note:_ the name is an abbreviation of "Anti-MISAER" (where "AE" is
+        the "ae" glyph). "Misaer" is Swedish (svenska) for "piece of junk,
+        or deep shit functionality" (translation provided by the person who
+        told me about this) The name thus means "not a piece of junk."
+        Tops10, RSTS, Norsk Data versions are free, send them a 1/2 inch,
+        2400-foot magnetic tape and return postage VMS version is $1000 US
+        (the money supports their DEC10 museum)
+
+        Addendum from Jesper Larsson <Jesper.Larsson@dna.lth.se>: This is
+        not quite correct. First, if "misAEr" is the Swedish word, "AE"
+        should not be the "ae" glyph (not used in Swedish -- maybe it's
+        spelled that way in Norwegian), but an "a" with two dots above
+        it. Secondly, this word actually means "destitution" or "penury".
+        It is closely related to the English word "misery". [ I am _not_
+        going to get in the middle of a how to translate Swedish to
+        English issue here -- Craig ]
+
+            free from
+                    http://pdp-10.trailing-edge.com/tops10_tools_bb-fp64b-sb/index.html
+
+
+    Anthony's Editor
+
+            name: ae (Anthony's Editor)
+            last changed/verified: 2010-08-30
+            original distribution: ?
+            version: Feb 92
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: Unix, IBM PC, Atari ST; requires curses
+            organization/author:
+                    Anthony Howe
+                    Mortice Kern Systems Inc.
+                    35 King St N
+                    Waterloo Ontario
+                    Canada N2J 6W9
+                    ant@mks.com
+            free, periodically posted to Comp.editors
+                    http://sites.google.com/site/texteditors/Home/files/Anthonys_Editor.zip
+
+    Aquamacs
+
+            name: Aquamacs
+            last changed/verified: 2006-06-28
+            original distribution: ?
+            version: 0.9.9d
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Macintosh
+            organization/author:
+                    http://aquamacs.org
+            free, from
+                    http://aquamacs.org
+            This is a port of GNU-Emacs tailored to the Macintosh Aqua
+            environment.
+
+    Atto
+
+            name: atto - smallest functional Emacs in less that 2000 lines of C
+            last changed/verified: 2015-12-08
+            original distribution: 2015-11-16
+            version: 1.4
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set, multi buffer, multi-window, search, cut, copy, paste
+            hardware/software requirements: Unix, Linux
+            organization/author:
+                    Hugh Barney
+            free, from github
+                  https://github.com/hughbarney/atto
+
+    Barry's Emacs
+
+            name: Barry's Emacs
+            last changed/verified: 2017-03-05
+            original distribution: 1994
+            version: V7.2-246 Win32,Release b1-November-2016 V8.3.3 released with kits for Windows 7 64 bit and later and Mac OS X 64 bit
+            base language: C++
+            implementation language: MLisp
+            extension language: MLisp, Python
+            scope of implementation: extensible
+            hardware/software requirements: Windows, Unix
+            organization/author:
+                    Barry Scott
+                    barry@barrys-emacs.org
+            free, from:
+                    http://www.barrys-emacs.org/
+                    https://github.com/barry-scott/BarrysEmacs
+            a bit of history...the source was posted to the net by James
+            Gosling (in about 1980-ish, I think). It was modifed by Barry,
+            within Digital Equipment Corporation. It ran on VMS and was
+            available only internally to Digital. The language changed to
+            Bliss-32 (better performance on VMS) and then to C (for
+            portability) and now C++. Barry left Digital in 1994 and about
+            then (or perhaps a little sooner?) released to the public.
+            -- Jack Horsfield <jack_horsfield@altavista.net>
+                    http://tech.groups.yahoo.com/group/barrysemacs/
+            Python implementation
+
+    Bzdired
+
+            name: bzdired
+            last changed/verified: 2010-08-30
+            original distribution: 1998
+            version: 7.1
+            base language: C
+            implementation language: C
+            extension language: superset of what you type
+            scope of implementation: extensible
+            hardware/software requirements: Unix
+            organization/author:
+                    Ralph Betza (FM)
+                    gnohmon@scscomm.com
+            free, from:
+                    http://scscomm.com/~gnohmon/dired.cpio.gz
+                    likely no longer available
+
+    Climacs
+
+            name: Climcs
+            last changed/verified: 2015-03-28
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: Lisp?
+            extension language: Lisp?
+            scope of implementation: ?
+            hardware/software requirements: ?
+            organization/author:
+            free from
+                    http://common-lisp.net/project/climacs/
+
+    Demacs
+
+            name: Demacs
+            last changed/verified: 1999-08-14
+            original distribution: 1992?
+            version: 1.2.0
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, 386 or better, MS-DOS
+            organization/author:
+                    Manabu Higashida
+                    Osaka University
+                    JAPAN
+                    manabu@sigmath.osaka-u.ac.jp
+
+                    HIRANO Satoshi
+                    University of Tokyo
+                    Japan
+                    hirano@tkl.iis.u-tokyo.ac.jp
+            free, anonymous FTP from
+                    ftp.sigmath.osaka-u.ac.jp in pub/Msdos/Demacs/*
+                    utsun.s.u-tokyo.ac.jp in GNU/demacs/*
+                    on Garbo-PC mirror sites
+                    ftp://garbo.uwasa.fi/pc/editor
+
+        _Note:_ Demacs is currently based on GNU Emacs version 18.55 (partly
+        18.57). You may wish to check out OEmacs, GNU-Emacs v19.23 or
+        later, or NTEmacs.
+
+    E3
+
+            name: E3
+            last changed/verified: 2010-08-30
+            original distribution: ?
+            version: ?
+            base language: C,asm
+            implementation language: C
+            extension language: C
+            scope of implementation: command set
+            hardware/software requirements: Linux, FreeBSD, BeOs
+            organization/author:
+                    Albrecht Kleine
+            free, anonymous FTP from
+                    http://sites.google.com/site/e3editor/
+
+    EDMACS
+
+            name: EDMACS
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 2.0
+            base language: TECO
+            implementation language: TECO
+            extension language: TECO
+            scope of implementation: extensible
+            hardware/software requirements: PDP/11
+            organization/author:
+                    Michael Bloom
+                    mb@ttidca.tti.com
+            free, anonymous FTP from
+
+                    usc.edu in /pub/teco/soflib.tar.Z
+                    (in subdir "11-737" of tar image)
+
+            DECUS program library as DECUS #11-737 (nominal media charge)
+
+    Edwin
+
+            name: Edwin
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: CScheme
+            implementation language: CScheme
+            extension language: CScheme
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, 386-DOS
+            organization/author:
+                    Scheme Distribution
+                    c/o Prof. Hal Abelson
+                    545 Technology Sq. Room 410
+                    Cambridge MA 02139
+                    USA
+                    info-cscheme-request@zurich.ai.mit.edu
+            free, anonymous FTP from
+                    zurich.ai.mit.edu in pub/scheme/README
+            also, check out other Scheme implementations
+
+    Elle
+
+            name: Elle (Elle Looks Like Emacs)
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 4.1g
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, MINIX, TOPS-20, TOPS-10 (!)
+            organization/author:
+                    Ken Harrenstein
+                    c/o SRI International
+                    333 Ravenswood Ave
+                    Menlo Park CA  94025
+                    USA
+                    klh@nisc.sri.com
+            free, anonymous FTP from
+                    nisc.sri.com in pub/klh/elle.tar (or elle.tar.Z)
+
+    Emacs
+
+            name: Emacs
+            last changed/verified: 2006-03-21
+            original distribution: 1975
+            version: 165
+            base language: MIDAS (PDP10/DEC-20 assembly language)
+            implementation language: TECO
+            extension language: TECO
+            scope of implementation: extensible
+            hardware/software requirements: PDP10/ITS or DEC-20/TOPS-20
+            organization/author:
+                    Richard M. Stallman
+                    MIT AI Lab/MIT Lab. for Comp. Sci.
+                    545 Technology Square
+                    Cambridge MA 02139
+                    USA
+            http://pdp-10.trailing-edge.com/tapes/mit_emacs_170_teco_1220.tap.bz2
+
+        _Note:_ this is the original free, anonymous FTP from ?
+
+    Emacs for Android
+
+            name: Emacs
+            last changed/verified: 2015-06-21
+            original distribution: ?
+            version: 2012-08-23
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: Android
+            organization/author:
+                    eemacs@zielm.com
+            free, from
+                    https://play.google.com/store/apps/details?id=com.zielm.emacs
+                    https://zielmicha.com/
+
+    Emacs for HP49G and HP49G+
+
+            name: Emacs for HP49G and HP49G+
+            last changed/verified: 2015-08-14
+            original distribution: 2000-?-?
+            version: 2.00
+            base language: HP49G-specific
+            implementation language: HP49G-specific
+            extension language: HP49G-specific
+            scope of implementation: command
+            hardware/software requirements:
+                    HP49G or HP49G+ calculator
+            organization/author:
+                    Carsten Dominik, dominik science.uva.nl
+                    Peter Geelhoed, p.f.geelhoed wbmt.tudelft.nl
+            free anonymous FTP:
+                    https://staff.science.uva.nl/c.dominik/hpcalc/emacs/
+
+        _Note:_ While possibly not a "real" Emacs, this is just too
+        cool to leave out.
+
+    Emacs For Mac OS X
+
+            name: Emacs For Mac OS X
+            last changed/verified: 2018-05-30
+            original distribution: GNU Emacs
+            version: 26.1-2
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            organization/author:
+                    Dave Caldwell
+            free, from
+                    https://emacsformacosx.com/
+            hardware/software requirements:
+                Mac OS 10.9 and above
+
+    Emacs for NeXTstep
+
+            name: Emacs for NeXTstep (aka Emacs.app)
+            last changed/verified: 1995-06-15
+            original distribution: 1994-04-24
+            version: 4.1
+            base language: Objective C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Any hardware/software which GNU Emacs
+                    19.28 runs on in general.  To use the added NeXTstep features
+                    requires NeXTstep 3.x or later (for best results 3.3 or later)
+                    on any hardware platform supported by NeXTstep.
+            organization/author:
+                    Carl Edman
+                    Department of Physics
+                    Princeton University
+                    Princeton NJ 08540
+                    USA
+                    cedman@princeton.edu
+            free anonymous FTP:
+                    - Binary package for m68k, i386, hppa and sparc NeXTstep machines on
+                      ftp.cs.orst.edu in
+                      pub/next/binaries/editors/Emacs_for_NeXTstep_4.1.pkg.NIHS.b.tar.gz.
+                    -  Source on ftp.cs.orst.edu in
+                      pub/next/sources/editors/Emacs_for_NeXTstep_4.1.src.NIHS.s.tar.gz.
+
+        _Note:_ Emacs for NeXTstep 4.1 is a superset of GNU Emacs 19.28
+        with which it shares most of the code. The main change is that this
+        Emacs supports the NeXTstep window system on the same level as GNU
+        Emacs supports the X window system. It continues to fully support
+        the X window system as well.
+
+        Also, this may be new information on the same release: Emacs.app, a
+        full port of GNU Emacs to NeXTstep also supporting NS features,
+        runs on Intel, NeXT, and HP hardware.
+
+        There are also two mailing lists for Emacs for NS,
+        <emacs-for-ns-users@lists.princeton.edu> and
+        <emacs-for-ns-announce@lists.princeton.edu>. The former is intended
+        for general discussion and allows anybody to post. The latter
+        restricts posting and should contain only a handful of
+        announcements of new releases every year. Both of these lists are
+        handled by the CREN Listproc which means that you can subscribe and
+        unsubscribe automatically. For example, to subscribe to
+        emacs-for-ns-users I'd send a message with the content `SUBSCRIBE
+        emacs-for-ns-users Carl Edman' to <listproc@lists.princeton.edu>.
+        For more details write to the same address with the content `HELP'.
+
+        This is the second public release of Emacs for NeXTstep (**).
+
+        ** So why in the world is it called version 4.1 ? To avoid
+        confusion with the older Emacs.app interface (lately up to
+        version 3.1) which is completely unrelated except for the fact
+        that its author, Michael Brouwer, has been a major contributor to
+        this project as well. And even he has replaced the old Emacs.app
+        with Emacs for NeXTstep.
+
+    Emacs for OS X and OS 9
+
+            name: Emacs
+            last changed/verified: 2005-02-03
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: Macintosh
+            organization/author:
+                    Sebastien Kirche
+                    sebastien.kirche@free.fr
+            free, from
+                    http://sebastien.kirche.free.fr/emacs_stuff/
+                    http://sebastien.kirche.free.fr/emacs_stuff/en.html
+
+            OS X and OS 9 ports.
+
+    EmACT 
+
+            name: EmACT
+            last changed/verified: 2007-01-03
+            original distribution: 1986 (bundled with Let'C compiler)
+            version: 2.50.0
+            base language: C
+            implementation language: C
+            extension language: Minimal Lisp and/or OpenLisp (this one is not GPL)
+            scope of implementation: command set, tailored for Lisp programs
+            hardware/software requirements: Windows, Pocket PC, Unix
+            organization/author:
+                    Christian Jullien - Eligis
+                    4, villa des reinettes
+                    S-95390 Saint-Prix
+                    France
+                    jullien(at)eligis(.)com
+            free (GPL) from
+                    http://www.eligis.com/emacs
+
+        Note: this a 1986 fork (sic!) of Conroy's MicroEmacs. The name
+        comes from a company the author worked for when starting this
+        development.  The motivation was to implement a Lisp-friendly
+        editor on MS-DOS PC to write programs for Le-Lisp dialect.
+        It is now the editor of choice for OpenLisp
+        (see http://www.eligis.com).
+
+    Epoch
+
+            name: Epoch
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 4.2
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, others
+            organization/author:
+                    University of Illinois at Urbana-Champaign
+                    Urbana-Champaign IL
+                    USA
+                    epoch-request@cs.uiuc.edu
+                    uunet!uiucdcs!epoch-request
+                    epoch-request%cs.uiuc.edu@uiucvmd.bitnet
+            free, anonymous FTP from
+                    cs.uiuc.edu in pub/epoch-files/epoch/*
+
+        _Note:_ this is a modified GNU Emacs. Has been merged with Lucid
+        emacs.
+
+    ErgoEmacs
+
+            name: ErgoEmacs
+            last changed/verified: 2010-02-01
+            original distribution: ?
+            version: 1.7.1
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: Lisp
+            hardware/software requirements: Emacs 23
+            organization/author:
+                    Xah Lee and David Capello
+            free, anonymous FTP from
+                    http://ergoemacs.org/
+
+    Ermacs
+
+            name: Ermacs
+            last changed/verified: 2003-09-25
+            original distribution: ?
+            version: 0.9
+            base language: Erlang
+            implementation language: Erlang
+            extension language: Erlang
+            scope of implementation: Erlang
+            hardware/software requirements: Erlang, S-Lang
+            organization/author:
+                    Luke Gorrie
+            free, anonymous FTP from
+                    http://www.bluetail.com/~luke/ermacs/
+
+    ErsatzEMACS
+
+            name: ErsatzEMACS
+            last changed/verified: 2013-02-24
+            original distribution: ? 
+            version: 1.0
+            base language: C 
+            implementation language: C 
+            extension language: none 
+            scope of implementation: command set 
+            hardware/software requirements: Unix, Linux
+            organization/author: 
+                    Chris Baird
+                    <c...@brushtail.apana.org.au>
+            free, from github
+                    https://github.com/stangelandcl/ersatz-emacs.git
+
+        Note: This derived from MicroEmacs 3.06. The title "Ersatz"
+        comes from the category Richard Stallman uses in MIT AI Memo 519a
+        to describe those editors that are a surface-deep imitation
+        (key bindings) of "real" ITS Emacs.
+
+    Evi
+
+            name: evi
+            last changed/verified: 1994-12-20
+            original distribution: 1988-01-01
+            version: 0.1
+            base language: any vi editor itself
+            implementation language: UNIX Bourne shell,
+                    vi key mappings and vi command files
+            extension language: vi key mappings and vi command files
+            scope of implementation: extensible
+            hardware/software requirements: a vi editor that can map keys and
+                    read command files
+            organization/author:
+                    Bo Thide', of the Swedish Inst. of Space Physics
+                    bt@irfu.uucp
+            free, anonymous ftp from
+                    ftp://ftp.uu.net/pub/text-processing/vi/macros/evi.tar.Z
+
+        _Note:_ This is a set of vi macros that does a fairly full Emacs
+        implementation.
+
+    Femtoemacs
+
+            name: Femtoemacs
+            last changed/verified: 2016-11-06
+            original distribution: 
+            version:
+            base language: C
+            implementation language: Femtolisp
+            extension language: Femtolisp
+            scope of implementation: extensible
+            hardware/software requirements: ?
+            organization/author:
+                    ?
+            free from
+                    https://github.com/FemtoEmacs/Femto-Emacs
+
+    FINE
+
+            name: FINE (Fine Is Not Emacs)
+            last changed/verified: 2002-07-22
+            original distribution: 1980?
+            version:
+            base language: BLISS-10
+            implementation language: BLISS-10
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: PDP-10
+            organization/author:
+                    Mike Kazar
+                    Carnegie Mellon University
+                    USA
+            free from
+                    ftp://ftp.ultimate.com/pdp10/fine/
+
+    Folding Editor
+
+            name: fe (folding editor)
+            last changed/verified: 2004-12-14
+            original distribution: 1.0
+            version: 1.6
+            base language: C
+            implementation language: C
+            extension language: C
+            scope of implementation: command set
+            hardware/software requirements: UNIX, SYSV curses
+            origanization:
+                    Michael Haardt
+                    Guestener Strasse 8
+                    52445 Titz
+                    Germany
+                    michael@moria.de
+                    http://www.moria.de/~michael/fe/
+
+        _Note:_ `fe' is a library of editor primitives, with the user
+        interface built on top of that library. - fe is a successor to
+        Origami.
+
+    Freemacs
+
+            name: Freemacs
+            last changed/verified: 2007-08-23
+            original distribution: ?
+            version: 1.6a
+            base language: 8086 assembler
+            implementation language: 8086 assembler
+            extension language: MINT, a string-oriented interpreter inspired by TRAC
+                    P(MINT means "Mint Is Not TRAC")
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC
+
+        Organization/author:
+
+            Russell Nelson
+            11 Grant Street
+            Potsdam NY 13676
+            USA
+
+        Internet: anonymous FTP from
+
+            ftp.cygnus.com in /pub/embedded/free-dos/editors/
+
+        BBS:
+
+            +1 315 268 6667 - 1200/2400 bps, 8N1, 24 hrs, pub/msdos/freemacs
+            No registration required to download Freemacs.
+
+        Bitnet and UUCP:
+
+        Send mail to archive-server@sun.soe.clarkson.edu. You may use
+        archive-server%sun.soe@omnigate if you are on Bitnet, or
+        {smart-host}!sun.soe.clarkson.edu!archive-server if you are using
+        UUCP. The mail message should consist of 'help'. If you do not
+        get a reply within a day, then your return path is broken. You'll
+        need to use the path command to give a mail address that our
+        mailer can grok. Our mailer can send mail to any address with an
+        '@' in it, with the exception of ".UUCP" pseudo-addresses. Mail:
+        $15 check or $17 PO copying fee to the author. This will assure
+        you of the latest version. Please specify floppy format: [5.25,
+        1.2 Meg], [5.25, 360K], [3.50, 720K]
+
+    Freyja
+
+            name: Freyja (Freyja Reduksjon Emacs, Ytre Jevn All: Freyja Reduces
+                    Emacs, Yet Joins All)
+            last changed/verified: 2010-08-30
+            original distribution: 1991
+            version: 2.3
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command
+            hardware/software requirements: DOS, UNIX, HP95LX, HP100LX
+            organization/author:
+                    Craig Finseth
+                    1343 Lafond
+                    St. Paul MN  55104-2437
+                    USA
+                    +1 651 644 4027
+                    craig@finseth.com
+            free from the author
+                    http://www.finseth.com/parts/freyja.php
+
+        _Note:_ optimized for RAM-based computing (laptops and palmtops)
+
+    Gnome
+
+            name: Gnome (Generally NOt the Micro Emacs)
+            last changed/verified: 2001-03-14
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: VMS, Atari, MSDOS, Unix, CPM
+            organization/author:
+                    http://www.mirror.ac.uk/collections/hensa-micros/local/msdos/text/gnome/gnome.arc%5Bpeek%5D
+                    http://www.su.shuttle.de/gnome24.tgz
+
+                    ?
+
+        Note: This is another old spin off Micro Emacs 2.x, small and
+        fast.  Sources should be in the old atari-archives (if
+        atari.archive.umich.edu exists, if not point ftpsearch to gnome.arc)
+        supports VMS, Atari, MESSDOS, Unix 7, CP/M.
+
+    GNU-Emacs, Macintosh port
+
+            name: GNU-Emacs, Macintosh port
+            last changed/verified: 1995-01-11
+            original distribution: 1993
+            version: 1.17
+            base language: C  (CodeWarrior 6-7)
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Macintosh, System 7
+            organization:
+                    ?
+            free, anonymous FTP from:
+                    ftp://ftp.cs.cornell.edu/pub/parmet
+
+        _Note:_ based on 18.59, FAT binary
+
+        _Note:_ see also the "Macintosh" section of the GNU Emacs writeup
+
+    Gnu TeXmacs
+
+            name: Gnu TeXmacs
+            last changed/verified: 2002-04-03
+            original distribution: ?
+            version: 1.0.0.1
+            base language: C++
+            implementation language: C++
+            extension language: Scheme
+            scope of implementation: extensible
+            hardware/software requirements: Unix or Cygwin
+            organization/author:
+                    Joris van der Hoeven, <mailto:vdhoeven@texmacs.org>
+            free
+                    http://www.texmacs.org/
+                    http://www.alqua.com/tmresources/ 
+
+        _Note_: TeXmacs is a wysiwyg typesetting system that
+        interfaces with symbolic math packages. It borrows from emacs
+        the use of configurable keybindings.  Near fututre: More extension
+        languages (Perl), better Web browsing capabilities, MathML support.
+
+    Gulam
+
+            name: Gulam
+            last changed/verified: 2010-08-30
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: Atari
+            organization/author:
+                    ?
+
+        Note: Another Micro Emacs 2 derivative extended by the possibility
+        to act as a Unix-like shell on the Atari ST.
+
+        Gulam is a command line interpreter. The Atari ST (an MC68000-based
+        personal computer) version was released as a non-profit distribution
+        to the public in 1987. It is now kept in all the anonymous FTP
+        archives for that machine. It was in daily use by thousands. It
+        integrated an Emacs-like editor, command line history, etc. into a
+        very compact program. These features are now common-place in modern
+        shells. 
+                    http://193.166.3.2/pub/atari/sysutil/
+
+    Hemlock
+
+            name: Hemlock
+            last changed/verified: 2015-03-20
+            original distribution: ?
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: CMU Common Lisp; MACH and/or SunOS
+            organization/author:
+                    Scott Fahlman
+                    CMU Common Lisp project
+                    Carnegie-Mellon University
+                    USA
+                    Scott.Fahlman@CS.CMU.EDU
+            free, anonymous FTP from
+                    http://www.debian.org/Packages/stable/devel/cmucl-hemlock.html
+                    http://www.debian.org/Packages/unstable/devel/cmucl-hemlock.html
+            also not free as part of Lucid Common Lisp
+            Clozure Common Lisp comes with a GUI-based Hemlock variant. It's written in Common Lisp.
+                    http://ccl.clozure.com/docs/ccl.html#hemlock-programming
+
+    (Portable) Hemlock
+
+            name: Portable Hemlock
+            last changed/verified: 2011-08-17
+            original distribution: 2002-11
+            version:
+            base language: Common Lisp
+            implementation language: Common Lisp
+            extension language: Common Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Common Lisp, Unix X11, MacOSX
+            organization/author:
+                    Gilbert Baumann
+                    unk6@stud.uni-karlsruhe.de
+            free, anonymous CVS from
+                    http://common-lisp.net/project/phemlock/
+            also as part of Clozure Common Lisp
+
+    Jade
+
+            name: Jade (anagram of: A Jed)
+            Last changed/verified: 2010-08-30
+            original distribution: 1993
+            version: 3.2 / 4.0 alpha
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX with X11
+            organization/author:
+                    John Harper
+                    john@dcs.warwick.ac.uk
+            free, anonymous FTP from
+                    ftp://ftp.dcs.warwick.ac.uk/people/John.Harper/jade/
+                    http://www.dcs.warwick.ac.uk/~john/jade/
+                    above links gone; may exist at archive.org
+                    ftp://sunsite.unc.edu/pub/Linux/apps/editors/X/jade-3.2.tar.gz
+
+    Jasspa
+
+            name: Jasspa MicroEmacs, also NanoEmacs
+            Last changed/verified: 2004-03-29
+            original distribution: ?
+            version: 2004.03
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, Windows, DOS
+            organization/author:
+                    see site
+            free, anonymous FTP from
+                    http://www.jasspa.com
+
+    JED
+
+            name: JED
+            last changed/verified: 1998-04-27
+            original distribution: ?
+            version: 0.F98.1B
+            base language: C
+            implementation language: C
+            extension language: S-Lang
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, X11, VMS, DOS, OS/2, Windows,
+                    small systems
+            organization/author:
+                    John E. Davis
+                    davis@space.mit.edu
+            free, anonymous FTP from
+                    ftp://space.mit.edu/pub/davis/jed
+                    http://space.mit.edu/%7Edavis/jed.html
+            From a user:
+
+        ...and I think it is worth to mention that JED (which is the
+        "GNUishest" of all the non-GNU implementations -- almost *every*
+        keystroke is like within GNU/XEmacs) has the complete editing
+        part of the AUCTEX-package built in, with BibTeX-mode, so if you
+        have to edit La/BibTeX-source outside your home/business, JED
+        might be your first choice.
+
+        And, what's more than that: JED runs on the smallest PC systems
+        used these days: in the library etc. I take my Toshiba T1000
+        (which was the first laptop and has a 4.77 MHz CPU in it: 512 KB
+        RAM, *no* HD and a single FD) -- and works like a charm since it
+        loads the necessary modules into memory only when needed (dired
+        etc.).
+
+        Unlike "freemacs" (which was my favourite editor before JED) it
+        can manage files over 64 KBytes in size and it is further under
+        development.
+
+        Since it runs on Linux to (with a special XJed binary) I use it
+        for quick tasks on my desktop, too.
+
+    JEmacs (Kawa)
+
+            name: Kawa (JEmacs)
+            last changed/verified: 2010-08-25
+            original distribution: ?
+            version: 1.6.66
+            base language: Java
+            implementation language: Java, Scheme, Emacs Lisp
+            extension language: Java, Scheme, Emacs Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Unix, Windows, Macinotsh
+            organization/author:
+                    Per Bothnet
+                    per@bothner.com
+                    http://www.bothner.com/~per
+            free from
+                    http://jemacs.sourceforge.net/
+                    http://www.gnu.org/software/kawa/
+                    http://home.earthlink.net/~athene/2/scheme/mackawa.html
+                    (Macintosh version)
+
+    JOE
+
+            name: JOE (Joe's Own Editor)
+            last changed/verified: 2000-11-03
+            original distribution: 1992? (that's in the copyright notice)
+            version: 2.8
+            base language: C
+            implementation language: C
+            extension language: macros
+            scope of implementation: command set
+            hardware/software requirements: UNIX, DOS
+            organization/author:
+                    Joseph H Allen
+                    jhallen@world.std.com
+            free, anonymous FTP from
+                    ftp.std.com in src/editors/joe2.8.tar.Z
+
+    JOVE, Jonathan's Own Version of Emacs
+
+            name: Jove (Jonathan's Own Version of Emacs)
+            last changed/verified: 1996-04-23
+            original distribution: 1984...
+            version: 4.16 (1996 Mar 19)
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, MSDOS, Win32, Macintosh
+            organization/author:
+                    Hugh Redelmeier
+                    hugh@mimosa.com
+                    +1 416 482 8253
+
+                    list is jovehacks@cs.toronto.edu
+            free, anonymous FTP from
+                    ftp.cs.toronto.edu in pub/moraes/jove/
+                    also in the Berkeley UNIX distribution
+            note: see also Tovj
+
+    KEmacs, Kanji Emacs
+
+            name: KEmacs (Kanji Emacs)
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, Amiga, Atari ST,
+                    Macintosh, Wicat, Data General
+            organization/author:
+
+                    SANETO (sanewo) Takanori
+                    Corporate Research Laboratories Atsugi
+                    SONY
+                    Japan
+
+        _note:_ Japanese (Kanji) adaptation of MicroEMACS version 3.8i
+
+        Free, anonymous FTP from
+
+            ftp.hawaii.edu in pub/editors/=TAR.Z=FILES=/kemacs.tar.Z
+            pub/editors/kemacs.tarZ
+
+    ME2, Mutt Editor II
+
+            name: ME2 (Mutt Editor II)
+            last changed/verified: 2010-09-04
+            original distribution: 1986
+            version: 3.0
+            base language: C
+            implementation language: Mutt
+            extension language: Mutt ("A bizarre mix of Lisp and Algol-like
+                    languages, compiled external to the editor")
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, IBMPC, Atari
+            organization/author:
+                    Craig Durland
+                    3419 SW Knollbrook
+                    Corvallis OR 97333
+                    USA
+                    +1 503 750 3354
+                    craig@cv.hp.com
+            free, anonymous FTP from
+                    ftp://ftp.eunet.bg/pub/simtelnet/msdos/editor/me_cd25.zip (MS-DOS version)
+                    http://www.umich.edu/~archive/atari/Editors/Mutt/ (AtariST version, with source)
+
+    Meadow
+
+            name: Meadow, Multilingual enhancement to gnu Emacs with
+                    ADvantages Over Windows
+            last changed/verified: 2000-12-13
+            original distribution: ?
+            version: ?
+            base language: C?
+            implementation language: Lisp?
+            extension language: Lisp?
+            scope of implementation: extensible
+            hardware/software requirements: 
+
+        Organization/author:
+
+            Hisashi Miyashita
+            himi@bird.scphys.kyoto-u.ac.jp
+
+        _Note:_ With the multilingual support now merged into NTEmacs in
+        20.4, it is no longer necessary to use a special version of Emacs
+        for other languages, but MULE users may find upgrading to Meadow
+        easier than to NTEmacs because of slight differences in the way
+        they handle fonts. Meadow also has a couple of features that are
+        still missing from NTEmacs, such as support for native IMEs and
+        the special keys on Japanese keyboards.
+
+        Free, anonymous FTP from
+
+            ?
+
+    MG, MicroGNU Emacs
+
+            name: MG, (was: MicroGNU Emacs)
+            last changed/verified: 2007-08-23
+            original distribution: 1986
+            version: 2a
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, VMS, AmigaDOS, Atari ST,
+                    OS/9-68K, Primos
+            organization/author:
+                    Mike Meyer
+            but contact:
+                    mg-support@ucbvax.berkeley.edu
+            free, anonymous FTP from
+                    gatekeeper.pa.dec.com in rom/fred-fish/FF_DISKS/100-199/FF147.LZH
+            possibly also at
+                    http://www.openbsd.org/cgi-bin/man.cgi?query=mg&apropos=0&sektion=0&manpath=OpenBSD+Current&arch=i386&format=html
+
+    MicroEMACS
+
+            name: MicroEMACS
+            last changed/verified: 1998-05-26
+            original distribution: ?
+            version: 4.0
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, OS/2
+                    HP 110 and 150, Amiga, Atari ST, Macintosh, Wicat,
+                    Data General AOS/VS, Apple IIgs
+                    kanji: Fujitsu FMR-70, NEC PC-9891
+            organization/author:
+                    Daniel M. Lawrence
+                    617 New York St
+                    Lafayette IN 47901
+                    USA
+                    +1 317 742 5153
+                    dan@mdbs.uucp
+            FIDO:  The Programmer's Room 201/10
+                    +1 317 742 5533
+                    24 hours 300/1200/2400 baud
+            free (non-commercial), anonymous FTP from
+                    aquest.com in pub/uemacs400/disk1
+                    Source and development files
+                            pub/uemacs400/disk2
+                            MSDOS/Windows/Windows 95/
+                            Windows NT / OS/2
+                    distribution disk
+                    http://members.xoom.com/uemacs/
+            ask author about commercial use and distribution via disk ($25)
+
+    MicroEMACS #2
+
+            name: MicroEMACS
+            last changed/verified: 2020-11-22
+            original distribution: 1986-12-01
+            version: 02-oct-87
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, OS/2
+                    HP 110 and 150, Amiga, Atari ST, Macintosh,
+                    Data General AOS/VS
+            organization/author:
+                    Dave G. Conroy
+                    Christian M. Jullien
+            free (non-commercial), anonymous FTP from
+                    https://www.roumazeilles.net/news/en/wordpress/2017/12/13/my-own-participation-to-emacs-history/
+
+    MicroEMACS #3
+
+            name: MicroEMACS
+            last changed/verified: 2020-11-22
+            original distribution: 1987 (unsure)
+            version: 3.12a (23-jun-93)
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, OS/2
+                    MS-Windows 3.11+, and a number of weird ones
+            organization/author:
+                    Yves Roumazeilles
+                    28 avenue Leonard de Vinci, 92400 Courbevoie (France)
+                    +33 1 82 14 14 15
+                    web2020@roumazeilles.net
+            free (non-commercial), from:
+                    https://www.roumazeilles.net/news/en/wordpress/2017/12/13/my-own-participation-to-emacs-history/
+            notes:
+                    This one is a minor evolution from MicroEmacs v3.12
+                    from Daniel M. Lawrence. It was a tentative change that
+                    did not bring any useful fruits.
+
+    MicroEMACS #4
+
+            name: MicroEMACS
+            last changed/verified: 2020-11-22
+            original distribution: 1987 (unsure)
+            version: 3.12
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, OS/2
+                    MS-Windows 3.11+, and a number of weird ones
+            organization/author:
+                    Daniel M. Lawrence
+            free (non-commercial), from:
+                    https://www.roumazeilles.net/news/en/wordpress/2017/12/13/my-own-participation-to-emacs-history/
+            notes:
+                    This one is almost certainly an old version of a MicroEMACS
+                    shown elsewhere in the FAQ.
+
+    MULE, Multi-Lingual Enhancment to Emacs
+
+            name: MULE (Multi-Lingual Enhancment to Emacs)
+            last changed/verified: 1995-07-14
+            original distribution: ?
+            version: 2.2.2
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, NT
+
+        Maintainer:
+
+            nemacs@etl.go.jp
+
+        Organization/author:
+
+            Ken'ichi Handa
+            Electrotechnical Lab.
+            Machine Inference Section
+            ElectroTechnical Laboratory
+            Umezono 1-1-4
+            Tsukuba City
+            Japan 305
+            +81 298 58 5916
+            fax +81 298 58 5918
+            handa@etl.go.jp
+            handa%etl.go.jp@relay.cs.net
+
+        _Note:_ supports many scripts including most European languages,
+        Japanese, Chinese, Korean, Thai, Vietnamese in the same buffer.
+        Much of this may be incorporated into GNU Emacs 19. Also ported to
+        MS/DOS by the Demacs developer.
+
+        Free, anonymous FTP from
+
+              for Japanese sites:
+                    etlport.etl.go.jp [192.31.197.99]:/pub/mule
+                            Manager: Ken'ichi HANDA <handa@etl.go.jp>
+              for sites not in Japan:
+                    sh.wide.ad.jp [133.4.11.11]:/JAPAN/mule
+                            Manager: Akira KATO <kato@wide.ad.jp>
+              The following sites are mirroring mule and will get ready
+                with in a few days [of 1 March 1995].
+              for Japanese sites:
+                    ftp.mei.co.jp [202.13.88.131]: /archive/free/gnu/emacs/Mule
+                            Manager: Motohide Murakami <murakami@msr.mei.co.jp>
+                    ftp.iij.ad.jp [192.244.176.50]:/pub/misc/mule
+                            Manager: Takamichi MIYOSHI <miyoshi@iij.ad.jp>
+              for US sites:
+                    ftp.cs.buffalo.edu [128.205.32.9]:/pub/mule
+                            Manager: Rafhael Cedeno <cedeno@cs.Buffalo.EDU>
+              for other foreign sites:
+                    ftp.funet.fi [128.214.6.100]:/index/mule
+                            Manager: Hannu Aronsson <haa@cs.hut.fi>
+                    cs.huji.ac.il [132.65.16.10]:/pub/gnu/mule
+                            Manager: The System Group <system@cs.huji.ac.il>
+            based on Emacs 19.28
+
+    Nemacs, Nihongo Emacs
+
+            name: Nemacs (Nihongo Emacs)
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 3.3.2
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS
+            maintainer:
+                    nemacs@etl.go.jp
+            organization/author:
+                    Ken'ichi Handa
+                    Electrotechnical Lab.
+                    Machine Inference Section
+                    ElectroTechnical Laboratory
+                    Umezono 1-1-4
+                    Tsukuba City
+                    Japan 305
+                    +81 298 58 5916
+                    fax +81 298 58 5918
+                    handa@etl.go.jp
+                    handa%etl.go.jp@relay.cs.net
+            note: Japanese (Nihongo) adaptation of GNU-Emacs
+            free, anonymous FTP from
+                    ftp.hawaii.edu in pub/editors/nemacs-3.3.2.tar.Z
+
+    NILE
+
+            name: NILE
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: ?
+            maintainer:
+                    whoever is maintaining NIL
+            organization/author:
+                    Richard Soley
+            free, anonymous FTP from
+                    ?
+
+    NotGNU
+
+            name: NotGNU
+            last changed/verified: 2010-09-04
+            original distribution: January 1993
+            version: 1.95 May 1999
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            requirements: DOS, Windows 3/95/98/NT, X11/OSF
+            organization/author:
+                    Julie Melbin
+                    P.O. Box 1007
+                    Groton MA 01450
+                    USA
+                    julie@world.std.com
+            free, anonymous ftp from
+                    http://www.notguu.org
+
+    NTEmacs
+
+            name: NTEmacs
+            last changed/verified: 2016-08-05
+            original distribution: 1993?
+            version: ?
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, DEC Alpha, or MIPS running Windows NT
+            organization/author:
+                    Geoff Voelker
+                    voelker@cs.washington.edu
+            free, anonymous FTP from
+                    ftp://ftp.gnu.org/gnu/windows/emacs
+                    http://www.fsf.org/software/emacs/windows/ (FAQ)
+                    ftp.cs.washington.edu in /pub/ntemacs
+                    http://www.cs.washington.edu/homes/voelker/ntemacs.html
+
+        _Note:_ NTEmacs is currently based on GNU Emacs version 19.17 As of
+        10/8/94, a beta test version of Emacs 19.27 ported to Windows NT is
+        available from june.cs.washington.edu:/pub/voelker/trial. The port
+        will be merged into a forthcoming release of GNU Emacs.
+
+        Latest versions are 19.34, 20.3 and 20.4 which may be for Win 95
+        and Win NT only.
+
+        cs.washington.edu links are probably broken but retained for history.
+
+    Ntemacs.exe
+
+            name: ntemacs.exe
+            last changed/verified: 1995-02-16
+            original distribution: 1995?
+            version: ?
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Windows NT
+            organization/author:
+                    Conguent Corporation
+                    +1 212 431 5100
+            free, anonymous FTP from
+                    microlib.cc.utexas.edu:/microlib/nt/gnu/gnubin.tar.Z.
+            note: Conguent sells support
+
+    Nitemacs
+
+            name: Nitemacs
+            last changed/verified: 1999-04-26
+            original distribution: 1994
+            version: 5.9.1
+            base language: C
+            implementation language: C
+            extension language: N/A
+            scope of implementation: command set
+            hardware/software requirements: Macintosh
+            organization/author:
+                    Shigeru Chiba, University of Tsukuba, Japan
+            free, anonymous FTP from
+                    http://www.softlab.is.tsukuba.ac.jp/~chiba/nitemacs.html
+            "An Emacs-like lightweight editor"
+
+    NTNOT
+
+            name: NTNOT
+            last changed/verified: 2002-03-19
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: ?
+            organization/author:
+
+                    ?
+
+        _Notes:_ This may be NotGNU as the NotGNU executable is "NTNOT.EXE".
+
+    OEmacs
+
+            name: OEmacs
+            last changed/verified: 1999-08-19
+            original distribution: ?
+            version: 4.1
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC or DESQview/X
+            organization/author:
+                    Darryl Okahata
+                    Internet: darrylo@sr.hp.com
+            free, anonymous FTP from
+                    on Garbo-PC mirror sites
+                    ftp://garbo.uwasa.fi/pc/editor
+            note: based upon GNU Emacs V19.19, successor to DEmacs
+
+    PE, PalEdit
+
+            name: PE (PalEdit)
+            last changed/verified: 2010-08-25
+            original distribution: ?
+            version: 2.3
+            base language: C
+            implementation language: C
+            extension language: N/A
+            scope of implementation: command set
+            hardware/software requirements: palmtop environment, HP100LX/200LX
+            organization/author:
+                    Andreas Garzotto
+                    garzotto@swssai.uu.ch
+            free, download
+                    http://www.dasoft.com/PE/latest.htm
+
+    Perfect Emacs
+
+            name: pe, pEmacs, Perfect Emacs
+            last changed/verified: 2013-02-24
+            original distribution: 2013-02-18
+            version: 1.03
+            base language: C 
+            implementation language: C 
+            extension language: none 
+            scope of implementation: command set 
+            hardware/software requirements: Unix, Linux
+            organization/author: 
+                    Hugh Barney
+                    <h...@gmail.com>
+            free, from github
+                   https://https://github.com/hughbarney/pEmacs.git
+
+        Note: Derived from ErsatzEMACS 1.0. The main enhancements 
+        being incremental search, filename completion and further
+        reduction in footprint.  The name Perfect EMACS comes from
+        an attempt to find the point where nothing further can be
+        taken away whilst retaining a useful Emacs-like editor.
+
+    QEmacs
+
+            name: QEmacs
+            last changed/verified: 2010-08-25
+            original distribution: ?
+            version: 0.3.1
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: N/A
+            hardware/software requirements: ?
+            organization/author:
+                    Fabrice Bellard
+            free
+                    http://bellard.org/qemacs/
+            note: Full screen editor with an Emacs compatible key subset
+                    (including undo and incremental search) and emacs
+                    look and feel.
+
+    Reamcs
+
+            name: Remacs
+            last changed/verified: 2017-02-25
+            original distribution: 2017-02-25
+            version: not yet released
+            base language: Rust
+            implementation language: Rust
+            extension language: Rust
+            scope of implementation: extensible
+            hardware/software requirements: ?
+            organization/author:
+                    Wilferd Hughes
+            free
+                    http://www.wilfred.me.uk/blog/2017/01/11/announcing-remacs-porting-emacs-to-rust/
+
+    Scame
+
+            name: Scame
+            last changed/verified: 2019-06-02
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, VMS, IBM PC
+            organization/author:
+                    Multihouse Automatisering bv
+                    c/o Johan Vromans
+                    Doesburgweg 7
+                    2803 PL Gouda
+                    the Netherlands
+                    +31 1820 62911
+                    fax +31 1820 62500
+                    jv@mh.nl
+            free
+                    https://github.com/larsbrinkhoff/scame
+
+        _Note:_ loosely based on an editor called Scame by Leif Samuelsson
+
+    SXEmacs
+
+            name: SXEmacs
+            last changed/verified: 2010-08-25
+            original distribution: 2004-12-31
+            version: 22.1.3
+            base language: C
+            implementation language: Lisp (built on Xemacs)
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: ?
+            organization/author:
+                    Steve Young
+            free
+                    http://www.sxemacs.org
+
+    Tint
+
+            name: Tint
+            last changed/verified: 2002-10-02
+            original distribution: 1998
+            version: 0.14
+            base language: C++
+            implementation language: C++/Tint
+            extension language: tint
+            scope of implementation: extensible
+            hardware/software requirements: Darwin, Windows
+            organization/author:
+                    Michael K Montague, <mailto:mikemon@exmsft.com>
+            free
+                    http://tintware.sourceforge.net/
+
+    TkEmacs
+
+            name: TkEmacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 1.1
+            base language: C
+            implementation language: C
+            extension language: N/A
+            scope of implementation: N/A
+            hardware/software requirements: X11
+            organization/author:
+                    Sven Delmas
+                    TU Berlin
+                    Germany
+                    garfield@cs.tu-berlin.de
+
+                    Juergen Nickelsen
+                    TU Berlin
+                    Germany
+                    nickel@cs.tu-berlin.de
+            free, anonymous FTP from:
+                    barkley.berkeley.edu in /pub/tkemacs/
+                    coma.cs.tu-berlin.de in /pub/tkemacs/
+
+        _Note:_ TkEmacs is a text widget for Tcl/Tk using GNU Emacs 18.58.
+        The package contains XfEmacs, an application of the TkEmacs widget,
+        providing scrollbars, configurable drop-down menus, etc.
+
+    TM
+
+            name: TM (a/k/a/ Tinymacs)
+            last changed/verified: 2010-09-04
+            original distribution: ?
+            version: ?
+            base language: assembler
+            implementation language: N/A
+            extension language: N/A
+            scope of implementation: command set
+            hardware/software requirements: ?
+            organization/author:
+                    Brian H. Kelley
+                    Sven Delmas
+                    TU Berlin
+                    Germany
+                    garfield@cs.tu-berlin.de
+
+                    Juergen Nickelsen
+                    TU Berlin
+                    Germany
+                    nickel@cs.tu-berlin.de
+            free, anonymous FTP from:
+                    http://www.bhk.com/tm/index.html (homepage, apparently off line)
+                    http://sites.google.com/site/texteditors/Home/files/tmsource.zip (source)
+                    http://sites.google.com/site/texteditors/Home/files/tm14.zip (binaries)
+
+    Tovj, Tom's own version of Jove
+
+            name: Tovj (Tom's own version of Jove), may be renatmed to Jat
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 4.6.14.32 patch-level 11
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, IBM PC, Macintosh
+            organization/author:
+                    Tom Hageman
+                    tom@icce.rug.nl
+                    Karel Kubat
+                    karel@icce.rug.nl
+            free, anonymous FTP from
+                    ftp.icce.rug.nl in pub/tom/jove/jove-4.6.14.32#11.tar.gz
+                    also other directories i the file
+
+    Treemacs
+
+            name: treemacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, others
+            organization/author:
+                    Vipin Swarup
+                    Dept. of Computer Science
+                    University of Illinois at Urbana-Champaign
+                    USA
+                    swarup@a.cs.uiuc.edu
+                    USENET ...!{cmcl2,seismo,uunet}!uiucdcs!swarup
+            free, anonymous FTP from
+                    cs.uiuc.edu in pub/treemacs/*
+
+        _Notes:_ this is a modified GNU Emacs 18.51. It is GNU Emacs
+        extended to allow the direct editing of tree structures.
+
+    Xedit
+
+            name: xedit, xedplus
+            last changed/verified: 2001-03-14
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: ?
+            organization/author:
+                    http://siag.nu
+
+        Note: Most anything using Athena widgets counts.  This version
+        is part of the Siag office package.
+
+    XEmacs, Emacs the next generation
+
+            name: XEmacs (nee Lucid GNU Emacs (lemacs))
+            last changed/verified: 2004-06-15
+            original distribution: April 1992
+            version: 21.4.15
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, Windows
+            maintained by the Xemacs Development Team, xemacs-beta@xemacs.org
+            free, anonymous FTP from:
+                    ftp://ftp.xemacs.org/pub/xemacs
+            mailing lists:
+                    http://www.xemacs.org/Lists/
+            FAQ:
+                    http://www.xemacs.org/faq/xemacs-faq.html
+            Releases:
+                    http://www.dk.xemacs.org/Releases/index.html#Stable
+
+    Xyzzy
+
+            name: Xyzzy
+            last changed/verified: 2002-11-17
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: ?
+            extension language: ?
+            scope of implementation: ?
+            hardware/software requirements: ?
+            free from:
+                    http://www.jsdlab.co.jp/~kamei/
+            FAQ:
+                    http://www.netlaputa.ne.jp/~henmi/lisp/xyzzy/#cust01
+                    http://dns.carabiner-systems.com/xyzzy/
+
+    YR-Emacs
+
+            name: YR-Emacs
+            last changed/verified: 2020-11-22
+            original distribution: 1987
+            version: 1.30a
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, VMS, IBM PC, OS/2,
+                    MS-Windows 3.11+, and a number of weird ones
+            organization/author:
+                    Yves Roumazeilles
+                    28 avenue Leonard de Vinci, 92400 Courbevoie (France)
+                    +33 1 82 14 14 15
+                    web2020@roumazeilles.net
+            free, from:
+                    https://www.roumazeilles.net/news/en/wordpress/2017/12/13/my-own-participation-to-emacs-history/
+
+
+    Zile, Zile is lossy Emacs
+
+            name: Zile (Zile is lossy Emacs)
+            last changed/verified: 2001-08-20
+            original distribution: 1997-06-08
+            version: 1.6
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX, ncurses
+            organization/author:
+                    Sandro Sigala
+                    Viale De Gasperi, 8
+                    25041 Boario Terme (Brescia)
+                    Italy
+                    sandro@sigala.it
+            free, anonymous FTP from
+                    http://zile.sourceforge.net/
+                    http://www.sigala.it/sandro/
+                    ftp://sunsite.unc.edu/pub/Linux/apps/editors/emacs/clones
+
+Implementations Sold by Vendors
+
+    ADEPT
+
+            name: ADEPT
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language:
+            implementation language:
+            extension language: yes, but not available to users
+            scope of implementation: command set
+            hardware/software requirements: Wang VS
+            organization/author:
+                    Wang
+                    Jimmy Huangs & George Soules
+            not free, contact vendor for price information
+
+    Alpha
+
+            name: Alpha
+            last changed/verified: 2000-01-25
+            original distribution: ?
+            version: 7.2.2
+            base language: ?
+            implementation language: ?
+            extension language: TCL
+            scope of implementation: extensible
+            hardware/software requirements: Macintosh
+            organization/author:
+                    Pete Keheler
+                    Rice University
+            shareware ($30), anonymous FTP from
+                    http://alpha.olm.net/
+                    ftp://ftp.ucsd.edu/pub/alpha/
+
+    Amacs
+
+            name: amacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 3.0 Release 2.8
+            base language: 6502 assembler
+            implementation language: 6502 assembler
+            extension language: macros / loadable libraries (assembled)
+            scope of implementation: extensible
+            hardware/software requirements: Apple // with ProDOS
+            organization/author:
+                    Creative Thinking, Included
+                    Brian Fox
+                    bfox@ai.mit.edu
+            not free, contact vendor for price information
+
+    Brief
+
+            name: Brief
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 3.1
+            base language: C
+            implementation language: C
+            extension language: Lisp or C (choice)
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC
+            organization/author:
+                    Solution Systems
+                    Suite 410
+                    541 Main St
+                    South Weymouth MA 02190
+                    USA
+                    +1 800 821 2492
+                    +1 617 337 6963
+                    fax +1 617 337 7719
+            not free, contact vendor for price information
+            acquired by Borland
+
+    CCA Emacs
+
+            name: CCA Emacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: ELisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS
+            organization/author:
+                    Uniworks Inc.
+                    P.O. Box K
+                    Suite 323
+                    Maynard MA 01754
+                    USA
+                    +1 508 897 6650
+                    emacs!mau
+            not free, contact vendor for price information
+
+    dde
+
+            name: dde
+            last changed/verified: 2010-02-02
+            original distribution: 1985
+            version: 1.6
+            base language: C
+            implementation language: C/C++
+            extension language: macros
+            scope of implementation: extensible
+            hardware/software requirements: x86 Linux or Windows
+            organization/author:
+                    DALSoft
+                    http://www.products.dalsoft.com/dde.html
+            not free, contact vendor for price information
+
+    E3
+
+            name: E3
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: internal?
+            base language: ?
+            implementation language: ?
+            extension language: REXX
+            scope of implementation: extensible
+            hardware/software requirements: ?
+            organization/author:
+                    IBM Corp.
+                    ?
+            not free, contact vendor for price information
+
+    EMACS-TC
+
+            name: EMACS-TC
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: Lisp-like
+            scope of implementation: extensible
+            hardware/software requirements: UNIX
+            organization/author:
+                    AT&T Toolchest
+                    +1 201 522 6900, then login "guest"
+                    USA
+
+                    Warren A. Montgomery
+                    +1 708 713 5090
+                    att!iexist!warren
+            not free, contact vendor for price information
+
+    Epsilon
+
+            name: Epsilon
+            last changed/verified: 2006-10-27
+            original distribution: 1984-08-01
+            version: 10.0
+            base language: C
+            implementation language: EEL
+            extension language: EEL, a dialect of C
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC (Unix, Windows NT, Windows, DOS, OS/2)
+            organization/author:
+                    Lugaru Software Ltd.
+                    1645 Shady Ave
+                    Pittsburgh PA 15217
+                    USA
+                    +1 412 421 5911
+                    fax +1 412 421 6371
+                    http://www.lugaru.com
+            not free, contact vendor for price information
+
+    EVE, Extensible VAX Editor
+
+            name: EVE (Extensible VAX Editor)
+            base language: TPU
+            implementation language: TPU
+            extension language: TPU (Text Processing Utility)
+            scope of implementation: extensible
+            hardware/software requirements: VMS
+            organization/author:
+                    Digital Equipment Corp.
+                    ?
+                    USA
+                    +1 ?
+                    ?
+
+        _Notes:_ (Courtesy of Juergen Nickelsen) It is not Emacs-like, but is
+        fully extensible. Source (TPU) is included. TPU is a programming
+        language for text processing, etc. that is also bundled with VMS.
+        EVE is the next best thing to GNU-Emacs on a VAX.
+
+    FrameMaker
+
+            name: FrameMaker
+            last changed/verified: 1996-04-23
+            original distribution: ?
+            version: 3.0
+            base language: ?
+            implementation language: ?
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, Macintosh
+            organization/author:
+                    Frame Technology Corp.
+                    1010 Rincon Circle
+                    San Jose CA 95131
+                    USA
+                    +1 408 433 1928
+
+                    Frame Technology International Ltd.
+                    Unit 52 Airways Industrial Estate
+                    Cloghran
+                    Dublin 17
+                    Ireland
+                    +353 1 42 95 66
+
+                    now part of Adobe
+            not free, contact vendor for price information
+
+    Fred, Fred Resembles Emacs Deliberately
+
+            name: Fred (Fred Resembles Emacs Deliberately)
+            last changed/verified: 1998-02-17
+            original distribution: ?
+            version: MCL 4.2, MCL 3.3
+            base language: Macintosh Common Lisp
+            implementation language: Macintosh Common Lisp
+            extension language: Macintosh Common Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Macintosh
+            organization/author:
+                    Digitool
+                    http://www.digitool.com/
+            not free: available with Macintosh Common Lisp
+
+    Infinitor
+
+            name: Infinitor
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C?
+            implementation language: C?
+            extension language: TPL
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC
+            organization/author:
+                    Agranat Systems
+                    P.O. Box 191
+                    Weston MA 02193
+                    USA
+                    +1 617 893 7868
+            not free, contact vendor for price information
+
+    InfoDock
+
+            name: InfoDock (built atop XEmacs)
+            last changed/verified: 2004-06-15
+            original distribution: 1994
+            version: 4.0
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX with Win32 port planned
+            organization/author:
+                    Bob Weiner
+                    Altrasoft
+                    info@altrasoft.com
+            later maintained and supported by beopen.com (now defunct)
+
+        _Notes:_ InfoDock is an integrated productivity toolset, mainly
+        aimed at technical people. It is built atop the XEmacs variant of
+        GNU Emacs and so has all of the power of Emacs, but with a much
+        easier to use and more comprehensive menu and toolbar-based user
+        interface. We find that most objections people raise to using Emacs
+        have already been addressed in InfoDock. See
+        http://infodock.sourceforge.net for more information.
+
+    Interleaf
+
+            name: Interleaf
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 5
+            base language: C
+            implementation language: C
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC, Macintosh
+            organization/author:
+                    Interleaf, Inc
+                    Prospect Place
+                    9 Hillside Ave
+                    Waltham MA  02154
+                    USA
+                    +1 617 290 0710
+            not free, contact vendor for price information
+
+    LispWorks
+
+            name: LispWorks
+            last changed/verified: 2015-03-20
+            original distribution: ?
+            version: ?
+            base language: ?
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: ?
+            organization/author:
+                    LispWorks
+                    http://www.lispworks.com/lw-history.html
+                    'the editor began life as a branch of Hemlock'
+                    http://www.lispworks.com/documentation/lw61/EDUG-M/html/eduser-m.htm
+            not free, contact vendor for price information
+
+    M
+
+            name: M
+            last changed/verified: 2007-08-23
+            original distribution: 1993
+            version: 1.21
+            base language: C++
+            implementation language: C++
+            extension language: none
+            scope of implementation: command
+            hardware/software requirements: DOS, Windows, NT
+            organization/author:
+                    Greg Gadbois
+                    Greg@dragonsys.com
+            not free, contact vendor for price information
+            A shareware version is available from the author
+            A premium version is available from the author
+
+    Mince
+
+            name: Mince (Mince Is Not Complete Emacs) / PerfectWriter / The
+                    FinalWord / FinalWordII
+            last changed/verified: 2019-10-14
+            original distribution: 1980
+            version:
+            base language: C
+            implementation language: C
+            extension language: none / key rebinding only  / key rebinding only/ custom
+            scope of implementation: command / command / command / extensible
+            hardware/software requirements: IBM PC, CP/M
+            organization/author:
+                    Mark of the Unicorn, Inc.
+                    sold to Borland International
+            not free, contact vendor (Borland) for price information
+            http://bitsavers.org/bits/MarkOfTheUnicorn/
+
+    Multics Emacs
+
+            name: Multics Emacs
+            last changed/verified: 2015-03-29
+            original distribution: 1978
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Honeywell Multics
+            organization:
+                    Bernard Greenberg
+                    Honeywell Bull
+            not free, contact vendor for price information
+
+        _Note_ from Carl Hoffman: Probably Multics Emacs' greatest claims
+        to fame are (1) having been the first to popularize the notion of
+        using a Lisp-like extension language which non-expert programmers
+        could use and understand, and (2) originating certain constructs
+        (e.g. "save-excursion", etc.) which today survive in GNU Emacs.
+
+        _Note_ from Bernard Greenberg: Multics Emacs was implemented in
+        Multics MacLisp, also known as Version 2 Lisp. Multics Emacs was
+        the first and only Multics Software Product in Lisp -- PL/I was the
+        official system language.
+
+        The notion of using Lisp for a mainframe product whose native
+        language was not Lisp was radical at the time. I chose Lisp because
+        of the possibility of implementing many small, cheap, modular,
+        easily-replaceable functions (not a possibility in PL/I), having
+        found this to be a major feature of an earlier private tool I
+        implemented in Multics MacLisp.
+
+        The notion of using Lisp on the Lisp machine (for Eine, and later
+        Zwei) was a requirement, not an innovation. It did not speak to the
+        issues of the suitability of Lisp for such a task, nor to that of
+        what would be the best language for such a task. The idea of
+        -choosing- Lisp for a mainframe editor implementation was innovated
+        here. The idea of augmenting Multics TECO, and that of writing a
+        TECO-like editor gut in flat-out PL/I were rejected by me in favor
+        of a Lisp program that implemented editor functionality.
+
+        Inspired by the TECO in which EMACS (on ITS, then the only program
+        using that name) was implemented, I designed a TECO-like control
+        and "point" manipulation model in a Lisp framework, which I thought
+        was natural and obvious, not at all similar to the buffer-pointer
+        passing model of the Lisp Machine editors. The natural combination
+        of Lisp macrology and scoping with this type of model proved to be
+        flexible, powerful, and appealing: this model caught on, and is now
+        the basis of everything in the world; the Lisp machine's did not.
+        The intellectual lineage of GNU Emacs, in these regards, comes
+        directly from James Gosling's Emacs, which came directly from (and
+        was credited to) Multics Emacs.
+
+        I rank the significant innovations of Multics Emacs as: (1)
+        Explicitly-designed extension languages, which could be understood
+        and used by non-experts. (2) Lisp as an editor implementation
+        language. (3) Lisp and Lisp-macros as an extension language. (4) A
+        control regime and macrology, including many names (e.g.,
+        "save-excursion"), that have become today become semi-standard
+        through GNU Emacs and other systems.
+
+        Major extensions that became part of the product should also be
+        credited to Richard Lamson, Gary Palter, and William York, who
+        became my guerilla band, back then.
+
+        Multics Emacs: The History, Design and Implementation
+        http://www.multicians.org/mepap.html
+
+        Multics Emacs Users' Guide
+        http://bitsavers.trailing-edge.com/pdf/honeywell/multics/CH27-00F_emacs_Nov86.pdf
+        http://bitsavers.trailing-edge.com/pdf/honeywell/multics/CJ27-00_Emacs_Users%27_Guide_Dec79.pdf
+
+        Multics Emacs Extensions Writer’s Guide
+        http://bitsavers.trailing-edge.com/pdf/honeywell/multics/CJ52-01_emacsExtns_Jul82.pdf
+        http://bitsavers.trailing-edge.com/pdf/honeywell/multics/CJ52-00_Emacs_Extension_Writers'_Guide_Jan80.pdf
+
+        Source
+        http://web.mit.edu/afs/net/dev/reference/multics/ldd/unb/source/
+
+    PMATE, ZMATE
+
+            name: PMATE, ZMATE
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: PMATE (DOS) 4.0, PMATE (CP/M) 3.21, ZMATE (CP/M, Z-System) 1.0
+            base language: assembly language (not needed to use editors)
+            implementation language: assembly language (not needed to use editors)
+            extension language: MATE macro language (TECO-like)
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, CP/M, Z-System
+            organization/author:
+                    original by Michael Aronson (MATE = Michael Aronson's Text Editor)
+                    ZMATE version by Bridger Mitchell and Jay Sage
+                    ZMATE available from:
+                            Sage Microsystems East
+                            1435 Centre Strt
+                            Newton MA 02159-2469
+                            USA
+                            +1 617 965 3552
+            (Availability of PMATE for the PC is not certain at this time.  Sage
+            Microsystems may be able to offer it.)
+            not free, contact vendor for price information
+
+    Preditor
+
+
+            name: Preditor (was: Compuware Professional Editor, PVCS Professional
+                    Editor and Sage Professional Editor )
+            last changed/verified: 1997-08-22
+            original distribution: 1990
+            version: 3.01
+            base language: C
+            implementation language: C
+            extension language: PEL (custom based on AWK, C-like)
+            scope of implementation: extensible
+            hardware/software requirements: W95, NT, OS/2
+            organization/author:
+                    Compuware Corporation
+                    31440 Northwestern Highway
+                    Farmington Hills, MI 48334-2564
+                    USA
+                    +1 810 737 7300
+                    800 538 7822
+                    fax +1 810 737 7564
+                    preditor@compuware.com
+            not free, contact vendor for price information
+                    old character mode version 1.101 for DOS and OS/2 may still
+                    be available, but is not maintained
+
+    Preditor2
+
+            name: Preditor/2 (derived from Sage Professional Editor)
+            original distribution: 1994
+            version: 2.1
+            base language: C++,C
+            implementation language: C++,C
+            extension language: PEL (custom based on AWK, C-like)
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, OS/2
+            organization/author:
+                    Compuware Corporation
+                    31440 Northwestern Highway
+                    Farmington Hills, MI 48334-2564
+                    USA
+                    +1 810 737 7300
+                    800 538 7822
+                    fax +1 810 737 7564
+                    preditor@compuware.com
+            not free, contact vendor for price information
+            free DEMO version (nagware that times out in 14 days), anonymous FTP from:
+                hobbes.nmsu.edu /os2/demos/p2demo21.zip
+
+    SlickEdit
+
+            name: Slick, SlickEdit
+            last changed/verified: 1997-12-16
+            original distribution: ?
+            version: 2.4
+            base language: C
+            implementation language: C
+            extension language: Slick-C
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, UNIX
+            organization/author:
+                    MicroEdge Inc.
+                    PO Box 988
+                    Apex, NC 27502-0988
+                    USA
+                    http://www.slickedit.com
+                    email: sales@slickedit.com
+                    +1 800 934 3348
+                    +1 919 303 7400
+                    fax +1 919 303 8400
+            not free, contact vendor for price information
+            (this is a text-mode interface)
+
+    Visual SlickEdit
+
+            name: Visual SlickEdit
+            last changed/verified: 1997-12-16
+            original distribution: ?
+            version: 3.0
+            interface: graphical MDI
+            base language: C/C++
+            implementation language: C/C++
+            extension language: Slick-C
+            scope of implementation: extensible
+            requirements: Windows, NT, OS/2, or UNIX
+            organization/author:
+                    MicroEdge, Inc
+                    PO Box 988
+                    Apex, NC 27502-0988
+                    USA
+                    http://www.slickedit.com
+                    email: sales@slickedit.com
+                    +1 800 934 3348
+                    +1 919 303 7400
+                    fax +1 919 303 8400
+            not free, contact vendor for price information
+            (this is a GUI interface)
+
+    SPE Editor
+
+            name: SPE Editor
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX
+            organization/author:
+                    Sun Microsystems, Inc.
+                    2550 Garcia Ave
+                    Mountain View CA  94043
+                    USA
+                    +1 415 960 1300
+                    TLX 37 29639
+            not free, contact vendor for price information
+
+    Sprint
+
+            name: Sprint (in some countries 'Esprit')
+            last changed/verified: 1994-12-20
+            original distribution: 1985?
+            version:
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC
+            organization/author:
+                    Borland International
+                    1800 Green Hills Rd
+                    Scotts Valley CA  95067
+                    USA
+            not free, contact vendor for price information
+
+    Sys-IX Editor
+
+            name: Sys-IX Editor
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C?
+            implementation language: C?
+            extension language: macro
+            scope of implementation: command set
+            hardware/software requirements: UNIX, IBM PC
+            organization/author:
+                    System-IX (Networks) Ltd.
+                    55 Bedford Court Mansions
+                    Bedford Avenue
+                    London WC1B 3AD
+                    UK
+                    +44 71 636 8210
+                    fax +44 71 255 1038
+
+                    G.W. Computers Inc.
+                    4 Eagle Square
+                    East Boston MA  02128
+                    USA
+                    +1 617 569 5990
+                    fax +1 617 567 2981
+
+        _Note:_ may not be Emacs not free, contact vendor for price
+        information
+
+    Unipress Emacs
+
+            name: Unipress Emacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: MLisp
+            extension language: MLisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS, IBM PC
+            organization/author:
+                    Unipress Software Inc
+                    2025 Lincoln Hwy
+                    Edison NJ 08817
+                    USA
+                    +1 201 287 2100
+                    fax +1 201 287 4929
+                    telex 709418
+
+        _Note:_ was Gosling's Emacs not free, contact vendor for price
+        information
+
+    VOS Emacs
+
+            name: VOS Emacs
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 10
+            base language: PL/I
+            implementation language: PL/I
+            extension language: none
+            scope of implementation: modified command set
+            hardware requirements: Stratus XA, IBM System/88 or Olivetti CPS-32 computer
+            software requirements: VOS operating system
+            organization/author:
+                    Stratus Computer Inc.
+                    55 Fairbanks Blvd
+                    Marlboro MA  01752
+                    USA
+                    +1 508 460 2000
+                    telex (294112) ANSBK STRA UR
+            not free, contact vendor for price information
+
+    Win-Emacs
+
+            name: Win-Emacs
+            last changed/verified: 1996-08-14
+            original distribution: April 1993
+            version: 1.35 (released October 1994), 1.5 expected 1/96
+            base language: C
+            implementation language: Lisp
+            extension language: elisp (GNU Emacs Lisp)
+            scope of implementation: extensible
+            hardware/software requirements: IBM PC, Windows 3.1, 95, or NT
+            organization:
+                    Pearl Software
+                    2000 Powell St. Suite 1200
+                    Emeryville CA 94608
+                    USA
+                    +1 510 652 4361
+                    fax +1 510 652 4362
+                    tech@pearlsoft.com
+                    info@pearlsoft.com auto-replies with further information.
+            FTP a free fully-functional nagware version from:
+                    ftp://ftp.netcom.com/pub/pe/pearl/wemdemo*
+
+        _Note:_ Win-Emacs is derived from XEmacs 19.6 (nee Lucid Emacs).
+        Win-Emacs is a native MS-Window app which supports multiple
+        windows, fonts, code highlighting, arbitrary keymapping, DDE,
+        winsock, long filenames, drag-and-drop, etc. Version. 1.5 is a
+        Win32s app with most Unix features (e.g. asynch. subprocesses). The
+        free version of Win-Emacs is based on a nagware X emulator: a nag
+        screen pops up every half-hour; otherwise it is precisely identical
+        to the supported commercial version of Win-Emacs. Debatable whether
+        this should be moved into the "versions that cost" category.
+
+        Ben Wing, the main author of Win-Emacs, is now the most productive
+        active developer of XEmacs.  Most features of Win-Emacs have been
+        added to XEmacs.
+
+    ZMACS
+
+            name: ZMACS
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Symbolics
+            organization/author:
+                    Symbolics, Inc.
+                    8 New England Executive Park
+                    Burlington MA  01803
+                    USA
+                    +1 617 221 1000
+                    +1 800 533 7629
+            not free, contact vendor for price information
+            (Now somewhere in Concord.)
+
+    ZMACS TI
+
+            name: ZMACS (TI Explorer Emacs)
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Explorer
+            organization/author:
+                    Texas Instruments
+                    12501 Research Blvd
+                    Austin TX 78759
+                    USA
+                    +1 512 250 7111
+                    +1 800 232 3200
+                    fax +1 512 250 6522
+            not free, contact vendor for price information
+
+Implementations That Are No Longer Available
+
+    EINE
+
+            name: EINE (EINE is not Emacs (the first known recursive acronym)),
+                    ZWEI (Zwei Was Eine, Initially (the author knew German)),
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: Lisp
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Lisp Machine
+            organization/author:
+                    MIT
+                    USA
+            no longer available
+            ZWEI eveolved into Zmacs and all of the Symbolics, Texas Instruments,
+            Lisp Machines, and related variants.
+
+    Emacs20
+
+            name: Emacs (aka Prime Emacs)
+            last changed/verified: 2006-10-27
+            original distribution: ?
+            version: 20
+            base language: SPL, a variant of PL/1
+            implementation language: SPL, a variant of PL/1
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: Prime
+            organization/author:
+                    Prime Computer, Inc.
+                    24 Prime Park Way
+                    Natick MA  07160
+                    USA
+                    +1 508 651 3342
+                    telex 174519
+                    telex +1 508 651 2769
+            not free, contact vendor for price information
+
+            Note: Written by Bob Frankston and Seth Steinberg.
+
+
+    Leif
+
+            name: Leif
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: Lisp
+            extension language: Lisp
+            scope of implementation: extensible
+            hardware/software requirements: UNIX, VMS
+            organization/author:
+                    The Saga Group
+                    Department of Computer Science
+                    University of Illinois at Urbana Champaign
+                    1304 W. Springfield
+                    Urbana IL 61801
+                    USA
+                    leif@a.cs.uiuc.edu
+                    {pur-ee|ihnp4}!uiucdcs!leif
+
+        _Note:_ Leif is really just GNU Emacs with a small modification, an
+        elisp extension, and an external parser.
+
+    NMODE
+
+            name: NMODE ("New MODE"?), predecessor may be EMODE
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: PSL, Common LIsp
+            implementation language: PSL, Common LIsp
+            extension language: PSL, Common LIsp
+            scope of implementation: extensible
+            hardware/software requirements: HP series 9000
+            organization/author:
+                    Hewlett-Packard
+                    old symbolic languages group?
+            no longer available
+
+    TORE
+
+            name: TORES (Text ORiented Editing System)
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: UNIX
+            organization/author:
+                    Jeffrey Schiller
+                    MIT
+                    USA
+            no longer available
+
+    PD
+
+            name: PD Forthmacs System Editor
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: Forth?
+            implementation language: Forth?
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: Atari?
+            organization/author:
+                    Bradley Software
+            no longer available
+
+    TV
+
+            name: tv (aka otv, SINE (SINE is not EINE (the first known
+                    doubly-recursive acronym)))
+            last changed/verified: 2019-04-15
+            original distribution: 1977
+            version:
+            base language: PL/1
+            implementation language: SINE (Lisp-like)
+            extension language: SINE (Lisp-like)
+            scope of implementation: extensible
+            hardware/software requirements: MagicSix on Perkin-Elmer 3200 series
+            organization/author:
+                    Owen "Ted" Anderson
+                    MIT Architecture Machine Group
+                    USA
+            https://github.com/ArchMach/Sine
+                    background information
+            https://github.com/ArchMach/Sine/blob/master/saildart.org/OTA/README.md
+
+
+    UE
+
+            name: ue
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: ?
+            implementation language: ?
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: Atari ST
+            organization/author:
+                    pm@cwru.edu
+            no longer available
+            Part of Gulam a public-domain shell.
+
+    VINE
+
+            name: VINE (Vine Is Not Emacs)
+            last changed/verified: 1994-12-20
+            original distribution: 1977
+            version:
+            base language: Fortran (!)
+            implementation language: Fortran
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: VMS
+            organization/author:
+                    Craig Finseth
+                    Texas Instruments
+                    Dallas TX
+                    USA
+            no longer available
+
+    Z80EMACS
+
+            name: Z80EMACS
+            last changed/verified: 2007-08-23
+            original distribution: 1992?
+            version: 0.1
+            base language: C
+            implementation language: C
+            extension language: custom
+            scope of implementation: extensible
+            hardware/software requirements: CP/M
+            organization/author:
+                    Ralph Betza (FM),
+                    gnohmon@scscomm.com
+                    uunet!ssiny!gnohmon
+            free, anonymous FTP from:
+                    rtfm.mit.edu in pub/z80/emacs/*
+
+        Z80EMACS is a port of microemacs 3.6 to the CP/M operating system.
+        Microemacs keeps all data in memory, and CP/M must live in a 64KB
+        address space. By clever use of overlays and byte-squeezing and
+        tuning, Z80EMACS is able to edit files of size 30KB! microemacs 3.6
+        had no facility for remapping the keyboard bindings. Z80EMACS does
+        it with an offline utility. Z80EMACS uses overlays extensively, but
+        the most frequently used commands are all either in the root
+        segment or in one particular overlay. Since this overlay is usually
+        already in memory, performance is quite good, even when running
+        from floppies. Z80EMACS has the ability to edit multiple files,
+        display multiple windows, and do keyboard macros, among other
+        things. This makes it the spiffiest CP/M editor you could ever hope
+        to see. Z80EMACS comes with source and binaries; it was compiled
+        with AZTEC C, which few CP/Mmers have, so the binaries are more
+        likely to be useful than the source.
+
+    Unknown 1
+
+            name: none
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version:
+            base language: C
+            implementation language: C
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: HLH Orions
+            organization/author:
+                    Steven Zimmerman
+            no longer available
+            Dated 1983.  Described as a "distant descendant of the one written by
+            Warren Montgomery at Bell Labs.  Might be an early, non-commercial
+            version of CCA Emacs.
+
+    Unknown 2
+
+            name: none
+            last changed/verified: 1994-12-20
+            original distribution: ?
+            version: 1.1, 2.1 (?)
+            base language: C and 8088 assembler
+            implementation language: C and 8088 assembler
+            extension language: none
+            scope of implementation: command set
+            hardware/software requirements: IBM PC, HP-150, TIPC
+            organization/author:
+                    Don P. Bennett, Jr.
+                    Hewlett Packard (when he wrote it)
+            no longer available
+
+        This editor identifies itself as "Emacs", and has HP-style soft
+        labels for the first eight function keys hard-bound to "file
+        commands," "window commands," "buffer commands," etc. Versions 1.1
+        and 2.1 are known to exist. Other versions may also have escaped.
+        1.1 was written in Microsoft C and 8088 assembler 1.0 (or was that
+        2.0?) in about 1985. 2.1 was written using Microsoft C 3.0 in about
+        1986. All versions work quite usably, despite fatal bugs in some
+        commands. (Memory limits and large files can cause death,
+        "ESC-digit" causes immediate death.) ("If it dies when you do that,
+        stop doing it!")
+
+End

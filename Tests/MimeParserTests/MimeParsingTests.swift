@@ -9,6 +9,12 @@
 import XCTest
 @testable import MimeParser
 
+private extension MimeHeader {
+    func field(forName name: String) -> RFC822HeaderField? {
+        return other.first { $0.name == name }
+    }
+}
+
 class MimeParsingTests: XCTestCase {
 
 	static var allTests = [
@@ -92,7 +98,7 @@ class MimeParsingTests: XCTestCase {
 		XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
 		XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
 		XCTAssertEqual(mime.header.contentType?.mimeType, .multipart(subtype: .mixed, boundary: "Apple-Mail=_6019F987-AED7-497B-9323-66FED5C72DF3"))
-		XCTAssertEqual(mime.header.other.count, 11)
+		XCTAssertEqual(mime.header.other.count, 9)
 		XCTAssertNil(mime.header.contentTransferEncoding)
 
 		if case .mixed(let mimes) = mime.content {
@@ -269,7 +275,7 @@ class MimeParsingTests: XCTestCase {
 		XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
 		XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
 		XCTAssertEqual(mime.header.contentType?.mimeType, .multipart(subtype: .mixed, boundary: "----sinikael-?=_1-15217146106530.0021966528779551187"))
-		XCTAssertEqual(mime.header.other.count, 11)
+		XCTAssertEqual(mime.header.other.count, 9)
 		XCTAssertNil(mime.header.contentTransferEncoding)
 
 		if case .mixed(let mimes) = mime.content {
@@ -310,5 +316,17 @@ class MimeParsingTests: XCTestCase {
         } else {
             XCTFail("Unexpected mime content")
         }
+    }
+    
+    func testCanParseEmptyHeaderField() throws {
+        let parser = MimeParser()
+        let message = TestAdditions.testResourceString(withName: "EmptyCc", extension: "txt")
+
+        // When
+        let mime = try parser.parse(message)
+        
+        // Then
+        XCTAssertEqual(mime.header.field(forName: "Cc"), nil)
+        XCTAssertEqual(mime.header.field(forName: "Subject")?.body, "Emacs implementations, list of, regular post [long, FAQ]")
     }
 }
