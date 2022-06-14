@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Mime+Initializers.swift
 //  
 //
 //  Created by Ronald Mannak on 5/23/22.

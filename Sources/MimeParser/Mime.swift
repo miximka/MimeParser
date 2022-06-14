@@ -40,6 +40,26 @@ public enum ContentTransferEncoding : Equatable {
     }
 }
 
+extension ContentTransferEncoding: CustomStringConvertible {
+   
+    public var description: String {
+        switch(self) {
+        case .sevenBit:
+            return "7bit"
+        case .eightBit:
+            return "8bit"
+        case .binary:
+            return "binary"
+        case .quotedPrintable:
+            return "quoted-printable"
+        case .base64:
+            return "base64"
+        case .other(let string):
+            return string
+        }
+    }
+}
+
 public enum MultipartSubtype : Equatable {
     case mixed
     case alternative
@@ -149,6 +169,43 @@ public struct MimeHeader {
     public let contentType: ContentType?
     public let contentDisposition: ContentDisposition?
     public let other: [RFC822HeaderField]
+}
+
+extension MimeHeader {
+    
+    /// Exports headers to a RFC822 formatted string
+    /// - Returns: RFC822 formatted string
+    func rfc822String() -> String {
+        var string = ""
+        
+        if let encoding = self.contentTransferEncoding {
+            string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
+        }
+        
+        if let type = self.contentType {
+            string = string + "Content-type: \(type.raw)"
+            for (key, value) in type.parameters {
+                assert(key.lowercased() != "content-type")
+                string = string + ";\r\n    \(key)=\"\(value)\""
+            }
+            string = string + "\r\n"
+        }
+        
+        if let disposition = self.contentDisposition {
+            string = string + "Content-Disposition: \(disposition.type)"
+            for (key, value) in disposition.parameters {
+                assert(key.lowercased() != "Content-Disposition")
+                string = string + ";\r\n    \(key)=\(value)"
+            }
+            string = string + "\r\n"
+        }
+        
+        for header in other {
+            string = string + "\(header.name): \(header.body)\r\n"
+        }
+        
+        return string
+    }
 }
 
 extension MimeHeader : Equatable {
@@ -286,5 +343,39 @@ extension Mime {
 
     public func attachment(withFilename filename: String) -> Mime? {
         return encapsulatedMimes.first { $0.header.contentDisposition?.filename == filename }
+    }
+        
+    /// Exports Mime to a string conform RFC-822 of Mime
+    /// - Returns: RFC-822 formatted string
+    public func rfc822String() throws -> String {
+        return try rfc822Str()
+    }
+    
+    /// Exports Mime to a string conform RFC-822
+    /// - Parameter boundary: Optional boundary string. Pass nil for top level Mime.
+    /// - Returns: RFC-822 formatted string
+    private func rfc822Str(boundary: String? = nil) throws -> String {
+        var string = ""
+        switch self.content {
+        case .body(let body):
+            string = string + (boundary != nil ? "\r\n--\(boundary!)\r\n" : "")
+            string = string + self.header.rfc822String() + "\n"
+            string = string + body.raw
+        case .mixed(let parts), .alternative(let parts):
+            if let _ = boundaryString(), let boundary = boundary {
+                // new nested part
+                string = string + "\r\n--\(boundary)\r\n"
+            }
+            string = string + self.header.rfc822String() + "\n"
+            for part in parts {
+                string = string + (try part.rfc822Str(boundary: boundaryString()))
+            }
+            string = string + (boundaryString() != nil ? "\r\n--\(boundaryString()!)--\r\n" : "")
+        }
+        return string
+    }
+    
+    public func boundaryString() -> String? {
+        return header.contentType?.parameters["boundary"]
     }
 }
