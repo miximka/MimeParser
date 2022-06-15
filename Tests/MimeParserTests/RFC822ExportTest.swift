@@ -108,10 +108,9 @@ class RFC822ExportTest: XCTestCase {
 extension String {
     func showTokens() -> String {
         var string = self
-        string = string.replacingOccurrences(of: "\r\n", with: "\\r\\n")
-        string = string.replacingOccurrences(of: "\n", with: "\\n")
+        string = string.replacingOccurrences(of: "\r", with: "\\r")
+        string = string.replacingOccurrences(of: "\n", with: "\\n\n")
         string = string.replacingOccurrences(of: "\t", with: "\\t\t")
-        string = string.replacingOccurrences(of: "\\n", with: "\\n\n")
         return string
     }
 }
