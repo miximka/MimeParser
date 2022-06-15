@@ -25,6 +25,13 @@ class RFC822ExportTest: XCTestCase {
         XCTAssertEqual(message, rfc822)
     }
     
+//    func testSimpleAppleMessage() throws {
+//        // When
+//        let (message, rfc822) = try fileToRFC822(resource: "SimpleAppleMessage")
+//        // Then
+//        XCTAssertEqual(message, rfc822)
+//    }
+    
     func testSimpleMessageWithBinaryAttachment() throws {
         // When
         let (message, rfc822) = try fileToRFC822(resource: "SimpleMessageWithBinaryAttachment")
@@ -88,12 +95,23 @@ class RFC822ExportTest: XCTestCase {
         XCTAssertEqual(message, rfc822)
     }
 
-    func fileToRFC822(resource: String) throws -> (String, String) {
+    private func fileToRFC822(resource: String) throws -> (String, String) {
         let parser = MimeParser()
         let message = TestAdditions.testResourceString(withName: resource, extension: "txt")
 
         let mime = try parser.parse(message)
         let rfc822 = try mime.rfc822String()
-        return (message, rfc822)
+        return (message.showTokens(), rfc822.showTokens())
+    }
+}
+
+extension String {
+    func showTokens() -> String {
+        var string = self
+        string = string.replacingOccurrences(of: "\r\n", with: "\\r\\n")
+        string = string.replacingOccurrences(of: "\n", with: "\\n")
+        string = string.replacingOccurrences(of: "\t", with: "\\t\t")
+        string = string.replacingOccurrences(of: "\\n", with: "\\n\n")
+        return string
     }
 }
