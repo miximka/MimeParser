@@ -93,35 +93,6 @@ extension MimeHeader {
             }
         }
         return string
-        
-        /*
-        if let encoding = self.contentTransferEncoding {
-            string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
-        }
-        
-        if let type = self.contentType {
-            string = string + "Content-type: \(type.raw)"
-            for (key, value) in type.parameters {
-                assert(key.lowercased() != "content-type")
-                string = string + ";\r\n    \(key)=\"\(value)\""
-            }
-            string = string + "\r\n"
-        }
-        
-        if let disposition = self.contentDisposition {
-            string = string + "Content-Disposition: \(disposition.type)"
-            for (key, value) in disposition.parameters {
-                assert(key.lowercased() != "Content-Disposition")
-                string = string + ";\r\n    \(key)=\(value)"
-            }
-            string = string + "\r\n"
-        }
-        
-        for header in other {
-            string = string + "\(header.name): \(header.body)\r\n"
-        }
-        
-        return string */
     }
 }
 
