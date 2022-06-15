@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MimeHeader.swift
 //  
 //
 //  Created by Ronald Mannak on 6/14/22.
@@ -69,7 +69,32 @@ extension MimeHeader {
     /// - Returns: RFC822 formatted string
     func rfc822String() -> String {
         var string = ""
+                
+        for field in fields {
+            switch field {
+            case .contentTransferEncoding(let encoding):
+                string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
+            case .contentType(let type):
+                string = string + "Content-type: \(type.raw)"
+                for (key, value) in type.parameters {
+                    assert(key.lowercased() != "content-type")
+                    string = string + ";\r\n    \(key)=\"\(value)\""
+                }
+                string = string + "\r\n"
+            case .contentDisposition(let disposition):
+                string = string + "Content-Disposition: \(disposition.type)"
+                for (key, value) in disposition.parameters {
+                    assert(key.lowercased() != "Content-Disposition")
+                    string = string + ";\r\n    \(key)=\(value)"
+                }
+                string = string + "\r\n"
+            case .other(let header):
+                string = string + "\(header.name): \(header.body)\r\n"
+            }
+        }
+        return string
         
+        /*
         if let encoding = self.contentTransferEncoding {
             string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
         }
@@ -96,16 +121,14 @@ extension MimeHeader {
             string = string + "\(header.name): \(header.body)\r\n"
         }
         
-        return string
+        return string */
     }
 }
 
 extension MimeHeader : Equatable {
 
     public static func ==(lhs: MimeHeader, rhs: MimeHeader) -> Bool {
-        return lhs.contentTransferEncoding == rhs.contentTransferEncoding &&
-            lhs.contentType == rhs.contentType &&
-            lhs.other == rhs.other
+        return lhs.fields == rhs.fields
     }
 }
 
