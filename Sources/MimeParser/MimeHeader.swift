@@ -10,20 +10,60 @@ import Foundation
 // MARK: - MimeHeader
 
 public struct MimeHeader {
-    public let contentTransferEncoding: ContentTransferEncoding?
-    public let contentType: ContentType?
-    public let contentDisposition: ContentDisposition?
-    public let other: [RFC822HeaderField]
+    
+    public var contentTransferEncoding: ContentTransferEncoding? {
+        return fields.compactMap({ header -> ContentTransferEncoding? in
+            switch header {
+            case .contentTransferEncoding(let encoding):
+                return encoding
+            default:
+                return nil
+            }
+        }).first
+    }
+    
+    public var contentType: ContentType? {
+        return fields.compactMap({ header -> ContentType? in
+            switch header {
+            case .contentType(let contentType):
+                return contentType
+            default:
+                return nil
+            }
+        }).first
+    }
+    
+    public var contentDisposition: ContentDisposition? {
+        return fields.compactMap({ header -> ContentDisposition? in
+            switch header {
+            case .contentDisposition(let contentDisposition):
+                return contentDisposition
+            default:
+                return nil
+            }
+        }).first
+    }
+    
+    @available(*, deprecated, message: "Use fields property instead")
+    public var other: [RFC822HeaderField] {
+        return fields.compactMap({ header -> RFC822HeaderField? in
+            switch header {
+            case .other(let field):
+                return field
+            default:
+                return nil
+            }
+        })
+    }
+    
+    public let fields: [HeaderType]
+        
+    public init(fields: [HeaderType]) {
+        self.fields = fields
+    }
 }
 
 extension MimeHeader {
-    
-    init(encoding: ContentTransferEncoding?, type: ContentType?, disposition: ContentDisposition?, other: [RFC822HeaderField]) {
-        self.contentTransferEncoding = encoding
-        self.contentType = type
-        self.contentDisposition = disposition
-        self.other = other
-    }
     
     /// Exports headers to a RFC822 formatted string
     /// - Returns: RFC822 formatted string
@@ -69,6 +109,17 @@ extension MimeHeader : Equatable {
     }
 }
 
+// MARK: - HeaderType
+public enum HeaderType: Equatable {
+    case contentTransferEncoding(ContentTransferEncoding)
+    case contentType(ContentType)
+    case contentDisposition(ContentDisposition)
+//    case to([EmailField])
+//    case cc([EmailField])
+//    case bcc([EmailField])
+    case other(RFC822HeaderField)
+}
+
 // MARK: - RFC822HeaderField
 public struct RFC822HeaderField : Equatable {
     public let name: String
@@ -79,9 +130,9 @@ public struct RFC822HeaderField : Equatable {
     }
 }
 
-public extension RFC822HeaderField {
+extension RFC822HeaderField {
     
-    init(key: String, value: String) {
+    public init(key: String, value: String) {
         self.name = key
         self.body = value
     }
@@ -183,7 +234,7 @@ extension ContentType {
         }
     }
     
-    init(type: String, subtype: String, parameters: [String: String], ignore: Bool = false) {
+    public init(type: String, subtype: String, parameters: [String: String], ignore: Bool = false) {
         self.type = type
         self.subtype = subtype
         self.parameters = parameters
@@ -204,9 +255,9 @@ public struct ContentDisposition : Equatable {
     }
 }
 
-public extension ContentDisposition {
+extension ContentDisposition {
     
-    init(type: String, parameters: [String: String], ignore: Bool = false) {
+    public init(type: String, parameters: [String: String], ignore: Bool = false) {
         self.type = type
         self.parameters = parameters
     }
