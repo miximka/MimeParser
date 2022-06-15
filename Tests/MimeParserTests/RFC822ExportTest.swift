@@ -92,7 +92,6 @@ class RFC822ExportTest: XCTestCase {
         let parser = MimeParser()
         let message = TestAdditions.testResourceString(withName: resource, extension: "txt")
 
-        // When
         let mime = try parser.parse(message)
         let rfc822 = try mime.rfc822String()
         return (message, rfc822)
