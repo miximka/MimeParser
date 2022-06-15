@@ -12,15 +12,6 @@ let invalidQTextChars: CharacterSet = CharacterSet(charactersIn: "\"\\")
 let invalidDTextChars: CharacterSet = CharacterSet(charactersIn: "[]\\")
 let invalidCTextChars: CharacterSet = CharacterSet(charactersIn: "()\\")
 
-public struct RFC822HeaderField : Equatable {
-    public let name: String
-    public let body: String
-    
-    public static func ==(lhs: RFC822HeaderField, rhs: RFC822HeaderField) -> Bool {
-        return lhs.name == rhs.name && lhs.body == rhs.body
-    }
-}
-
 struct RFC822HeaderFieldsUnfolder {
     
     func unfold(in string: String) -> String {

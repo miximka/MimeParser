@@ -60,44 +60,27 @@ struct HeaderParser {
     
     static func parse(_ string: String) throws -> MimeHeader {
         let unfolded = RFC822HeaderFieldsUnfolder().unfold(in: string)
-        var fields = try RFC822HeaderFieldsPartitioner().fields(in: unfolded)
+        let fields = try RFC822HeaderFieldsPartitioner().fields(in: unfolded)
         
-        var fieldsByName = [String : RFC822HeaderField]()
-        for each in fields {
-            fieldsByName[each.name] = each
+        var wrappedFields = [HeaderType]()
+        for field in fields {
+            if field.name.caseInsensitiveCompare("Content-Transfer-Encoding") == .orderedSame {
+                let parser = ContentTransferEncodingFieldParser()
+                let contentTransferEncoding = try parser.parse(field.body)
+                wrappedFields.append(.contentTransferEncoding(contentTransferEncoding))
+            } else if field.name.caseInsensitiveCompare("Content-Type") == .orderedSame {
+                let parser = ContentTypeParser()
+                let contentType = try parser.parse(field.body)
+                wrappedFields.append(.contentType(contentType))
+            } else if field.name.caseInsensitiveCompare("Content-Disposition") == .orderedSame {
+                let parser = ContentDispositionFieldParser()
+                let contentDisposition = try parser.parse(field.body)
+                wrappedFields.append(.contentDisposition(contentDisposition))
+            } else {
+                wrappedFields.append(.other(field))
+            }
         }
-        
-        let contentTransferEncoding: ContentTransferEncoding?
-        if let field = fieldsByName[caseInsensitive: "Content-Transfer-Encoding"] {
-            let parser = ContentTransferEncodingFieldParser()
-            contentTransferEncoding = try parser.parse(field.body)
-            fields.remove(field)
-        } else {
-            contentTransferEncoding = nil
-        }
-        
-        let contentType: ContentType?
-        if let field = fieldsByName[caseInsensitive: "Content-Type"] {
-            let parser = ContentTypeParser()
-            contentType = try parser.parse(field.body)
-            fields.remove(field)
-        } else {
-            contentType = nil
-        }
-        
-        let contentDisposition: ContentDisposition?
-        if let field = fieldsByName[caseInsensitive: "Content-Disposition"] {
-            let parser = ContentDispositionFieldParser()
-            contentDisposition = try parser.parse(field.body)
-            fields.remove(field)
-        } else {
-            contentDisposition = nil
-        }
-        
-        return MimeHeader(contentTransferEncoding: contentTransferEncoding,
-                          contentType: contentType,
-                          contentDisposition: contentDisposition,
-                          other: fields)
+        return MimeHeader(fields: wrappedFields)
     }
 
 }
