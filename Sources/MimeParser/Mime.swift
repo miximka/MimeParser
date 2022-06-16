@@ -173,7 +173,7 @@ public struct Mime :Equatable {
 
 extension Mime {
             
-    init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
+    public init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
         self.header = header
         self.content = content
     }
@@ -195,31 +195,36 @@ extension Mime {
     }
         
     /// Exports Mime to a string conform RFC-822 of Mime
+    /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC-822 formatted string
-    public func rfc822String() throws -> String {
-        return try rfc822Str()
+    public func rfc822String(mailKit: Bool = true) throws -> String {
+        return try rfc822Str(mailKit: mailKit)
     }
     
     /// Exports Mime to a string conform RFC-822
-    /// - Parameter boundary: Optional boundary string. Pass nil for top level Mime.
+    /// - Parameters:
+    ///   - boundary: Optional boundary string. Pass nil for top level Mime.
+    ///   - mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC-822 formatted string
-    private func rfc822Str(boundary: String? = nil) throws -> String {
+    private func rfc822Str(boundary: String? = nil, mailKit: Bool = true) throws -> String {
+        let lf = mailKit ? "\n" : "\r\n"
         var string = ""
+        
         switch self.content {
         case .body(let body):
-            string = string + (boundary != nil ? "\r\n--\(boundary!)\r\n" : "")
-            string = string + self.header.rfc822String() + "\n"
+            string = string + (boundary != nil ? "\(lf)--\(boundary!)\(lf)" : "") // last lf should be \n only for MailKit
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
             string = string + body.raw
         case .mixed(let parts), .alternative(let parts):
             if let _ = boundaryString(), let boundary = boundary {
                 // new nested part
-                string = string + "\r\n--\(boundary)\r\n"
+                string = string + "\(lf)--\(boundary)\n"
             }
-            string = string + self.header.rfc822String() + "\n"
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
             for part in parts {
                 string = string + (try part.rfc822Str(boundary: boundaryString()))
             }
-            string = string + (boundaryString() != nil ? "\r\n--\(boundaryString()!)--\r\n" : "")
+            string = string + (boundaryString() != nil ? "\(lf)--\(boundaryString()!)--\(lf)" : "") // last lf should be \n only for MailKit
         }
         return string
     }

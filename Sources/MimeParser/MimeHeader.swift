@@ -66,30 +66,33 @@ public struct MimeHeader {
 extension MimeHeader {
     
     /// Exports headers to a RFC822 formatted string
+    /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC822 formatted string
-    func rfc822String() -> String {
+    func rfc822String(mailKit: Bool = true) -> String {
+        let lf = mailKit ? "\n" : "\r\n"
+        let t = mailKit ? "\t" : "    "
         var string = ""
                 
         for field in fields {
             switch field {
             case .contentTransferEncoding(let encoding):
-                string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
+                string = string + "Content-Transfer-Encoding: \(encoding.description)\(lf)"
             case .contentType(let type):
-                string = string + "Content-type: \(type.raw)"
+                string = string + "Content-Type: \(type.raw)"
                 for (key, value) in type.parameters {
                     assert(key.lowercased() != "content-type")
-                    string = string + ";\r\n    \(key)=\"\(value)\""
+                    string = string + ";\(lf)\(t)\(key)=\"\(value)\""
                 }
-                string = string + "\r\n"
+                string = string + lf
             case .contentDisposition(let disposition):
                 string = string + "Content-Disposition: \(disposition.type)"
                 for (key, value) in disposition.parameters {
                     assert(key.lowercased() != "Content-Disposition")
-                    string = string + ";\r\n    \(key)=\(value)"
+                    string = string + ";\(lf)\(t)\(key)=\(value)"
                 }
-                string = string + "\r\n"
+                string = string + lf
             case .other(let header):
-                string = string + "\(header.name): \(header.body)\r\n"
+                string = string + "\(header.name): \(header.body)\(lf)"
             }
         }
         return string
@@ -104,6 +107,7 @@ extension MimeHeader : Equatable {
 }
 
 // MARK: - HeaderType
+
 public enum HeaderType: Equatable {
     case contentTransferEncoding(ContentTransferEncoding)
     case contentType(ContentType)
@@ -133,6 +137,7 @@ extension RFC822HeaderField {
 }
 
 // MARK: - ContentTransferEncoding
+
 public enum ContentTransferEncoding : Equatable {
     case sevenBit
     case eightBit
@@ -186,6 +191,7 @@ extension ContentTransferEncoding: CustomStringConvertible {
 }
 
 // MARK: - ContentType
+
 public struct ContentType : Equatable {
     public let type: String
     public let subtype: String
@@ -236,6 +242,7 @@ extension ContentType {
 }
 
 // MARK: - ContentDisposition
+
 public struct ContentDisposition : Equatable {
     public let type: String
     public let parameters: [String : String]
@@ -257,5 +264,22 @@ extension ContentDisposition {
     }
 }
 
-
+// MARK: - EmailField
+/*
+public struct EmailField {
+    public let name: String?
+    public let address: String
+ 
+    public init(name: String?, address: String) {
+        self.name = name
+        self.address = address
+    }
+    
+    // move to HeaderParser
+    static func parse(string: String) -> [EmailField] {
+        let rawAddresses = string.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+//        if < then look until > everything in bwtn is email 
+    }
+}
+*/
 
