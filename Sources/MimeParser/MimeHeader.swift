@@ -66,8 +66,11 @@ public struct MimeHeader {
 extension MimeHeader {
     
     /// Exports headers to a RFC822 formatted string
+    /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC822 formatted string
-    func rfc822String(lf: String = "\r\n") -> String {
+    func rfc822String(mailKit: Bool = true) -> String {
+        let lf = mailKit ? "\n" : "\r\n"
+        let t = mailKit ? "\t" : "    "
         var string = ""
                 
         for field in fields {
@@ -78,14 +81,14 @@ extension MimeHeader {
                 string = string + "Content-Type: \(type.raw)"
                 for (key, value) in type.parameters {
                     assert(key.lowercased() != "content-type")
-                    string = string + ";\(lf)    \(key)=\"\(value)\""
+                    string = string + ";\(lf)\(t)\(key)=\"\(value)\""
                 }
                 string = string + lf
             case .contentDisposition(let disposition):
                 string = string + "Content-Disposition: \(disposition.type)"
                 for (key, value) in disposition.parameters {
                     assert(key.lowercased() != "Content-Disposition")
-                    string = string + ";\(lf)    \(key)=\(value)"
+                    string = string + ";\(lf)\(t)\(key)=\(value)"
                 }
                 string = string + lf
             case .other(let header):

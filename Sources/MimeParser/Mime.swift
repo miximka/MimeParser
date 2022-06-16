@@ -195,33 +195,36 @@ extension Mime {
     }
         
     /// Exports Mime to a string conform RFC-822 of Mime
-    /// - Parameter lf: Set custom linefeed (for unit test purposes mostly
+    /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC-822 formatted string
-    public func rfc822String(lf: String = "\r\n") throws -> String {
-        return try rfc822Str(lf: lf)
+    public func rfc822String(mailKit: Bool = true) throws -> String {
+        return try rfc822Str(mailKit: mailKit)
     }
     
     /// Exports Mime to a string conform RFC-822
-    /// Note: ending the boundary line with the correct \r\n will lead to an issue in Apple Mail where the email in the Sent mailbox will not be parsed correctly.
-    /// - Parameter boundary: Optional boundary string. Pass nil for top level Mime.
+    /// - Parameters:
+    ///   - boundary: Optional boundary string. Pass nil for top level Mime.
+    ///   - mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC-822 formatted string
-    private func rfc822Str(boundary: String? = nil, lf: String = "\r\n") throws -> String {
+    private func rfc822Str(boundary: String? = nil, mailKit: Bool = true) throws -> String {
+        let lf = mailKit ? "\n" : "\r\n"
         var string = ""
+        
         switch self.content {
         case .body(let body):
-            string = string + (boundary != nil ? "\(lf)--\(boundary!)\n" : "")
-            string = string + self.header.rfc822String() + "\n"
+            string = string + (boundary != nil ? "\(lf)--\(boundary!)\(lf)" : "") // last lf should be \n only for MailKit
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
             string = string + body.raw
         case .mixed(let parts), .alternative(let parts):
             if let _ = boundaryString(), let boundary = boundary {
                 // new nested part
                 string = string + "\(lf)--\(boundary)\n"
             }
-            string = string + self.header.rfc822String() + "\n"
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
             for part in parts {
                 string = string + (try part.rfc822Str(boundary: boundaryString()))
             }
-            string = string + (boundaryString() != nil ? "\(lf)--\(boundaryString()!)--\n" : "")
+            string = string + (boundaryString() != nil ? "\(lf)--\(boundaryString()!)--\(lf)" : "") // last lf should be \n only for MailKit
         }
         return string
     }
