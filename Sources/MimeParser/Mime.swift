@@ -173,7 +173,7 @@ public struct Mime :Equatable {
 
 extension Mime {
             
-    init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
+    public init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
         self.header = header
         self.content = content
     }

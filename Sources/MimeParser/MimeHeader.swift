@@ -104,6 +104,7 @@ extension MimeHeader : Equatable {
 }
 
 // MARK: - HeaderType
+
 public enum HeaderType: Equatable {
     case contentTransferEncoding(ContentTransferEncoding)
     case contentType(ContentType)
@@ -133,6 +134,7 @@ extension RFC822HeaderField {
 }
 
 // MARK: - ContentTransferEncoding
+
 public enum ContentTransferEncoding : Equatable {
     case sevenBit
     case eightBit
@@ -186,6 +188,7 @@ extension ContentTransferEncoding: CustomStringConvertible {
 }
 
 // MARK: - ContentType
+
 public struct ContentType : Equatable {
     public let type: String
     public let subtype: String
@@ -236,6 +239,7 @@ extension ContentType {
 }
 
 // MARK: - ContentDisposition
+
 public struct ContentDisposition : Equatable {
     public let type: String
     public let parameters: [String : String]
@@ -257,5 +261,22 @@ extension ContentDisposition {
     }
 }
 
-
+// MARK: - EmailField
+/*
+public struct EmailField {
+    public let name: String?
+    public let address: String
+ 
+    public init(name: String?, address: String) {
+        self.name = name
+        self.address = address
+    }
+    
+    // move to HeaderParser
+    static func parse(string: String) -> [EmailField] {
+        let rawAddresses = string.split(separator: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+//        if < then look until > everything in bwtn is email 
+    }
+}
+*/
 
