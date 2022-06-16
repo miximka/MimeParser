@@ -195,31 +195,33 @@ extension Mime {
     }
         
     /// Exports Mime to a string conform RFC-822 of Mime
+    /// - Parameter lf: Set custom linefeed (for unit test purposes mostly
     /// - Returns: RFC-822 formatted string
-    public func rfc822String() throws -> String {
-        return try rfc822Str()
+    public func rfc822String(lf: String = "\r\n") throws -> String {
+        return try rfc822Str(lf: lf)
     }
     
     /// Exports Mime to a string conform RFC-822
+    /// Note: ending the boundary line with the correct \r\n will lead to an issue in Apple Mail where the email in the Sent mailbox will not be parsed correctly.
     /// - Parameter boundary: Optional boundary string. Pass nil for top level Mime.
     /// - Returns: RFC-822 formatted string
-    private func rfc822Str(boundary: String? = nil) throws -> String {
+    private func rfc822Str(boundary: String? = nil, lf: String = "\r\n") throws -> String {
         var string = ""
         switch self.content {
         case .body(let body):
-            string = string + (boundary != nil ? "\r\n--\(boundary!)\r\n" : "")
+            string = string + (boundary != nil ? "\(lf)--\(boundary!)\n" : "")
             string = string + self.header.rfc822String() + "\n"
             string = string + body.raw
         case .mixed(let parts), .alternative(let parts):
             if let _ = boundaryString(), let boundary = boundary {
                 // new nested part
-                string = string + "\r\n--\(boundary)\r\n"
+                string = string + "\(lf)--\(boundary)\n"
             }
             string = string + self.header.rfc822String() + "\n"
             for part in parts {
                 string = string + (try part.rfc822Str(boundary: boundaryString()))
             }
-            string = string + (boundaryString() != nil ? "\r\n--\(boundaryString()!)--\r\n" : "")
+            string = string + (boundaryString() != nil ? "\(lf)--\(boundaryString()!)--\n" : "")
         }
         return string
     }

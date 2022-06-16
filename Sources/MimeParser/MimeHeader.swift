@@ -67,29 +67,29 @@ extension MimeHeader {
     
     /// Exports headers to a RFC822 formatted string
     /// - Returns: RFC822 formatted string
-    func rfc822String() -> String {
+    func rfc822String(lf: String = "\r\n") -> String {
         var string = ""
                 
         for field in fields {
             switch field {
             case .contentTransferEncoding(let encoding):
-                string = string + "Content-Transfer-Encoding: \(encoding.description)\r\n"
+                string = string + "Content-Transfer-Encoding: \(encoding.description)\(lf)"
             case .contentType(let type):
-                string = string + "Content-type: \(type.raw)"
+                string = string + "Content-Type: \(type.raw)"
                 for (key, value) in type.parameters {
                     assert(key.lowercased() != "content-type")
-                    string = string + ";\r\n    \(key)=\"\(value)\""
+                    string = string + ";\(lf)    \(key)=\"\(value)\""
                 }
-                string = string + "\r\n"
+                string = string + lf
             case .contentDisposition(let disposition):
                 string = string + "Content-Disposition: \(disposition.type)"
                 for (key, value) in disposition.parameters {
                     assert(key.lowercased() != "Content-Disposition")
-                    string = string + ";\r\n    \(key)=\(value)"
+                    string = string + ";\(lf)    \(key)=\(value)"
                 }
-                string = string + "\r\n"
+                string = string + lf
             case .other(let header):
-                string = string + "\(header.name): \(header.body)\r\n"
+                string = string + "\(header.name): \(header.body)\(lf)"
             }
         }
         return string

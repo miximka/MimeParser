@@ -100,7 +100,7 @@ class RFC822ExportTest: XCTestCase {
         let message = TestAdditions.testResourceString(withName: resource, extension: "txt")
 
         let mime = try parser.parse(message)
-        let rfc822 = try mime.rfc822String()
+        let rfc822 = try mime.rfc822String(lf: "\n")
         return (message.showTokens(), rfc822.showTokens())
     }
 }
