@@ -64,21 +64,7 @@ struct HeaderParser {
         
         var wrappedFields = [HeaderType]()
         for field in fields {
-            if field.name.caseInsensitiveCompare("Content-Transfer-Encoding") == .orderedSame {
-                let parser = ContentTransferEncodingFieldParser()
-                let contentTransferEncoding = try parser.parse(field.body)
-                wrappedFields.append(.contentTransferEncoding(contentTransferEncoding))
-            } else if field.name.caseInsensitiveCompare("Content-Type") == .orderedSame {
-                let parser = ContentTypeParser()
-                let contentType = try parser.parse(field.body)
-                wrappedFields.append(.contentType(contentType))
-            } else if field.name.caseInsensitiveCompare("Content-Disposition") == .orderedSame {
-                let parser = ContentDispositionFieldParser()
-                let contentDisposition = try parser.parse(field.body)
-                wrappedFields.append(.contentDisposition(contentDisposition))
-            } else {
-                wrappedFields.append(.other(field))
-            }
+            try wrappedFields.append(HeaderType.wrap(field))            
         }
         return MimeHeader(fields: wrappedFields)
     }

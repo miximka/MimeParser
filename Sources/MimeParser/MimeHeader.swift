@@ -69,31 +69,10 @@ extension MimeHeader {
     /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC822 formatted string
     func rfc822String(mailKit: Bool = true) -> String {
-        let lf = mailKit ? "\n" : "\r\n"
-        let t = mailKit ? "\t" : "    "
         var string = ""
                 
         for field in fields {
-            switch field {
-            case .contentTransferEncoding(let encoding):
-                string = string + "Content-Transfer-Encoding: \(encoding.description)\(lf)"
-            case .contentType(let type):
-                string = string + "Content-Type: \(type.raw)"
-                for (key, value) in type.parameters {
-                    assert(key.lowercased() != "content-type")
-                    string = string + ";\(lf)\(t)\(key)=\"\(value)\""
-                }
-                string = string + lf
-            case .contentDisposition(let disposition):
-                string = string + "Content-Disposition: \(disposition.type)"
-                for (key, value) in disposition.parameters {
-                    assert(key.lowercased() != "Content-Disposition")
-                    string = string + ";\(lf)\(t)\(key)=\(value)"
-                }
-                string = string + lf
-            case .other(let header):
-                string = string + "\(header.name): \(header.body)\(lf)"
-            }
+            string = string + field.rfc822String(mailKit: mailKit)
         }
         return string
     }
@@ -112,10 +91,71 @@ public enum HeaderType: Equatable {
     case contentTransferEncoding(ContentTransferEncoding)
     case contentType(ContentType)
     case contentDisposition(ContentDisposition)
-//    case to([EmailField])
-//    case cc([EmailField])
-//    case bcc([EmailField])
+    case to(String)
+    case cc(String)
+    case bcc(String)
     case other(RFC822HeaderField)
+}
+
+extension HeaderType {
+    
+    static func wrap(_ field: RFC822HeaderField) throws -> HeaderType {
+        if field.name.caseInsensitiveCompare("Content-Transfer-Encoding") == .orderedSame {
+            let parser = ContentTransferEncodingFieldParser()
+            let contentTransferEncoding = try parser.parse(field.body)
+            return .contentTransferEncoding(contentTransferEncoding)
+        } else if field.name.caseInsensitiveCompare("Content-Type") == .orderedSame {
+            let parser = ContentTypeParser()
+            let contentType = try parser.parse(field.body)
+            return .contentType(contentType)
+        } else if field.name.caseInsensitiveCompare("Content-Disposition") == .orderedSame {
+            let parser = ContentDispositionFieldParser()
+            let contentDisposition = try parser.parse(field.body)
+            return .contentDisposition(contentDisposition)
+        } else if field.name.caseInsensitiveCompare("To") == .orderedSame {
+            return .to(field.body)
+        } else if field.name.caseInsensitiveCompare("Cc") == .orderedSame {
+            return .cc(field.body)
+        } else if field.name.caseInsensitiveCompare("Bcc") == .orderedSame {
+            return .bcc(field.body)
+        } else {
+            return .other(field)
+        }
+    }
+    
+    public func rfc822String(mailKit: Bool = true) -> String {
+        let lf = mailKit ? "\n" : "\r\n"
+        let t = mailKit ? "\t" : "    "
+        var string = ""
+        
+        switch self {
+        case .contentTransferEncoding(let encoding):
+            string = string + "Content-Transfer-Encoding: \(encoding.description)\(lf)"
+        case .contentType(let type):
+            string = string + "Content-Type: \(type.raw)"
+            for (key, value) in type.parameters {
+                assert(key.lowercased() != "content-type")
+                string = string + ";\(lf)\(t)\(key)=\"\(value)\""
+            }
+            string = string + lf
+        case .contentDisposition(let disposition):
+            string = string + "Content-Disposition: \(disposition.type)"
+            for (key, value) in disposition.parameters {
+                assert(key.lowercased() != "Content-Disposition")
+                string = string + ";\(lf)\(t)\(key)=\(value)"
+            }
+            string = string + lf
+        case .to(let to):
+            string = string + "To: \(to)\(lf)"
+        case .cc(let cc):
+            string = string + "Cc: \(cc)\(lf)"
+        case .bcc(let bcc):
+            string = string + "Bcc: \(bcc)\(lf)"
+        case .other(let header):
+            string = string + "\(header.name): \(header.body)\(lf)"
+        }
+        return string
+    }
 }
 
 // MARK: - RFC822HeaderField
