@@ -136,7 +136,62 @@ extension String {
         
         return decodedData
     }
+}
+
+extension String {
     
+    public func encode(_ encoding: ContentTransferEncoding) throws -> String {
+        switch encoding {
+        case .sevenBit: fallthrough
+        case .eightBit: fallthrough
+        case .binary:
+            return self
+        case .quotedPrintable:
+            var gen = self.utf8.makeIterator()
+            var charCount = 0
+            
+            var result = ""
+            result.reserveCapacity(self.count)
+            
+            while let c = gen.next() {
+                switch c {
+                case 32...60, 62...126:
+                    charCount += 1
+                    result.unicodeScalars.append(UnicodeScalar(c))
+                case 13:
+                    continue
+                case 10:
+                    if result.hasSuffix(" ") || result.hasSuffix("\t") {
+                        result.append("=\n")
+                        charCount = 0
+                    } else {
+                        result.append("\n")
+                        charCount = 0
+                    }
+                default:
+                    if charCount > 72 {
+                        result.append("=\n")
+                        charCount = 0
+                    }
+                    result.append("=" + c.hexString().uppercased())
+                    charCount+=3
+                }
+                
+                if charCount == 75 {
+                    charCount = 0
+                    result.append("=\n")
+                }
+            }
+            
+            return result
+        case .base64:
+            guard let data = Data(base64Encoded: self),
+            let encoded = String(data: data, encoding: .utf8) else { throw MimeContentDecoder.Error.unsupportedEncoding }
+            return encoded
+        case .other(_):
+            throw MimeContentDecoder.Error.unsupportedEncoding
+        }
+    }
 }
 
 extension Dictionary where Key == String {
@@ -154,5 +209,28 @@ extension Dictionary where Key == String {
                 self[key] = newValue
             }
         }
+    }
+}
+
+// Source: https://github.com/dunkelstern/QuotedPrintable/blob/master/QuotedPrintable/quotedprintable.swift
+extension UInt8 {
+    func hexString(padded: Bool = true) -> String {
+        let dict:[Character] = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+        var result = ""
+
+        let c1 = Int(self >> 4)
+        let c2 = Int(self & 0xf)
+
+        if c1 == 0 && padded {
+            result.append(dict[c1])
+        } else if c1 > 0 {
+            result.append(dict[c1])
+        }
+        result.append(dict[c2])
+
+        if (result.count == 0) {
+            return "0"
+        }
+        return result
     }
 }
