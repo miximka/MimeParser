@@ -12,12 +12,14 @@ import Foundation
 public enum MultipartSubtype : Equatable {
     case mixed
     case alternative
+//    case encrypted
     case other(String)
     
     init(_ string: String) {
         switch string.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-5.1
         case "mixed": self = .mixed
         case "alternative": self = .alternative
+//        case "encrypted": self = .encrypted
         default: self = .other(string)
         }
     }
@@ -26,6 +28,7 @@ public enum MultipartSubtype : Equatable {
         switch (lhs, rhs) {
         case (.mixed, .mixed): return true
         case (.alternative, .alternative): return true
+//        case (.encrypted, .encrypted): return true
         case (.other(let lhsValue), .other(let rhsValue)): return lhsValue == rhsValue
         default: return false
         }
@@ -57,6 +60,22 @@ public enum MimeType : Equatable {
         }
     }
 }
+
+//extension MimeType: CustomStringConvertible {
+//   
+//    public var description: String {
+//        switch(self) {
+//        case text
+//        case image
+//        case audio
+//        case video
+//        case application
+//        case message
+//        case multipart(subtype: MultipartSubtype, boundary: String)
+//        case other(String)
+//        }
+//    }
+//}
 
 // MARK: - MimeBody
 public struct MimeBody : Equatable {
