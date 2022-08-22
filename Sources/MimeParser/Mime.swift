@@ -144,6 +144,7 @@ public enum MimeContent {
     case body(MimeBody)
     case mixed([Mime])
     case alternative([Mime])
+//    case encrypted([Mime])
 }
 
 extension MimeContent : Equatable {
@@ -152,6 +153,7 @@ extension MimeContent : Equatable {
         case (.body(let _lhsBody), .body(let _rhsBody)): return _lhsBody == _rhsBody
         case (.mixed(let lhsValue), .mixed(let rhsValue)): return lhsValue == rhsValue
         case (.alternative(let lhsValue), .alternative(let rhsValue)): return lhsValue == rhsValue
+//        case (.encrypted(let lhsValue), .encrypted(let rhsValue)): return lhsValue == rhsValue
         default: return false
         }
     }
@@ -174,6 +176,7 @@ public struct Mime :Equatable {
             return nil
         case .alternative:
             return nil
+//        case .encrypted(let)) for encrypted, can we add the "encrypted by..." footnote here?
         }
     }
     
@@ -186,6 +189,7 @@ public struct Mime :Equatable {
             return nil
         case .alternative:
             return nil
+//        case .encrypted(let body):
         }
     }
 }

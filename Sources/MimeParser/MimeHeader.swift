@@ -68,7 +68,7 @@ extension MimeHeader {
     /// Exports headers to a RFC822 formatted string
     /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
     /// - Returns: RFC822 formatted string
-    func rfc822String(mailKit: Bool = true) -> String {
+    public func rfc822String(mailKit: Bool = true) -> String {
         var string = ""
                 
         for field in fields {

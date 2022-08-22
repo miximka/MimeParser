@@ -195,7 +195,7 @@ extension String {
 }
 
 extension Dictionary where Key == String {
-    subscript(caseInsensitive key: Key) -> Value? {
+    public subscript(caseInsensitive key: Key) -> Value? {
         get {
             if let k = keys.first(where: { $0.caseInsensitiveCompare(key) == .orderedSame }) {
                 return self[k]
