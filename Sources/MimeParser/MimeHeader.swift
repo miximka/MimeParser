@@ -44,7 +44,7 @@ public struct MimeHeader {
         }).first
     }
     
-    @available(*, deprecated, message: "Use fields property instead")
+//    @available(*, deprecated, message: "Use fields property instead")
     public var other: [RFC822HeaderField] {
         return fields.compactMap({ header -> RFC822HeaderField? in
             switch header {

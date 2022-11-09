@@ -103,7 +103,7 @@ class RFC822ExportTest: XCTestCase {
         let rfc822 = try mime.rfc822String(mailKit: true)
         return (message.showTokens(), rfc822.showTokens())
     }
-} */
+}
 
 extension String {
     func showTokens() -> String {
@@ -114,3 +114,4 @@ extension String {
         return string
     }
 }
+*/

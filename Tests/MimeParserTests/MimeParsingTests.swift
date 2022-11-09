@@ -81,7 +81,7 @@ class MimeParsingTests: XCTestCase {
 		XCTAssertEqual(mime.header.contentType?.raw, "text/plain")
 		XCTAssertEqual(mime.header.contentType?.mimeType, .text)
 		XCTAssertEqual(mime.header.contentType?.parameters["charset"], "us-ascii")
-		XCTAssertEqual(mime.header.other.count, 9)
+		XCTAssertEqual(mime.header.other.count, 8)
 		XCTAssertEqual(mime.header.contentTransferEncoding, .sevenBit)
 		XCTAssertEqual(mime.content, .body(MimeBody("Test\n")))
 	}
@@ -98,7 +98,7 @@ class MimeParsingTests: XCTestCase {
 		XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
 		XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
 		XCTAssertEqual(mime.header.contentType?.mimeType, .multipart(subtype: .mixed, boundary: "Apple-Mail=_6019F987-AED7-497B-9323-66FED5C72DF3"))
-		XCTAssertEqual(mime.header.other.count, 9)
+		XCTAssertEqual(mime.header.other.count, 8)
 		XCTAssertNil(mime.header.contentTransferEncoding)
 
 		if case .mixed(let mimes) = mime.content {
@@ -275,7 +275,7 @@ class MimeParsingTests: XCTestCase {
 		XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
 		XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
 		XCTAssertEqual(mime.header.contentType?.mimeType, .multipart(subtype: .mixed, boundary: "----sinikael-?=_1-15217146106530.0021966528779551187"))
-		XCTAssertEqual(mime.header.other.count, 9)
+		XCTAssertEqual(mime.header.other.count, 8)
 		XCTAssertNil(mime.header.contentTransferEncoding)
 
 		if case .mixed(let mimes) = mime.content {
@@ -296,7 +296,7 @@ class MimeParsingTests: XCTestCase {
         XCTAssertEqual(mime.header.contentType?.type, "multipart")
         XCTAssertEqual(mime.header.contentType?.subtype, "mixed")
         XCTAssertEqual(mime.header.contentType?.raw, "multipart/mixed")
-        XCTAssertEqual(mime.header.other.count, 12)
+        XCTAssertEqual(mime.header.other.count, 11)
 
         if case .mixed(let mimes) = mime.content,
             let alternative = mimes.first {
