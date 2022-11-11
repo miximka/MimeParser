@@ -8,6 +8,10 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+uses: swift-actions/setup-swift@v1
+  with:
+    swift-version: "5.7.0"
 
 jobs:
   build:
