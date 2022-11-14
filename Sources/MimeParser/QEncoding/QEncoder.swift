@@ -21,10 +21,12 @@ public enum WordError: Error {
 }
 
 // WordDecoder decodes an RFC 2047 encoded-word (q, b words)
-public class RFC2047Decoder {
+public class QEncoder {
     
     public init() {}
-
+    
+    // MARK: - Decode
+    
     public func decodeRFC2047Word(word:String) throws -> String {
         var input = word
         // See https://tools.ietf.org/html/rfc2047#section-2 for details.
@@ -56,6 +58,101 @@ public class RFC2047Decoder {
         let output = try convert(charset: String(charset), content: content)
         return output
     }
+    
+    // MARK: - Encode
+    // Q decode for now (no base64 encoding)
+    // Can we create a custom CharacterSet.encoder using the Encoder protocol?
+    public func encodeRFC2047(word:String) -> String {
+
+        // Illegal characters
+        var especials = CharacterSet(charactersIn: "/<>@,;:\"[]?.= ")
+        especials.formUnion(.controlCharacters)
+        
+        guard word.rangeOfCharacter(from: especials) != nil else { return word }
+                
+        var encodedUnicode = String.UnicodeScalarView() // [UnicodeScalar]()
+        
+        for scalar in word.unicodeScalars {
+            if especials.contains(scalar) {
+//                if let ascii = scalar.value
+                encodedUnicode.append(scalar)
+//            else if scalar is more than 1 ByteCountFormatter
+//                else if scalar is one byte but > 127
+                        
+            } else {
+                encodedUnicode.append(scalar)
+            }
+        }
+        
+        return String(encodedUnicode)
+        
+//        for character in word {
+//            if especials.
+//
+//            let unicodeScalar = UnicodeScalar(character)
+//        }
+        /*
+        for unicodeScalar in word.unicodeScalars {
+            if especials.contains(unicodeScalar) {
+                encoded.append(encodeCharacter(unicodeScalar))
+             
+                
+//                let a = Array(String(char).utf8)
+            } else if let asciiValue = word[idx].asciiValue, asciiValue >= 127 {
+                
+            }
+        } */
+        
+        
+        
+//        text = stringify(text).replace(/\?=\s+=\?/g, '?==?'); // Strip whitespace between neighbouring encoded words
+//        let numEncodedWordsToIgnore = 0;
+        /*
+        // Can encode as ASCII
+        var isAscii = true
+        for character in line {
+            if let asciiValue = character.asciiValue, asciiValue < 127 {
+                continue
+            }
+            isAscii = false
+            break
+            
+//                if character.isASCII == false {
+//                    isAscii = false
+//                    break
+//                }
+        }
+        if isAscii == true {
+            lines[idx] = "=?us-ascii?Q?" + line + "?="
+            continue
+        }
+        
+        // Encode UTF-8
+        var encodedLine = ""
+        for character in line {
+            if character.isASCII {
+                encodedLine.append(character)
+            } else {
+                
+            }
+        }
+
+        lines[idx] = "=?UTF-8?Q?" + line + "?="
+    }
+    return lines.joined(separator: " ")
+        */
+        return ""
+    }
+    
+    fileprivate func encodeCharacter(_ character: Character) -> String? {
+        guard let asciiValue = character.asciiValue else {
+            return nil
+        }
+        return String(format:"=%02X", asciiValue)
+    }
+}
+
+extension QEncoder {
     
     fileprivate func decode(encoding:Character, text:String, charset:String) throws -> String {
         switch encoding {

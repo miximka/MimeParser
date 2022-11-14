@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MimeParser",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v12),
         .iOS(.v16),
         .watchOS(.v9),
         .tvOS(.v16)

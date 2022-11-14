@@ -8,8 +8,8 @@
 import XCTest
 @testable import MimeParser
 
-final class QTextParsingTests: XCTestCase {
-    
+final class QEncodingParsingTests: XCTestCase {
+        
     // Example signature before encoding
     let signature = """
 
@@ -25,19 +25,6 @@ final class QTextParsingTests: XCTestCase {
         -----END PGP SIGNATURE-----
         """
     
-    // Example header encoded by SendGrid
-    let header = """
-         =?UTF-8?Q?=0A-----BEGIN?= PGP
-          =?UTF-8?Q?SIGNATURE-----=0AVersion=3A?= Pretty Good Crypto /
-          =?UTF-8?Q?0=2E1=0ACharset=3A_UTF-8=0AComment=3A?=
-          =?UTF-8?Q?_https=3A=2F=2Fwww=2Emoonfish=2Eapp=0A=0AwksEAQEIAAAAA?=
-          =?us-ascii?Q?F1oKoCekByATESuUDbdfBLmKNg2KQheeuwplxvm?=
-          =?UTF-8?Q?aoE2+ocsXaa6=0AfBrA8mZBdGqc6JpvI+jZZjuawf?=
-          =?UTF-8?Q?bEpLVnuIDy+xvGMwQAAAAAFgkrBgEEAdpHDwEB=0A?=
-          =?us-ascii?Q?B0BcxPkLWV4bdUNBMXmo2zZcp=2Ff2fxFSFHEn6Dz?=
-          =?UTF-8?Q?bL7PSTg=3D=3D=0A=3DbbWu=0A-----END?= PGP SIGNATURE-----
-        """
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -46,23 +33,13 @@ final class QTextParsingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testSingleLine() throws {
-        let rfc2047 = RFC2047Decoder()
-        let decoded = try rfc2047.decodeRFC2047Word(word: "=?UTF-8?B?VGhpcyBpcyBhIGhvcnNleTog8J+Qjg==?=")
-        XCTAssertEqual(decoded, "This is a horsey: 🐎")
-    }
-    
-//    func testHeader() throws {
-//        let decoded = try self.header.rfc2047decode()
-//        XCTAssertEqual(signature, decoded) // decodes extra \n
-//    }
-    
     func testMailHeader() throws {
         let parser = MimeParser()
         let message = TestAdditions.testResourceString(withName: "QTextHeaderMessage", extension: "eml")
         
         let mime = try parser.parse(message)
-        let string = mime.header.value(for: "X-moonfish")!
+        // Replace /t with /n
+        let string = mime.header.value(for: "X-moonfish")!.replacingOccurrences(of: "/t", with: "/n")
 
         let decoded = try string.rfc2047decode()
         XCTAssertEqual(signature, decoded)
@@ -78,7 +55,7 @@ final class QTextParsingTests: XCTestCase {
         scanner.charactersToBeSkipped = nil
         let qStart = "=?" //CharacterSet(charactersIn: "=?")
         let qEnd = "?=" //CharacterSet(charactersIn: "?=")
-        let wordDecoder = RFC2047Decoder()
+        let wordDecoder = QEncoder()
         
         var decodedString = ""
         var word: String = ""
@@ -107,8 +84,41 @@ final class QTextParsingTests: XCTestCase {
         XCTAssertEqual(rfDecoded, signature)
     }
     
-    func testRegexMessage() throws {
+    func testStringDecoder() throws {
+        let parser = MimeParser()
+        let message = TestAdditions.testResourceString(withName: "QTextHeaderMessage", extension: "eml")
+        
+        let mime = try parser.parse(message)
+        let string = mime.header.value(for: "X-moonfish")!
+        
+        let decoded = try string.rfc2047decode()
+        XCTAssertEqual(decoded, signature)
+    }
+    
+    func testStringDecoder2() throws {
+        let singleLineDecoded = "=?UTF-8?Q?=0A-----BEGIN?= PGP =?UTF-8?Q?SIGNATURE-----=0AVersion=3A?= Pretty Good Crypto / =?UTF-8?Q?0=2E1=0ACharset=3A_UTF-8=0AComment=3A?= =?UTF-8?Q?_https=3A=2F=2Fwww=2Emoonfish=2Eapp=0A=0AwksEAQEIAAAAA?= =?us-ascii?Q?F1oKoCekByATESuUDbdfBLmKNg2KQheeuwplxvm?= =?UTF-8?Q?aoE2+ocsXaa6=0AfBrA8mZBdGqc6JpvI+jZZjuawf?= =?UTF-8?Q?bEpLVnuIDy+xvGMwQAAAAAFgkrBgEEAdpHDwEB=0A?= =?us-ascii?Q?B0BcxPkLWV4bdUNBMXmo2zZcp=2Ff2fxFSFHEn6Dz?= =?UTF-8?Q?bL7PSTg=3D=3D=0A=3DbbWu=0A-----END?= PGP SIGNATURE-----"
+        let parser = MimeParser()
+        let message = TestAdditions.testResourceString(withName: "QTextHeaderMessage", extension: "eml")
+        
+        let mime = try parser.parse(message)
+        let string = mime.header.value(for: "X-moonfish")!
+        
+        XCTAssertEqual(string, singleLineDecoded)
+        
+        let decoded = try string.rfc2047decode()
+        XCTAssertEqual(decoded, signature)
+    }
+    
+    func testSignatureRoundtrip() {
+        let encoded = signature.rfc2047encode()
+        XCTAssertEqual(encoded, signature)
+        print(encoded)
+        print(signature)
+    }
+    
+//    func testRegexMessage() throws {
 //        let rfc2047Regex = /^\s*=\?([A-Za-z0-9-]+)\?([bBqQ])\?(.*)\?=/
 //        let rfc2047Regex = try Regex("^\\s*=\\?([A-Za-z0-9-]+)\\?([bBqQ])\\?(.*)\\?=")
-    }
+//    }
+    
 }
