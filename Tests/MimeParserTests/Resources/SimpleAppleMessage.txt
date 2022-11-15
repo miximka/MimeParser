@@ -1,0 +1,10 @@
+From: Ronald Mannak <sender@moonfish.app>
+Content-type: text/plain; charset=us-ascii
+Content-transfer-encoding: 7bit
+MIME-version: 1.0 (Mac OS X Mail 16.0 \(3696.100.31\))
+Subject: Test email
+Message-id: <0B5A5C50-66AF-46B8-9129-3F6A6F2D8BB4@moonfish.app>
+Date: Tue, 14 Jun 2022 21:39:58 -0700
+To: Ronald Mannak <recipient@me.com>
+
+This is a test email

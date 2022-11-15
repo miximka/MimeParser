@@ -96,6 +96,8 @@ public struct MimeParser {
                 content = .mixed(mimes)
             case .alternative:
                 content = .alternative(mimes)
+//            case .encrypted:
+//                <#code#>
             case .other(_):
                 content = .mixed(mimes)
             }

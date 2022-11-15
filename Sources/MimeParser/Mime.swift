@@ -8,47 +8,18 @@
 
 import Foundation
 
-public enum ContentTransferEncoding : Equatable {
-    case sevenBit
-    case eightBit
-    case binary
-    case quotedPrintable
-    case base64
-    case other(String)
-    
-    init(_ string: String) {
-        switch string.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-6.1
-        case "7bit": self = .sevenBit
-        case "8bit": self = .eightBit
-        case "binary": self = .binary
-        case "quoted-printable": self = .quotedPrintable
-        case "base64": self = .base64
-        default: self = .other(string)
-        }
-    }
-    
-    public static func ==(lhs: ContentTransferEncoding, rhs: ContentTransferEncoding) -> Bool {
-        switch (lhs, rhs) {
-        case (.sevenBit, .sevenBit): return true
-        case (.eightBit, .eightBit): return true
-        case (.binary, .binary): return true
-        case (.quotedPrintable, .quotedPrintable): return true
-        case (.base64, .base64): return true
-        case (.other(let lhsValue), .other(let rhsValue)): return lhsValue == rhsValue
-        default: return false
-        }
-    }
-}
-
+// MARK: - MultipartSubtype
 public enum MultipartSubtype : Equatable {
     case mixed
     case alternative
+//    case encrypted
     case other(String)
     
     init(_ string: String) {
         switch string.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-5.1
         case "mixed": self = .mixed
         case "alternative": self = .alternative
+//        case "encrypted": self = .encrypted
         default: self = .other(string)
         }
     }
@@ -57,12 +28,14 @@ public enum MultipartSubtype : Equatable {
         switch (lhs, rhs) {
         case (.mixed, .mixed): return true
         case (.alternative, .alternative): return true
+//        case (.encrypted, .encrypted): return true
         case (.other(let lhsValue), .other(let rhsValue)): return lhsValue == rhsValue
         default: return false
         }
     }
 }
 
+// MARK: - MimeType
 public enum MimeType : Equatable {
     case text
     case image
@@ -88,78 +61,23 @@ public enum MimeType : Equatable {
     }
 }
 
-public struct ContentType : Equatable {
-    public let type: String
-    public let subtype: String
-    public let parameters: [String : String]
-    
-    public var raw: String {
-        return "\(type)/\(subtype)"
-    }
-    
-    public var charset: String? {
-        return parameters["charset"]
-    }
+//extension MimeType: CustomStringConvertible {
+//   
+//    public var description: String {
+//        switch(self) {
+//        case text
+//        case image
+//        case audio
+//        case video
+//        case application
+//        case message
+//        case multipart(subtype: MultipartSubtype, boundary: String)
+//        case other(String)
+//        }
+//    }
+//}
 
-    public var name: String? {
-        return parameters["name"]
-    }
-    
-    public static func ==(lhs: ContentType, rhs: ContentType) -> Bool {
-        return lhs.type == rhs.type && lhs.subtype == rhs.subtype && lhs.parameters == rhs.parameters
-    }
-}
-
-extension ContentType {
-    public var mimeType: MimeType {
-        switch type.lowercased() {	// case-insensitive: https://datatracker.ietf.org/doc/html/rfc2045#section-5.1
-        case "text": return .text
-        case "image": return .image
-        case "audio": return .audio
-        case "video": return .video
-        case "application": return .application
-        case "message": return .message
-        case "multipart":
-            if let boundary = parameters["boundary"] {
-                let subtype = MultipartSubtype(self.subtype)
-                return .multipart(subtype: subtype, boundary: boundary)
-            } else {
-                return .other(type)
-            }
-        default: return .other(type)
-        }
-    }
-}
-
-public struct ContentDisposition : Equatable {
-    public let type: String
-    public let parameters: [String : String]
-    
-    public var filename: String? {
-        return parameters["filename"]
-    }
-    
-    public static func ==(lhs: ContentDisposition, rhs: ContentDisposition) -> Bool {
-        return lhs.type == rhs.type && lhs.parameters == rhs.parameters
-    }
-}
-
-public struct MimeHeader {
-    public let contentTransferEncoding: ContentTransferEncoding?
-    public let contentType: ContentType?
-    public let contentDisposition: ContentDisposition?
-    public let other: [RFC822HeaderField]
-}
-
-extension MimeHeader : Equatable {
-
-    public static func ==(lhs: MimeHeader, rhs: MimeHeader) -> Bool {
-        return lhs.contentTransferEncoding == rhs.contentTransferEncoding &&
-            lhs.contentType == rhs.contentType &&
-            lhs.other == rhs.other
-    }
-}
-
+// MARK: - MimeBody
 public struct MimeBody : Equatable {
     
     enum Error : Swift.Error {
@@ -221,10 +139,12 @@ public struct MimeBody : Equatable {
     
 }
 
+// MARK: - MimeContent
 public enum MimeContent {
     case body(MimeBody)
     case mixed([Mime])
     case alternative([Mime])
+//    case encrypted([Mime])
 }
 
 extension MimeContent : Equatable {
@@ -233,11 +153,13 @@ extension MimeContent : Equatable {
         case (.body(let _lhsBody), .body(let _rhsBody)): return _lhsBody == _rhsBody
         case (.mixed(let lhsValue), .mixed(let rhsValue)): return lhsValue == rhsValue
         case (.alternative(let lhsValue), .alternative(let rhsValue)): return lhsValue == rhsValue
+//        case (.encrypted(let lhsValue), .encrypted(let rhsValue)): return lhsValue == rhsValue
         default: return false
         }
     }
 }
 
+// MARK: - Mime
 public struct Mime :Equatable {
     public let header: MimeHeader
     public let content: MimeContent
@@ -254,6 +176,7 @@ public struct Mime :Equatable {
             return nil
         case .alternative:
             return nil
+//        case .encrypted(let)) for encrypted, can we add the "encrypted by..." footnote here?
         }
     }
     
@@ -266,11 +189,17 @@ public struct Mime :Equatable {
             return nil
         case .alternative:
             return nil
+//        case .encrypted(let body):
         }
     }
 }
 
 extension Mime {
+            
+    public init(header: MimeHeader, content: MimeContent, ignore: Bool = false) {
+        self.header = header
+        self.content = content
+    }
     
     public var encapsulatedMimes: [Mime] {
         switch content {
@@ -286,5 +215,44 @@ extension Mime {
 
     public func attachment(withFilename filename: String) -> Mime? {
         return encapsulatedMimes.first { $0.header.contentDisposition?.filename == filename }
+    }
+        
+    /// Exports Mime to a string conform RFC-822 of Mime
+    /// - Parameter mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
+    /// - Returns: RFC-822 formatted string
+    public func rfc822String(mailKit: Bool = true) throws -> String {
+        return try rfc822Str(mailKit: mailKit)
+    }
+    
+    /// Exports Mime to a string conform RFC-822
+    /// - Parameters:
+    ///   - boundary: Optional boundary string. Pass nil for top level Mime.
+    ///   - mailKit: Uses Apple MailKit conform line endings if true (\n instead of \r\n)
+    /// - Returns: RFC-822 formatted string
+    private func rfc822Str(boundary: String? = nil, mailKit: Bool = true) throws -> String {
+        let lf = mailKit ? "\n" : "\r\n"
+        var string = ""
+        
+        switch self.content {
+        case .body(let body):
+            string = string + (boundary != nil ? "\(lf)--\(boundary!)\(lf)" : "") // last lf should be \n only for MailKit
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
+            string = string + body.raw
+        case .mixed(let parts), .alternative(let parts):
+            if let _ = boundaryString(), let boundary = boundary {
+                // new nested part
+                string = string + "\(lf)--\(boundary)\n"
+            }
+            string = string + self.header.rfc822String(mailKit: mailKit) + "\n"
+            for part in parts {
+                string = string + (try part.rfc822Str(boundary: boundaryString()))
+            }
+            string = string + (boundaryString() != nil ? "\(lf)--\(boundaryString()!)--\(lf)" : "") // last lf should be \n only for MailKit
+        }
+        return string
+    }
+    
+    public func boundaryString() -> String? {
+        return header.contentType?.parameters["boundary"]
     }
 }
