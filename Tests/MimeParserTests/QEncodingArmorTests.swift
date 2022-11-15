@@ -109,16 +109,39 @@ final class QEncodingParsingTests: XCTestCase {
         XCTAssertEqual(decoded, signature)
     }
     
-    func testSignatureRoundtrip() {
+    func testSignatureRoundtrip() throws {
         let encoded = signature.rfc2047encode()
-        XCTAssertEqual(encoded, signature)
+        let decoded = try encoded.rfc2047decode()
+        XCTAssertEqual(decoded, signature)
         print(encoded)
         print(signature)
     }
     
-//    func testRegexMessage() throws {
-//        let rfc2047Regex = /^\s*=\?([A-Za-z0-9-]+)\?([bBqQ])\?(.*)\?=/
-//        let rfc2047Regex = try Regex("^\\s*=\\?([A-Za-z0-9-]+)\\?([bBqQ])\\?(.*)\\?=")
-//    }
+    func testEspecial() throws {
+        let especial = "()<>@,;:\"/[]?.="
+        let encoded = especial.rfc2047encode()
+        let decoded = try encoded.rfc2047decode()
+        XCTAssertEqual(especial, decoded)
+    }
     
+    func testExtendedAsciiChar() throws {
+        let extendedAscii = "™" //©äü"
+        let encoded = extendedAscii.rfc2047encode()
+        let decoded = try encoded.rfc2047decode()
+        XCTAssertEqual(extendedAscii, decoded)
+    }
+    
+    func testExtendedAscii() throws {
+        let extendedAscii = "žœäü"
+        let encoded = extendedAscii.rfc2047encode()
+        let decoded = try encoded.rfc2047decode()
+        XCTAssertEqual(extendedAscii, decoded)
+    }
+    
+    func testUnicode() throws {
+        let extendedAscii = "🐶"
+        let encoded = extendedAscii.rfc2047encode()
+        let decoded = try encoded.rfc2047decode()
+        XCTAssertEqual(extendedAscii, decoded)
+    }    
 }

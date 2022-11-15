@@ -89,6 +89,11 @@ public extension String {
     }
     */
     
+    var isrfc2047encoded: Bool {
+        let rfc2047Regex = try! Regex("^\\s*=\\?([A-Za-z0-9-]+)\\?([bBqQ])\\?(.*)\\?=")
+        return self.firstMatch(of: rfc2047Regex) != nil
+    }
+    
     func rfc2047decode() throws -> String {
         
         // If string is not encoded, return string
@@ -103,7 +108,8 @@ public extension String {
         var decodedString = ""
         
         // Find start of Qtext
-        _ = scanner.scanUpToString(qStart)
+        let prefix = scanner.scanUpToString(qStart)
+        decodedString = decodedString + (prefix ?? "")
         while !scanner.isAtEnd {
             var word: String = ""
             word = word + (scanner.scanString(qStart) ?? "") // Scan q start
@@ -121,26 +127,45 @@ public extension String {
                 decodedString = decodedString + postfix
             }
         }
-        return decodedString
+        if decodedString.isEmpty {
+            // string wasn't encoded
+            return self
+        } else {
+            return decodedString
+        }
     }
     
     
     /// For now just return ascii
     /// - Returns: RFC 2047 encoded string
+//    func rfc2047encode() -> String {
+//
+//        var lines = self.components(separatedBy: .newlines)
+//        let encoder = QEncoder()
+//        var encodedString = [String]()
+//        for line in lines {
+//            let words = line.components(separatedBy: .whitespaces)
+//            var encodedLine = [String]()
+//            for word in words {
+//                encodedLine.append(encoder.encodeRFC2047(word: word))
+//            }
+//            encodedString.append(encodedLine.joined(separator: " "))
+//        }
+//        return String(encodedString.joined(separator: "\n"))
+//    }
     func rfc2047encode() -> String {
-        
-        var lines = self.components(separatedBy: .newlines)
+
         let encoder = QEncoder()
         var encodedString = [String]()
-        for line in lines {
-            let words = line.components(separatedBy: .whitespaces)
-            var encodedLine = [String]()
-            for word in words {
-                encodedLine.append(encoder.encodeRFC2047(word: word))
-            }
-            encodedString.append(encodedLine.joined(separator: " "))
+        let words = self.components(separatedBy: .whitespaces)
+        var lastWord = ""
+        for word in words {
+            let encodedWord = encoder.encodeRFC2047(word: word, addSpacePrefix: lastWord.isrfc2047encoded)
+            encodedString.append(encodedWord)
+            lastWord = encodedWord
         }
-        return String(encodedString.joined(separator: "\n"))
+        
+        return String(encodedString.joined(separator: " "))
     }
 }
 
@@ -149,28 +174,3 @@ public enum QEncoding {
     case ascii
 }
 
-
-/*
- source: https://github.com/grumpydev/RFC2047-Encoded-Word-Encoder-Decoder/blob/master/EncodedWord/RFC2047.cs
- var specialBytes = textEncoder.GetBytes(SpecialCharacters);
-
- var sb = new StringBuilder(plainText.Length);
-
- var plainBytes = textEncoder.GetBytes(plainText);
-
- // Replace "high" values
- for (int i = 0; i < plainBytes.Length; i++)
- {
-     if (plainBytes[i] <= 127 && !specialBytes.Contains(plainBytes[i]))
-     {
-         sb.Append(Convert.ToChar(plainBytes[i]));
-     }
-     else
-     {
-         sb.Append("=");
-         sb.Append(Convert.ToString(plainBytes[i], 16).ToUpper());
-     }
- }
-
- return sb.ToString().Replace(" ", "_");
- */
