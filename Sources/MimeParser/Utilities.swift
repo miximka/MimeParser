@@ -83,6 +83,11 @@ extension String {
         case decoded(UInt8)
     }
     
+    public var quotedPrintableDecoded: String {
+        guard let decodedData = try? self.decodedQuotedPrintable(), let decoded = String(data: decodedData, encoding: .utf8) else { return self }
+        return decoded
+    }
+    
     func decodedQuotedPrintable() throws -> Data {
         let charDecoder: (QPDecodingState?, UTF8.CodeUnit) throws -> QPDecodingState? = { previousState, codeUnit in
             if let state = previousState {
